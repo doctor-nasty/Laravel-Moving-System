@@ -1,0 +1,30 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "movingwyz",
+            "database": "offthem_movingwyz",
+            "username": "offthem_movingwyz",
+            "password": "8Vtv7k!Cpn"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "offthem",
+            "database": "offthem_web",
+            "username": "offthem_web",
+            "password": "lthlxlwdgxhvjsyr"
+        }
+    ]
+}
