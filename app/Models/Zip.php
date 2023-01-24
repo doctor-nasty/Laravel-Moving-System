@@ -9,7 +9,7 @@ class Zip extends Model
 {
     use HasFactory;
 
-    protected $connection = 'mysql2';
-    protected $table = 'zip_codes';
+    protected $connection = 'sqlite2';
+    protected $table = 'zipcode_zipcode';
 
 }
