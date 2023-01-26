@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\carshp;
 use App\Models\Company;
 use App\Models\Country;
+use App\Models\inst;
+use App\Models\intl;
 use App\Models\jct_cmp_st;
 use App\Models\jct_fr_cnty;
 use App\Models\jct_fr_days;
@@ -16,6 +19,7 @@ use App\Models\storage;
 use App\Models\User;
 use App\Models\Zip;
 use App\Models\states;
+use App\Models\strg;
 // use App\Exports\companysExport;
 // use App\Imports\companysImport;
 use Illuminate\Http\Request;
@@ -999,5 +1003,53 @@ class CompanyController extends Controller
     {
         return Excel::download(new companysExport, 'companys.xlsx');
     }
+
+
+
+
+    public function leads($id)
+    {
+        $company = Company::findOrFail($id);
+
+        $states = Zip::select('z_STATE_CODE as state_code', 'zipcode as id')
+        ->where('state_code', '<>', '')
+        ->groupBy('state_code', 'id')
+        ->orderBy('state_code')
+        ->get('state_code', 'id')
+        ->unique('state_code');
+
+        $counties = Zip::select(DB::raw('z_COUNTY as county, zipcode as id, z_STATE_CODE as state_code'))
+        ->where('county', '<>', '')
+        ->where('state_code', '=', 'CA')
+        ->groupBy('county', 'id', 'state_code')
+        ->orderBy('county')
+        ->orderBy('id')
+        ->orderBy('state_code')
+        ->get()
+        ->unique('county');
+
+
+        $storages = storage::orderBy('id')
+        ->get();
+        $allowedstates = states::where('status', '1')
+        ->get();
+
+        $inst = inst::where('cmp_id', $id)->get();
+        $intl = intl::where('cmp_id', $id)->get();
+        $strg = strg::where('cmp_id', $id)->get();
+        $carshp = carshp::where('cmp_id', $id)->get();
+
+        return view('company.leads', [
+         'storages' => $storages,
+           'company' => $company,
+           'id' => $id,
+           'inst' => $inst,
+           'intl' => $intl,
+           'strg' => $strg,
+           'carshp' => $carshp,
+           'states' => $states,
+             'allowedstates' => $allowedstates,
+              'counties' => $counties]);
+        }
 
 }

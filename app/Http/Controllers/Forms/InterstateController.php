@@ -157,6 +157,26 @@ class InterstateController extends Controller
 
             $mvsz = mvsz::where('mvsz_id', '=', $forms->inst_sz_id)->get('mvsz_name')->implode('mvsz_name', ',');
 
+
+            $zip_fr_zip = Zip::where('ZIP',$inst_fr_zip)->select('id')->first();
+            $zip_to_zip = Zip::Where('ZIP',$inst_to_zip)->select('id')->first();
+
+
+            $jct_fr_cnty = jct_fr_cnty::where('cnty_id',$zip_fr_zip->id)->select('cmp_id')->get();
+
+            $jct_to_stt = jct_to_stt::where('st_id',$zip_to_zip->id)->select('cmp_id')->get();
+
+            $companies = Company::whereIn('id',$jct_fr_cnty)->whereIn('id',$jct_to_stt)->get();
+
+
+            $test = "Variable Passed";
+
+
+            foreach ($companies as $c) {
+                Mail::to($c->email)->send(new \App\Mail\VerifyEmail($test));
+            }
+
+
             $request->session()->forget('forms');
 
             return redirect()->route('interstatesubmit',['inst_fr_zip'=>$inst_fr_zip,'inst_to_zip'=>$inst_to_zip,'inst_dt'=>$inst_dt,'mvsz'=>$mvsz,'cityfrom'=>$cityfrom,'cityto'=>$cityto])->with('message','Submit');

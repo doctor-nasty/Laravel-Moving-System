@@ -92,9 +92,9 @@
                                             class="btn btn-primary m-2">
                                             <i class="fas fa-location-arrow"></i>
                                         </a>
-                                        {{-- <a class="btn btn-danger m-2" href="#" data-toggle="modal" data-target="#deleteModal">
-                                            <i class="fas fa-trash"></i>
-                                        </a> --}}
+                                        <a class="btn btn-danger m-2" href="{{ route('company.leads', ['company' => $comp->id]) }}">
+                                            <i class="fas fa-user"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
