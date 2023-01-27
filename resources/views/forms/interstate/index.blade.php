@@ -84,15 +84,15 @@ $(document).ready(function(){
               select: function(event, ui) {
 
                   $('#inst_fr_zip').val(ui.item.label);
-                  $('#citystatefrom').empty().append(ui.item.city.toLowerCase() + ", " + ui.item.state_code + ", " + ui
+                  $('#citystatefrom').empty().append(ui.item.z_city.toLowerCase() + ", " + ui.item.z_state_code + ", " + ui
                       .item.label);
-                  $('#cityfrom1').val(ui.item.city + ", " + ui.item.state_code);
+                  $('#cityfrom1').val(ui.item.z_city + ", " + ui.item.z_state_code);
                   console.log(ui.item);
                   return false;
               },
               change: function(event, ui) {
                   if (ui.item === null || !ui.item)
-                      $(this).val(''); /* clear the value */
+                      $(this).val('');
               }
           });
       </script>
@@ -123,15 +123,15 @@ $(document).ready(function(){
               },
               select: function(event, ui) {
                   $('#inst_to_zip').val(ui.item.label);
-                  $('#citystateto').empty().append(ui.item.city.toLowerCase() + ", " + ui.item.state_code + ", " + ui.item
+                  $('#citystateto').empty().append(ui.item.z_city.toLowerCase() + ", " + ui.item.z_state_code + ", " + ui.item
                       .label);
-                  $('#cityto1').val(ui.item.city + ", " + ui.item.state_code);
+                  $('#cityto1').val(ui.item.z_city + ", " + ui.item.z_state_code);
                   console.log(ui.item);
                   return false;
               },
               change: function(event, ui) {
                   if (ui.item === null || !ui.item)
-                      $(this).val(''); /* clear the value */
+                      $(this).val('');
               }
           });
       </script>

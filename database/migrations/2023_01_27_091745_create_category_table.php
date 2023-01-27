@@ -14,10 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('category', function (Blueprint $table) {
-            $table->id();
-            $table->integer('cat_id');
-            $table->string('name');
-            $table->timestamps();
+            $table->comment('TRIAL');
+            $table->increments('id')->comment('TRIAL');
+            $table->integer('cat_id')->comment('TRIAL');
+            $table->string('name')->comment('TRIAL');
+            $table->timestamp('created_at')->nullable()->comment('TRIAL');
+            $table->timestamp('updated_at')->nullable()->comment('TRIAL');
+            $table->char('trial751', 1)->nullable()->comment('TRIAL');
         });
     }
 

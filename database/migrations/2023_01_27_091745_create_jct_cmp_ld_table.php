@@ -13,8 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('car_shipping', function (Blueprint $table) {
-            $table->id();
+        Schema::create('jct_cmp_ld', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('cmp_id')->nullable();
+            $table->integer('svc_id')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('car_shipping');
+        Schema::dropIfExists('jct_cmp_ld');
     }
 };

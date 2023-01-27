@@ -5,14 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class International extends Model
+class jct_cmp_ld extends Model
 {
     use HasFactory;
-
-    protected $primaryKey = 'inst_id'; // or null
-
-    public $incrementing = false;
-
-    protected $table = 'inst';
+    protected $table = 'jct_cmp_ld';
     protected $guarded = [];
 }

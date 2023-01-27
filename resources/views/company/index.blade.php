@@ -92,7 +92,7 @@
                                             class="btn btn-primary m-2">
                                             <i class="fas fa-location-arrow"></i>
                                         </a>
-                                        <a class="btn btn-danger m-2" href="{{ route('company.leads', ['company' => $comp->id]) }}">
+                                        <a class="btn btn-danger m-2" href="{{ route('company.interstateleads', ['company' => $comp->id]) }}">
                                             <i class="fas fa-user"></i>
                                         </a>
                                     </td>
