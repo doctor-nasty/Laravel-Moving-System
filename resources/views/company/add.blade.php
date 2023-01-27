@@ -15,7 +15,9 @@
 
     {{-- Alert Messages --}}
     @include('common.alert')
-
+    @if($errors->any())
+    {{ implode('', $errors->all('<div>:message</div>')) }}
+    @endif
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -58,21 +60,53 @@
                         @enderror
                     </div>
 
-                    {{-- Email --}}
-                    <div class="col-sm-6 mb-3 mt-3 mb-sm-0">
-                        <span style="color:red;">*</span>Address</label>
-                        <input
-                            type="address"
-                            class="form-control form-control-user @error('address') is-invalid @enderror"
-                            id="Address"
-                            placeholder="Address"
-                            name="address"
-                            value="{{ old('address') }}">
+{{-- Email --}}
+<div class="col-sm-6 mb-3 mt-3 mb-sm-0">
+    <span style="color:red;">*</span>Address</label>
+    <input
+        type="address"
+        class="form-control form-control-user @error('address') is-invalid @enderror"
+        id="Address"
+        placeholder="Address"
+        name="address"
+        value="{{ old('address') }}">
 
-                        @error('address')
-                            <span class="text-danger">{{$message}}</span>
-                        @enderror
-                    </div>
+    @error('address')
+        <span class="text-danger">{{$message}}</span>
+    @enderror
+</div>
+
+{{-- Email --}}
+<div class="col-sm-6 mb-3 mt-3 mb-sm-0">
+    <span style="color:red;">*</span>Logo</label>
+    <input
+        type="logo"
+        class="form-control form-control-user @error('logo') is-invalid @enderror"
+        id="Logo"
+        placeholder="Logo"
+        name="logo"
+        value="{{ old('logo') }}">
+
+    @error('logo')
+        <span class="text-danger">{{$message}}</span>
+    @enderror
+</div>
+
+{{-- Email --}}
+<div class="col-sm-6 mb-3 mt-3 mb-sm-0">
+    <span style="color:red;">*</span>Email</label>
+    <input
+        type="address"
+        class="form-control form-control-user @error('email') is-invalid @enderror"
+        id="Email"
+        placeholder="Email"
+        name="email"
+        value="{{ old('email') }}">
+
+    @error('email')
+        <span class="text-danger">{{$message}}</span>
+    @enderror
+</div>
 
                     {{-- Mobile Number --}}
                     <div class="col-sm-6 mb-3 mt-3 mb-sm-0">
@@ -90,21 +124,37 @@
                         @enderror
                     </div>
 
-                    {{-- Mobile Number --}}
-                    <div class="col-sm-6 mb-3 mt-3 mb-sm-0">
-                        <span style="color:red;">*</span>State</label>
-                        <input
-                            type="text"
-                            class="form-control form-control-user @error('state') is-invalid @enderror"
-                            id="State"
-                            placeholder="State"
-                            name="state"
-                            value="{{ old('state') }}">
+{{-- Mobile Number --}}
+<div class="col-sm-6 mb-3 mt-3 mb-sm-0">
+    <span style="color:red;">*</span>State</label>
+    <input
+        type="text"
+        class="form-control form-control-user @error('state') is-invalid @enderror"
+        id="State"
+        placeholder="State"
+        name="state"
+        value="{{ old('state') }}">
 
-                        @error('state')
-                            <span class="text-danger">{{$message}}</span>
-                        @enderror
-                    </div>
+    @error('state')
+        <span class="text-danger">{{$message}}</span>
+    @enderror
+</div>
+
+{{-- Mobile Number --}}
+<div class="col-sm-6 mb-3 mt-3 mb-sm-0">
+    <span style="color:red;">*</span>Fleetsize</label>
+    <input
+        type="text"
+        class="form-control form-control-user @error('state') is-invalid @enderror"
+        id="Fleetsize"
+        placeholder="Fleetsize"
+        name="fleetsize"
+        value="{{ old('fleetsize') }}">
+
+    @error('fleetsize')
+        <span class="text-danger">{{$message}}</span>
+    @enderror
+</div>
 
                     {{-- Mobile Number --}}
                     <div class="col-sm-6 mb-3 mt-3 mb-sm-0">

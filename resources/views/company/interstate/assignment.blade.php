@@ -115,9 +115,9 @@
                                             @foreach ($states as $state)
                                                 <li>
                                                     <input class="checkIttost" type="checkbox" id="st_id" name="st_id"
-                                                        value="{{ $state->id }}"
-                                                        @foreach ($jct_to_stt as $jct) @if ($jct->st_id == $state->id) checked @endif @endforeach>
-                                                    {{ $state->state_code }}
+                                                        value="{{ $state->zipcode }}"
+                                                        @foreach ($jct_to_stt as $jct) @if ($jct->st_id == $state->zipcode) checked @endif @endforeach>
+                                                    {{ $state->z_state_code }}
                                                 </li>
                                             @endforeach
                                             <input type="hidden" value="{{ $company->id }}" name="cmp_id"

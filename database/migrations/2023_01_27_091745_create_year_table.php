@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('jct_item_cat', function (Blueprint $table) {
-            $table->id();
-            $table->integer('cat_id');
-            $table->integer('item_id');
-            $table->timestamps();
+        Schema::create('year', function (Blueprint $table) {
+            $table->comment('TRIAL');
+            $table->increments('id')->unique('idx_id')->comment('TRIAL');
+            $table->integer('year')->nullable()->comment('TRIAL');
+            $table->char('trial754', 1)->nullable()->comment('TRIAL');
         });
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jct_item_cat');
+        Schema::dropIfExists('year');
     }
 };

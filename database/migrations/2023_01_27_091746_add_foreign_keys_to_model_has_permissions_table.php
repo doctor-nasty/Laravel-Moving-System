@@ -13,12 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('items', function (Blueprint $table) {
-            $table->id();
-            $table->integer('item_id');
-            $table->integer('cf');
-            $table->string('item_name');
-            $table->timestamps();
+        Schema::table('model_has_permissions', function (Blueprint $table) {
+            $table->foreign(['permission_id'], 'fk_migrations_permissions_0')->references(['id'])->on('permissions')->onUpdate('RESTRICT')->onDelete('CASCADE');
         });
     }
 
@@ -29,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('items');
+        Schema::table('model_has_permissions', function (Blueprint $table) {
+            $table->dropForeign('fk_migrations_permissions_0');
+        });
     }
 };

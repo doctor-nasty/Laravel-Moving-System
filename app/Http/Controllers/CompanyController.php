@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\carshp;
-use App\Models\Company;
+use App\Models\company;
 use App\Models\Country;
 use App\Models\inst;
 use App\Models\intl;
@@ -14,6 +14,7 @@ use App\Models\jct_svc_mvsz;
 use App\Models\jct_svc_strg;
 use App\Models\jct_to_cntry;
 use App\Models\jct_to_stt;
+use App\Models\jct_cmp_ld;
 use App\Models\mvsz;
 use App\Models\storage;
 use App\Models\User;
@@ -281,15 +282,15 @@ class CompanyController extends Controller
         $st = states::where('state_code',$state)->take(1)->implode('state_code', ', ');
 
 
-        $counties = Zip::select(DB::raw('COUNTY as county, id, STATE_CODE as state_code'))
-        ->where('county', '<>', '')
-        ->where('state_code', '=', $st)
-        ->groupBy('county', 'id', 'state_code')
-        ->orderBy('county')
-        ->orderBy('id')
-        ->orderBy('state_code')
+        $counties = Zip::select(DB::raw('z_county, zipcode, z_state_code'))
+        ->where('z_county', '<>', '')
+        ->where('z_state_code', '=', $st)
+        ->groupBy('z_county', 'zipcode', 'z_state_code')
+        ->orderBy('z_county')
+        ->orderBy('zipcode')
+        ->orderBy('z_state_code')
         ->get()
-        ->unique('county');
+        ->unique('z_county');
 
         $jct_cmp_st = jct_cmp_st::where('cmp_id', $id)
         ->get();
@@ -533,22 +534,26 @@ class CompanyController extends Controller
     {
         $company = Company::findOrFail($id);
 
-        $states = Zip::select('STATE_CODE as state_code', 'id')
-        ->where('state_code', '<>', '')
-        ->groupBy('state_code', 'id')
-        ->orderBy('state_code')
-        ->get('state_code', 'id')
-        ->unique('state_code');
 
-        $counties = Zip::select(DB::raw('COUNTY as county, id, STATE_CODE as state_code'))
-        ->where('county', '<>', '')
-        ->where('state_code', '=', $company->state)
-        ->groupBy('county', 'id', 'state_code')
-        ->orderBy('county')
-        ->orderBy('id')
-        ->orderBy('state_code')
+        $allowedstates = states::where('status', '1')
+        ->get();
+
+        $states = Zip::select('z_state_code', 'zipcode')
+        ->where('z_state_code', '<>', '')
+        ->groupBy('z_state_code', 'zipcode')
+        ->orderBy('z_state_code')
+        ->get('z_state_code', 'zipcode')
+        ->unique('z_state_code');
+
+        $counties = Zip::select(DB::raw('z_county, zipcode, z_state_code'))
+        ->where('z_county', '<>', '')
+        ->where('z_state_code', '=', $company->state)
+        ->groupBy('z_county', 'zipcode', 'z_state_code')
+        ->orderBy('z_county')
+        ->orderBy('zipcode')
+        ->orderBy('z_state_code')
         ->get()
-        ->unique('county');
+        ->unique('z_county');
 
         $movesize = mvsz::orderBy('mvsz_id')
         ->get();
@@ -572,9 +577,6 @@ class CompanyController extends Controller
         $jct_cmp_st = jct_cmp_st::where('cmp_id', $id)
         ->get();
 
-
-        $allowedstates = states::where('status', '1')
-        ->get();
 
         return view('company.interstate.assignment', ['jct_to_stt' => $jct_to_stt,
         'jct_svc_mvsz' => $jct_svc_mvsz,
@@ -630,8 +632,8 @@ class CompanyController extends Controller
     public function postcntyinterstate(Request $request)
     {
 
-        $country_nm = Zip::where('id', '=', $request->cnty_id)->select('COUNTY')->first();
-        $find_all_zip = Zip::where('COUNTY',$country_nm->COUNTY)->select('id')->get();
+        $country_nm = Zip::where('zipcode', '=', $request->cnty_id)->select('z_county')->first();
+        $find_all_zip = Zip::where('z_county',$country_nm->z_county)->select('zipcode')->get();
         if(sizeof($find_all_zip)>0)
         {
             foreach($find_all_zip as $items)
@@ -641,7 +643,7 @@ class CompanyController extends Controller
                 if (count($jct_fr_cnty) === 0) {
                     jct_fr_cnty::whereId($request->id)->create([
                         'cmp_id' => $request->cmp_id,
-                        'cnty_id' => $items->id,
+                        'cnty_id' => $items->zipcode,
                         'svc_id' => $request->svc_id
                     ]);
                 }
@@ -656,13 +658,13 @@ class CompanyController extends Controller
     public function postcntyinterstaterem(Request $request)
     {
 
-        $country_nm = Zip::where('id', '=', $request->cnty_id)->select('COUNTY')->first();
-        $find_all_zip = Zip::where('COUNTY',$country_nm->COUNTY)->select('id')->get();
+        $country_nm = Zip::where('id', '=', $request->cnty_id)->select('z_county')->first();
+        $find_all_zip = Zip::where('z_county',$country_nm->COUNTY)->select('zipcode')->get();
         if(sizeof($find_all_zip)>0)
         {
             foreach($find_all_zip as $items)
             {
-                jct_fr_cnty::where('cnty_id', '=', $items->id)->where('cmp_id',$request->cmp_id)->delete();
+                jct_fr_cnty::where('cnty_id', '=', $items->zipcode)->where('cmp_id',$request->cmp_id)->delete();
             }
         }
 
@@ -673,18 +675,18 @@ class CompanyController extends Controller
 
     public function posttostinterstate(Request $request)
     {
-        $state_nm = Zip::where('id', '=', $request->st_id)->select('STATE')->first();
-        $find_all_zip = Zip::where('STATE',$state_nm->STATE)->select('id')->get();
+        $state_nm = Zip::where('zipcode', '=', $request->st_id)->select('z_state')->first();
+        $find_all_zip = Zip::where('z_state',$state_nm->z_state)->select('zipcode')->get();
         if(sizeof($find_all_zip)>0)
         {
             foreach($find_all_zip as $items)
             {
-        $jct_to_stt = jct_to_stt::where('st_id', '=', $items->id)->where('cmp_id',$request->cmp_id)->get();
+        $jct_to_stt = jct_to_stt::where('st_id', '=', $items->zipcode)->where('cmp_id',$request->cmp_id)->get();
 
         if (count($jct_to_stt) === 0) {
             jct_to_stt::whereId($request->id)->create([
                 'cmp_id' => $request->cmp_id,
-                'st_id' => $items->id,
+                'st_id' => $items->zipcode,
                 'svc_id' => $request->svc_id
             ]);
         }
@@ -811,13 +813,23 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
+
         // Validations
         $request->validate([
-            'first_name'    => 'required',
-            'last_name'     => 'required',
-            'email'         => 'required|unique:companys,email',
-            'mobile_number' => 'required|numeric|digits:10',
-            'role_id'       =>  'required|exists:roles,id',
+            'name'    => 'required',
+            'website'    => 'required',
+            'address'    => 'required',
+            'city'    => 'required',
+            'state'    => 'required',
+            'zip'    => 'required',
+            'phonenumber'    => 'required',
+            'description'    => 'required',
+            'usdot'    => 'required',
+            'mcno'    => 'required',
+            'intrastate'    => 'required',
+            'fleetsize'    => 'required',
+            'email'         => 'required',
+            'phonenumber' => 'required|numeric|digits:10',
             'status'       =>  'required|numeric|in:0,1',
         ]);
 
@@ -826,13 +838,21 @@ class CompanyController extends Controller
 
             // Store Data
             $company = Company::create([
-                'first_name'    => $request->first_name,
-                'last_name'     => $request->last_name,
+                'name'    => $request->name,
+                'website'    => $request->website,
+                'address'    => $request->address,
+                'city'    => $request->city,
+                'state'    => $request->state,
+                'zip'    => $request->zip,
+                'phonenumber'    => $request->phonenumber,
+                'description'    => $request->description,
+                'usdot'    => $request->usdot,
+                'mcno'    => $request->mcno,
+                'intrastate'    => $request->intrastate,
+                'fleetsize'    => $request->fleetsize,
                 'email'         => $request->email,
-                'mobile_number' => $request->mobile_number,
-                'role_id'       => $request->role_id,
-                'status'        => $request->status,
-                'password'      => Hash::make($request->first_name.'@'.$request->mobile_number)
+                'phonenumber' => $request->phonenumber,
+                'status'       =>  $request->status,
             ]);
 
             return redirect()->route('company.index')->with('success','company Created Successfully.');
@@ -1007,47 +1027,45 @@ class CompanyController extends Controller
 
 
 
-    public function leads($id)
+    public function interstateleads($id)
     {
+
         $company = Company::findOrFail($id);
 
-        $states = Zip::select('z_STATE_CODE as state_code', 'zipcode as id')
-        ->where('state_code', '<>', '')
-        ->groupBy('state_code', 'id')
-        ->orderBy('state_code')
-        ->get('state_code', 'id')
-        ->unique('state_code');
-
-        $counties = Zip::select(DB::raw('z_COUNTY as county, zipcode as id, z_STATE_CODE as state_code'))
-        ->where('county', '<>', '')
-        ->where('state_code', '=', 'CA')
-        ->groupBy('county', 'id', 'state_code')
-        ->orderBy('county')
-        ->orderBy('id')
-        ->orderBy('state_code')
-        ->get()
-        ->unique('county');
-
-
-        $storages = storage::orderBy('id')
+        $jct_cmp_ld = jct_cmp_ld::where('cmp_id', $id)
         ->get();
+
+        $states = Zip::select('z_state_code as state_code', 'zipcode as id')
+        ->where('z_state_code', '<>', '')
+        ->groupBy('z_state_code', 'zipcode')
+        ->orderBy('z_state_code')
+        ->get('z_state_code', 'zipcode')
+        ->unique('z_state_code');
+
+        $counties = Zip::select(DB::raw('z_county as county, zipcode as id, z_state_code as state_code'))
+        ->where('z_county', '<>', '')
+        ->where('z_state_code', '=', 'CA')
+        ->groupBy('z_county', 'zipcode', 'z_state_code')
+        ->orderBy('z_county')
+        ->orderBy('zipcode')
+        ->orderBy('z_state_code')
+        ->get()
+        ->unique('z_county');
+
+
         $allowedstates = states::where('status', '1')
         ->get();
 
-        $inst = inst::where('cmp_id', $id)->get();
-        $intl = intl::where('cmp_id', $id)->get();
-        $strg = strg::where('cmp_id', $id)->get();
-        $carshp = carshp::where('cmp_id', $id)->get();
+        foreach ($jct_cmp_ld as $l) {
+            $instleads = inst::where('id', $l->frm_id)->get();
+        }
 
-        return view('company.leads', [
-         'storages' => $storages,
+        return view('company.interstate.leads', [
            'company' => $company,
            'id' => $id,
-           'inst' => $inst,
-           'intl' => $intl,
-           'strg' => $strg,
-           'carshp' => $carshp,
+           'jct_cmp_ld' => $jct_cmp_ld,
            'states' => $states,
+           'instleads' => $instleads,
              'allowedstates' => $allowedstates,
               'counties' => $counties]);
         }

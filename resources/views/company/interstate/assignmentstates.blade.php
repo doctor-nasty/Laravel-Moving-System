@@ -55,9 +55,9 @@
                                             @foreach ($counties as $county)
                                                 <li>
                                                     <input class="checkIt" type="checkbox" id="cnty_id" name="cnty_id"
-                                                        value="{{ $county->id }}"
-                                                        @foreach ($jct_fr_cnty as $jct) @if ($jct->cnty_id == $county->id) checked @endif @endforeach>
-                                                    {{ $county->county }}
+                                                        value="{{ $county->zipcode }}"
+                                                        @foreach ($jct_fr_cnty as $jct) @if ($jct->cnty_id == $county->zipcode) checked @endif @endforeach>
+                                                    {{ $county->z_county }}
                                                 </li>
                                             @endforeach
                                         </ul>

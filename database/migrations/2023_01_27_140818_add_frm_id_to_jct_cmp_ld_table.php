@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('savings_center', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('jct_cmp_ld', function (Blueprint $table) {
+            $table->integer('frm_id')->nullable();
         });
     }
 
@@ -26,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('savings_center');
+        Schema::table('jct_cmp_ld', function (Blueprint $table) {
+            $table->integer('frm_id');
+        });
     }
 };

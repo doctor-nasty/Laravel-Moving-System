@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Forms;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Company;
-use App\Models\Interstate;
+use App\Models\inst;
 use App\Models\Zip;
 use App\Models\jct_fr_cnty;
 use App\Models\jct_to_stt;
+use App\Models\jct_cmp_ld;
 
 use App\Models\mvsz;
 use Carbon\Carbon;
@@ -52,7 +53,7 @@ class InterstateController extends Controller
 
 
         if (empty($request->session()->get('forms'))) {
-            $forms = new Interstate();
+            $forms = new inst();
             $forms->fill($validatedData);
             $request->session()->put('forms', $forms);
             $request->session()->put('cityfrom', $request->input('cityfrom'));
@@ -158,13 +159,13 @@ class InterstateController extends Controller
             $mvsz = mvsz::where('mvsz_id', '=', $forms->inst_sz_id)->get('mvsz_name')->implode('mvsz_name', ',');
 
 
-            $zip_fr_zip = Zip::where('ZIP',$inst_fr_zip)->select('id')->first();
-            $zip_to_zip = Zip::Where('ZIP',$inst_to_zip)->select('id')->first();
+            $zip_fr_zip = Zip::where('z_zip',$inst_fr_zip)->select('zipcode')->first();
+            $zip_to_zip = Zip::Where('z_zip',$inst_to_zip)->select('zipcode')->first();
 
 
-            $jct_fr_cnty = jct_fr_cnty::where('cnty_id',$zip_fr_zip->id)->select('cmp_id')->get();
+            $jct_fr_cnty = jct_fr_cnty::where('cnty_id',$zip_fr_zip->zipcode)->select('cmp_id')->get();
 
-            $jct_to_stt = jct_to_stt::where('st_id',$zip_to_zip->id)->select('cmp_id')->get();
+            $jct_to_stt = jct_to_stt::where('st_id',$zip_to_zip->zipcode)->select('cmp_id')->get();
 
             $companies = Company::whereIn('id',$jct_fr_cnty)->whereIn('id',$jct_to_stt)->get();
 
@@ -174,6 +175,15 @@ class InterstateController extends Controller
 
             foreach ($companies as $c) {
                 Mail::to($c->email)->send(new \App\Mail\VerifyEmail($test));
+
+                $record= new jct_cmp_ld();
+
+                $record->cmp_id = $c->id;
+                $record->svc_id = '1';
+                $record->frm_id = $forms->id;
+
+                $record->save();
+
             }
 
 
@@ -191,13 +201,13 @@ class InterstateController extends Controller
         $inst_fr_zip = $request->inst_fr_zip;
         $inst_to_zip = $request->inst_to_zip;
 
-        $zip_fr_zip = Zip::where('ZIP',$inst_fr_zip)->select('id')->first();
-        $zip_to_zip = Zip::Where('ZIP',$inst_to_zip)->select('id')->first();
+        $zip_fr_zip = Zip::where('z_zip',$inst_fr_zip)->select('zipcode')->first();
+        $zip_to_zip = Zip::Where('z_zip',$inst_to_zip)->select('zipcode')->first();
 
 
-        $jct_fr_cnty = jct_fr_cnty::where('cnty_id',$zip_fr_zip->id)->select('cmp_id')->get();
+        $jct_fr_cnty = jct_fr_cnty::where('cnty_id',$zip_fr_zip->zipcode)->select('cmp_id')->get();
 
-        $jct_to_stt = jct_to_stt::where('st_id',$zip_to_zip->id)->select('cmp_id')->get();
+        $jct_to_stt = jct_to_stt::where('st_id',$zip_to_zip->zipcode)->select('cmp_id')->get();
 
         $companies = Company::whereIn('id',$jct_fr_cnty)->whereIn('id',$jct_to_stt)->get();
 
