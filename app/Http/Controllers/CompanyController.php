@@ -1027,7 +1027,7 @@ class CompanyController extends Controller
 
 
 
-    public function leadsinterstate($id)
+    public function interstateleads($id)
     {
 
         $company = Company::findOrFail($id);
