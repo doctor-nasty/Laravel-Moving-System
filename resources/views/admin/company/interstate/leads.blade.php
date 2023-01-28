@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Leads')
 
@@ -14,7 +14,7 @@
         </div>
 
         {{-- Alert Messages --}}
-        @include('common.alert')
+        @include('admin.common.alert')
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">

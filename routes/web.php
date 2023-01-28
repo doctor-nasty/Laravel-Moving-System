@@ -114,13 +114,8 @@ Route::get('interstateForm/submit', 'App\Http\Controllers\Forms\InterstateContro
 
 // Auth::routes();
 
-Route::get('/admin', function () {
-    return redirect()->route('login');
-});
-
 Auth::routes(['register' => false]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Profile Routes
 Route::prefix('profile')->name('profile.')->middleware('auth')->group(function(){
@@ -128,12 +123,6 @@ Route::prefix('profile')->name('profile.')->middleware('auth')->group(function()
     Route::post('/update', [App\Http\Controllers\AdminController::class, 'updateProfile'])->name('update');
     Route::post('/change-password', [App\Http\Controllers\AdminController::class, 'changePassword'])->name('change-password');
 });
-
-// Roles
-Route::resource('roles', App\Http\Controllers\RolesController::class);
-
-// Permissions
-Route::resource('permissions', App\Http\Controllers\PermissionsController::class);
 
 // Users
 Route::middleware('auth')->prefix('users')->name('users.')->group(function(){
@@ -155,7 +144,11 @@ Route::middleware('auth')->prefix('users')->name('users.')->group(function(){
 // Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
-Route::middleware('auth')->prefix('company')->name('company.')->group(function(){
+Route::middleware('auth')->prefix('admin')->group(function(){
+    Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('home');
+});
+
+Route::middleware('auth')->prefix('admin/company')->name('company.')->group(function(){
     Route::get('/', [App\Http\Controllers\CompanyController::class, 'index'])->name('index');
     Route::get('/assignment/{company}/interstate', [App\Http\Controllers\CompanyController::class, 'assignmentinterstate'])->name('assignmentinterstate');
     Route::get('/assignment/{company}/international', [App\Http\Controllers\CompanyController::class, 'assignmentinternational'])->name('assignmentinternational');

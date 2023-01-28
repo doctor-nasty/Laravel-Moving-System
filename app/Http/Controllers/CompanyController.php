@@ -25,7 +25,6 @@ use App\Models\strg;
 // use App\Imports\companysImport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
@@ -54,7 +53,7 @@ class CompanyController extends Controller
     public function index()
     {
         $company = Company::paginate(10);
-        return view('company.index', ['company' => $company]);
+        return view('admin.company.index', ['company' => $company]);
     }
 
     // public function assignment($id)
@@ -153,7 +152,7 @@ class CompanyController extends Controller
     //     // $movesize = DB::select('select mvsz_id, mvsz_name from mvsz');
 
 
-    //     return view('company.assignment', ['jct_to_stt' => $jct_to_stt,
+    //     return view('admin.company.assignment', ['jct_to_stt' => $jct_to_stt,
     //     'jct_to_stt_car' => $jct_to_stt_car,
     //     'jct_svc_mvsz' => $jct_svc_mvsz,
     //     'jct_fr_cnty_strg' => $jct_fr_cnty_strg,
@@ -214,7 +213,7 @@ class CompanyController extends Controller
         $allowedstates = states::where('status', '1')
         ->get();
 
-        return view('company.storage.assignment', [
+        return view('admin.company.storage.assignment', [
         'jct_fr_cnty_strg' => $jct_fr_cnty_strg,
         'jct_svc_strg' => $jct_svc_strg,
         'jct_cmp_st' => $jct_cmp_st,
@@ -263,7 +262,7 @@ class CompanyController extends Controller
         $allowedstates = states::where('status', '1')
         ->get();
 
-        return view('company.storage.assignmentstates', [
+        return view('admin.company.storage.assignmentstates', [
         'jct_fr_cnty_strg' => $jct_fr_cnty_strg,
         'jct_cmp_st' => $jct_cmp_st,
            'company' => $company,
@@ -302,7 +301,7 @@ class CompanyController extends Controller
         ->get()
         ->unique('cnty_id');
 
-        return view('company.interstate.assignmentstates', [
+        return view('admin.company.interstate.assignmentstates', [
         'jct_cmp_st' => $jct_cmp_st,
            'jct_fr_cnty' => $jct_fr_cnty,
            'company' => $company,
@@ -356,7 +355,7 @@ class CompanyController extends Controller
         ->get();
 
 
-        return view('company.carshipping.assignment', [
+        return view('admin.company.carshipping.assignment', [
         'jct_to_stt_car' => $jct_to_stt_car,
         'jct_fr_cnty_car' => $jct_fr_cnty_car,
         'allowedstates' => $allowedstates,
@@ -430,7 +429,7 @@ class CompanyController extends Controller
         ->get();
 
 
-        return view('company.international.assignment', ['jct_to_stt' => $jct_to_stt,
+        return view('admin.company.international.assignment', ['jct_to_stt' => $jct_to_stt,
          'jct_to_cntry' => $jct_to_cntry,
          'jct_fr_cnty_internat' => $jct_fr_cnty_internat,
          'jct_svc_mvsz_internat' => $jct_svc_mvsz_internat,
@@ -477,7 +476,7 @@ class CompanyController extends Controller
         $allowedstates = states::where('status', '1')
         ->get();
 
-        return view('company.international.assignmentstates', [
+        return view('admin.company.international.assignmentstates', [
          'jct_fr_cnty_internat' => $jct_fr_cnty_internat,
            'company' => $company,
            'id' => $id,
@@ -520,7 +519,7 @@ class CompanyController extends Controller
 
 
 
-        return view('company.carshipping.assignmentstates', [
+        return view('admin.company.carshipping.assignmentstates', [
          'jct_fr_cnty_car' => $jct_fr_cnty_car,
            'company' => $company,
            'st' => $st,
@@ -578,7 +577,7 @@ class CompanyController extends Controller
         ->get();
 
 
-        return view('company.interstate.assignment', ['jct_to_stt' => $jct_to_stt,
+        return view('admin.company.interstate.assignment', ['jct_to_stt' => $jct_to_stt,
         'jct_svc_mvsz' => $jct_svc_mvsz,
          'jct_fr_cnty' => $jct_fr_cnty,
            'company' => $company,
@@ -802,7 +801,7 @@ class CompanyController extends Controller
     {
         $roles = Role::all();
 
-        return view('company.add', ['roles' => $roles]);
+        return view('admin.company.add', ['roles' => $roles]);
     }
 
     /**
@@ -914,7 +913,7 @@ class CompanyController extends Controller
 
 
 
-        return view('company.edit')->with([
+        return view('admin.company.edit')->with([
             'company'  => $company,
         ]);
     }
@@ -1009,7 +1008,7 @@ class CompanyController extends Controller
      */
     public function importcompanys()
     {
-        return view('companys.import');
+        return view('admin.companys.import');
     }
 
     public function uploadcompanys(Request $request)
@@ -1060,7 +1059,7 @@ class CompanyController extends Controller
             $instleads = inst::where('id', $l->frm_id)->get();
         }
 
-        return view('company.interstate.leads', [
+        return view('admin.company.interstate.leads', [
            'company' => $company,
            'id' => $id,
            'jct_cmp_ld' => $jct_cmp_ld,
