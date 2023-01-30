@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\carshp;
+use App\Models\Company;
+use App\Models\inst;
+use App\Models\intl;
+use App\Models\strg;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Rules\MatchOldPassword;
@@ -28,7 +33,16 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin');
+        $inst = count(inst::get());
+        $intl = count(intl::get());
+        $carshp = count(carshp::get());
+        $strg = count(strg::get());
+
+        $totalleads = $inst + $intl + $carshp + $strg;
+
+        $totalcompanies = count(Company::get());
+
+        return view('admin.dashboard', compact('totalleads', 'totalcompanies'));
     }
 
     /**
@@ -59,7 +73,7 @@ class AdminController extends Controller
 
         try {
             DB::beginTransaction();
-            
+
             #Update Profile Data
             User::whereId(auth()->user()->id)->update([
                 'first_name' => $request->first_name,
@@ -72,7 +86,7 @@ class AdminController extends Controller
 
             #Return To Profile page with success
             return back()->with('success', 'Profile Updated Successfully.');
-            
+
         } catch (\Throwable $th) {
             DB::rollBack();
             return back()->with('error', $th->getMessage());
@@ -98,13 +112,13 @@ class AdminController extends Controller
 
             #Update Password
             User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
-            
+
             #Commit Transaction
             DB::commit();
 
             #Return To Profile page with success
             return back()->with('success', 'Password Changed Successfully.');
-            
+
         } catch (\Throwable $th) {
             DB::rollBack();
             return back()->with('error', $th->getMessage());

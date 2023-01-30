@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Add Users')
 
@@ -14,7 +14,7 @@
     </div>
 
     {{-- Alert Messages --}}
-    @include('common.alert')
+    @include('admin.common.alert')
     @if($errors->any())
     {{ implode('', $errors->all('<div>:message</div>')) }}
     @endif
