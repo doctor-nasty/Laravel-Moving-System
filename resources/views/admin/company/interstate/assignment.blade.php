@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Company Assignment')
 
@@ -14,7 +14,7 @@
         </div>
 
         {{-- Alert Messages --}}
-        @include('common.alert')
+        @include('admin.common.alert')
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -67,7 +67,7 @@
                                         <ul class="astates">
                                             @foreach ($allowedstates as $astate)
                                             <li id="astates">
-                                                <a href="{{ url('/company/assignment/' . $company->id . '/' . $astate->state_code . '/interstate') }}" id="allowedstateslist" name="allowedstateslist"
+                                                <a href="{{ url('admin/company/assignment/' . $company->id . '/' . $astate->state_code . '/interstate') }}" id="allowedstateslist" name="allowedstateslist"
                                                     value="{{ $astate->id }}" class="nav-link d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
                                                     @foreach ($jct_cmp_st as $jct) @if ($jct->st_id == $astate->id) checked @endif @endforeach>
                                                 {{ $astate->state_code }}</a>
@@ -144,7 +144,7 @@
         if ($(this).is(":checked")) {
             $.ajax({
                 type: "POST",
-                url: '{{ url('company/assignment/interstate/mvsz') }}',
+                url: '{{ url('admin/company/assignment/interstate/mvsz') }}',
                 data: {
                     'mvsz_id': mvsz_id,
                     'cmp_id': $("#cmp_id").val(),
@@ -157,7 +157,7 @@
         } else {
             $.ajax({
                 type: "DELETE",
-                url: '{{ url('company/assignment/interstate/mvszrem') }}',
+                url: '{{ url('admin/company/assignment/interstate/mvszrem') }}',
                 data: {
                     'mvsz_id': mvsz_id,
                     _token: '{{ csrf_token() }}'
@@ -174,7 +174,7 @@
         if ($(this).is(":checked")) {
             $.ajax({
                 type: "POST",
-                url: '{{ url('company/assignment/interstate/tost') }}',
+                url: '{{ url('admin/company/assignment/interstate/tost') }}',
                 data: {
                     'st_id': st_id,
                     'cmp_id': $("#cmp_id").val(),
@@ -187,7 +187,7 @@
         } else {
             $.ajax({
                 type: "DELETE",
-                url: '{{ url('company/assignment/interstate/tostrem') }}',
+                url: '{{ url('admin/company/assignment/interstate/tostrem') }}',
                 data: {
                     'st_id': st_id,
                     'cmp_id': $("#cmp_id").val(),

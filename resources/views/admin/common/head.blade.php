@@ -13,9 +13,9 @@
 
     {{-- ICON --}}
     <link rel="shortcut icon" type="image/jpg" href="{{ asset('images/icon.png') }}"/>
-    <script src="/js/jquery.js"></script>
+    <script src="https://movingwyze.com/js/jquery.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
-    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="https://movingwyze.com/css/bootstrap.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet" type="text/css" />
     <script src="{{asset('js/app.js')}}"></script>
 
