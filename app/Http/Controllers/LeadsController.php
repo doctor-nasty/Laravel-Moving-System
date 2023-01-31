@@ -54,15 +54,15 @@ class LeadsController extends Controller
         $dateto = $request->input('dateto');
         $cmp_id = $request->input('cmp_id');
 
-        $inst = inst::query()->select('inst.id as inst_id', 'inst.inst_fnm', 'inst.inst_lnm', 'inst.inst_tel', 'inst.inst_email', 'jct_cmp_ld.created_at as inst_created_at', 'jct_cmp_ld.svc_id')->leftJoin('jct_cmp_ld', 'jct_cmp_ld.frm_id', '=', 'inst.id')->where('jct_cmp_ld.cmp_id', $cmp_id)->where('jct_cmp_ld.created_at', '>=', $datefrom)->where('jct_cmp_ld.created_at', '<=', $dateto)->get();
-        $intl = intl::query()->select('intl.id as intl_id', 'intl.intl_fnm', 'intl.intl_lnm', 'intl.intl_tel', 'intl.intl_email', 'jct_cmp_ld.created_at as intl_created_at', 'jct_cmp_ld.svc_id')->leftJoin('jct_cmp_ld', 'jct_cmp_ld.frm_id', '=', 'intl.id')->where('jct_cmp_ld.cmp_id', $cmp_id)->where('jct_cmp_ld.created_at', '>=', $datefrom)->where('jct_cmp_ld.created_at', '<=', $dateto)->get();
-        $carshp = carshp::query()->select('carshp.id as carshp_id', 'carshp.carshp_fnm', 'carshp.carshp_lnm', 'carshp.carshp_tel', 'carshp.carshp_email', 'jct_cmp_ld.created_at as carshp_created_at', 'jct_cmp_ld.svc_id')->leftJoin('jct_cmp_ld', 'jct_cmp_ld.frm_id', '=', 'carshp.id')->where('jct_cmp_ld.cmp_id', $cmp_id)->where('jct_cmp_ld.created_at', '>=', $datefrom)->where('jct_cmp_ld.created_at', '<=', $dateto)->get();
-        $strg = strg::query()->select('strg.id as strg_id', 'strg.strg_fnm', 'strg.strg_lnm', 'strg.strg_tel', 'strg.strg_email', 'jct_cmp_ld.created_at as strg_created_at', 'jct_cmp_ld.svc_id')->leftJoin('jct_cmp_ld', 'jct_cmp_ld.frm_id', '=', 'strg.id')->where('jct_cmp_ld.cmp_id', $cmp_id)->where('jct_cmp_ld.created_at', '>=', $datefrom)->where('jct_cmp_ld.created_at', '<=', $dateto)->get();
+        $inst = inst::query()->select('inst.id as inst_id', 'inst.inst_fnm', 'inst.inst_lnm', 'inst.inst_tel', 'inst.inst_email', 'jct_cmp_ld.created_at as inst_created_at', 'jct_cmp_ld.svc_id')->leftJoin('jct_cmp_ld', 'jct_cmp_ld.frm_id', '=', 'inst.id')->where('jct_cmp_ld.cmp_id', $cmp_id)->get();
+        $intl = intl::query()->select('intl.id as intl_id', 'intl.intl_fnm', 'intl.intl_lnm', 'intl.intl_tel', 'intl.intl_email', 'jct_cmp_ld.created_at as intl_created_at', 'jct_cmp_ld.svc_id')->leftJoin('jct_cmp_ld', 'jct_cmp_ld.frm_id', '=', 'intl.id')->where('jct_cmp_ld.cmp_id', $cmp_id)->get();
+        $carshp = carshp::query()->select('carshp.id as carshp_id', 'carshp.carshp_fnm', 'carshp.carshp_lnm', 'carshp.carshp_tel', 'carshp.carshp_email', 'jct_cmp_ld.created_at as carshp_created_at', 'jct_cmp_ld.svc_id')->leftJoin('jct_cmp_ld', 'jct_cmp_ld.frm_id', '=', 'carshp.id')->where('jct_cmp_ld.cmp_id', $cmp_id)->get();
+        $strg = strg::query()->select('strg.id as strg_id', 'strg.strg_fnm', 'strg.strg_lnm', 'strg.strg_tel', 'strg.strg_email', 'jct_cmp_ld.created_at as strg_created_at', 'jct_cmp_ld.svc_id')->leftJoin('jct_cmp_ld', 'jct_cmp_ld.frm_id', '=', 'strg.id')->where('jct_cmp_ld.cmp_id', $cmp_id)->get();
 
-        $leads = collect($inst)->merge($intl)->merge($carshp)->merge($strg)->sortBy('svc_id');
+        $leads = collect($inst)->merge($intl)->merge($carshp)->merge($strg)->whereBetween('inst_created_at', [$request->datefrom.' 00:00:00', $request->dateto.' 23:59:59'])->sortBy('svc_id');
 
 
-        // Return the search view with the resluts compacted
+        // return $leads;
         return view('admin.company.interstate.searchleads', compact('leads'));
     }
 }
