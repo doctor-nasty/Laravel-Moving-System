@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('model_has_roles', function (Blueprint $table) {
-            $table->foreign(['role_id'], 'fk_model_has_permissions_roles_0')->references(['id'])->on('roles')->onUpdate('RESTRICT')->onDelete('CASCADE');
+        Schema::table('strg', function(Blueprint $table) {
+            $table->renameColumn('strg_id', 'id');
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('model_has_roles', function (Blueprint $table) {
-            $table->dropForeign('fk_model_has_permissions_roles_0');
+        Schema::table('strg', function(Blueprint $table) {
+            $table->renameColumn('id', 'strg_id');
         });
     }
 };

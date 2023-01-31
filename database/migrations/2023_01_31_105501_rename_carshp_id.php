@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('sqlite_sequence', function (Blueprint $table) {
-            $table->comment('TRIAL');
-            $table->text('name')->nullable()->comment('TRIAL');
-            $table->text('seq')->nullable()->comment('TRIAL');
-            $table->char('trial754', 1)->nullable()->comment('TRIAL');
+        Schema::table('carshp', function(Blueprint $table) {
+            $table->renameColumn('carshp_id', 'id');
         });
     }
 
@@ -28,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sqlite_sequence');
+        Schema::table('carshp', function(Blueprint $table) {
+            $table->renameColumn('id', 'carshp_id');
+        });
     }
 };

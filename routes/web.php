@@ -144,7 +144,7 @@ Route::middleware('auth')->prefix('users')->name('users.')->group(function(){
 // Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
-Route::get('/search/', 'App\Http\Controllers\LeadsController@search')->name('search');
+Route::get('/search/leads/{company}', 'App\Http\Controllers\LeadsController@search')->name('search');
 
 
 Route::middleware('auth')->prefix('admin')->group(function(){

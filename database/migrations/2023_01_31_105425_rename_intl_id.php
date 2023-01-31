@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('model_has_permissions', function (Blueprint $table) {
-            $table->foreign(['permission_id'], 'fk_migrations_permissions_0')->references(['id'])->on('permissions')->onUpdate('RESTRICT')->onDelete('CASCADE');
+        Schema::table('intl', function(Blueprint $table) {
+            $table->renameColumn('intl_id', 'id');
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('model_has_permissions', function (Blueprint $table) {
-            $table->dropForeign('fk_migrations_permissions_0');
+        Schema::table('intl', function(Blueprint $table) {
+            $table->renameColumn('id', 'intl_id');
         });
     }
 };
