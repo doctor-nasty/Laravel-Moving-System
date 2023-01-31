@@ -8,7 +8,7 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Interstate Leads</h1>
+            <h1 class="h3 mb-0 text-gray-800">Leads</h1>
             <a href="{{ route('company.index') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                     class="fas fa-arrow-left fa-sm text-white-50"></i> Back</a>
         </div>
@@ -19,7 +19,8 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">{{ $company->name }} 's Leads for Interstate</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Date range: {{ request()->query('datefrom') }} - {{ request()->query('dateto') }}</h6>
+
             </div>
 
 
@@ -36,24 +37,27 @@
                             <th scope="col">Last Name</th>
                             <th scope="col">Phone Number</th>
                             <th scope="col">Email</th>
-                            <th scope="col">From ZIP</th>
-                            <th scope="col">To ZIP</th>
+                            <th scope="col">Created At</th>
                           </tr>
                         </thead>
                         <tbody>
 
-
+                            @if($inst->isNotEmpty())
+                            @foreach ($inst as $i)
     <tr>
-        @foreach ($instleads as $i)
         <th scope="row">{{$i->id}}</th>
         <td>{{$i->inst_fnm}}</td>
         <td>{{$i->inst_lnm}}</td>
         <td>{{$i->inst_tel}}</td>
         <td>{{$i->inst_email}}</td>
-        <td>{{$i->inst_fr_zip}}</td>
-        <td>{{$i->inst_to_zip}}</td>
-        @endforeach
+        <td>{{$i->created_at}}</td>
       </tr>
+      @endforeach
+      @else
+    <div>
+        <h2>No results found</h2>
+    </div>
+@endif
 
                         </tbody>
                       </table>

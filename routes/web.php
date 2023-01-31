@@ -144,6 +144,9 @@ Route::middleware('auth')->prefix('users')->name('users.')->group(function(){
 // Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
 
+Route::get('/search/', 'App\Http\Controllers\LeadsController@search')->name('search');
+
+
 Route::middleware('auth')->prefix('admin')->group(function(){
     Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('home');
 });
@@ -155,7 +158,7 @@ Route::middleware('auth')->prefix('admin/company')->name('company.')->group(func
     Route::get('/assignment/{company}/carshipping', [App\Http\Controllers\CompanyController::class, 'assignmentcarshipping'])->name('assignmentcarshipping');
     Route::get('/assignment/{company}/storage', [App\Http\Controllers\CompanyController::class, 'assignmentstorage'])->name('assignmentstorage');
 
-    Route::get('/leads/interstate/{company}', [App\Http\Controllers\CompanyController::class, 'interstateleads'])->name('interstateleads');
+    Route::get('/leads/{company}', [App\Http\Controllers\LeadsController::class, 'leads'])->name('leads');
 
     Route::get('/assignment/{company}/{state}/interstate', [App\Http\Controllers\CompanyController::class, 'assignmentstoragestatesinterstate'])->name('assignmentstoragestatesinterstate');
     Route::get('/assignment/{company}/{state}/international', [App\Http\Controllers\CompanyController::class, 'assignmentsstateinternational'])->name('assignmentsstateinternational');
