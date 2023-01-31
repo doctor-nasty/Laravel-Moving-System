@@ -1026,47 +1026,4 @@ class CompanyController extends Controller
 
 
 
-    public function interstateleads($id)
-    {
-
-        $company = Company::findOrFail($id);
-
-        $jct_cmp_ld = jct_cmp_ld::where('cmp_id', $id)
-        ->get();
-
-        $states = Zip::select('z_state_code as state_code', 'zipcode as id')
-        ->where('z_state_code', '<>', '')
-        ->groupBy('z_state_code', 'zipcode')
-        ->orderBy('z_state_code')
-        ->get('z_state_code', 'zipcode')
-        ->unique('z_state_code');
-
-        $counties = Zip::select(DB::raw('z_county as county, zipcode as id, z_state_code as state_code'))
-        ->where('z_county', '<>', '')
-        ->where('z_state_code', '=', 'CA')
-        ->groupBy('z_county', 'zipcode', 'z_state_code')
-        ->orderBy('z_county')
-        ->orderBy('zipcode')
-        ->orderBy('z_state_code')
-        ->get()
-        ->unique('z_county');
-
-
-        $allowedstates = states::where('status', '1')
-        ->get();
-
-        foreach ($jct_cmp_ld as $l) {
-            $instleads = inst::where('id', $l->frm_id)->get();
-        }
-
-        return view('admin.company.interstate.leads', [
-           'company' => $company,
-           'id' => $id,
-           'jct_cmp_ld' => $jct_cmp_ld,
-           'states' => $states,
-           'instleads' => $instleads,
-             'allowedstates' => $allowedstates,
-              'counties' => $counties]);
-        }
-
 }
