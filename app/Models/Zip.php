@@ -9,7 +9,7 @@ class Zip extends Model
 {
     use HasFactory;
 
-    protected $connection = 'pgsql_2';
+    protected $connection = 'mysql_2';
     protected $table = 'zipcode_zipcode';
 
 }

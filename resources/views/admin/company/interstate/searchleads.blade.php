@@ -38,7 +38,6 @@
                                 <th scope="col">Last Name</th>
                                 <th scope="col">Phone Number</th>
                                 <th scope="col">Email</th>
-                                <th scope="col">Created At</th>
                             </tr>
                         </thead>
                         <tbody>
