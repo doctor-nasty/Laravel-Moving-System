@@ -78,22 +78,22 @@
                                         </a>
                                         <a href="{{ route('company.assignmentinterstate', ['company' => $comp->id]) }}"
                                             class="btn btn-primary m-2">
-                                            <i class="fas fa-location-arrow"></i>
+                                            <i class="fa-solid fa-truck"></i>
                                         </a>
                                         <a href="{{ route('company.assignmentinternational', ['company' => $comp->id]) }}"
                                             class="btn btn-primary m-2">
-                                            <i class="fas fa-location-arrow"></i>
+                                            <i class="fa-solid fa-globe"></i>
                                         </a>
                                         <a href="{{ route('company.assignmentcarshipping', ['company' => $comp->id]) }}"
                                             class="btn btn-primary m-2">
-                                            <i class="fas fa-location-arrow"></i>
+                                            <i class="fa-sharp fa-solid fa-cars"></i>
                                         </a>
                                         <a href="{{ route('company.assignmentstorage', ['company' => $comp->id]) }}"
                                             class="btn btn-primary m-2">
-                                            <i class="fas fa-location-arrow"></i>
+                                            <i class="fa-sharp fa-solid fa-warehouse"></i>
                                         </a>
                                         <a class="btn btn-danger m-2" href="{{ route('company.leads', ['company' => $comp->id]) }}">
-                                            <i class="fas fa-user"></i>
+                                            <i class="fa-solid fa-envelopes-bulk"></i>
                                         </a>
                                     </td>
                                 </tr>
