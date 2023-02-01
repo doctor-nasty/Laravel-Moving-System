@@ -2086,6 +2086,16 @@ a.btn.disabled,fieldset:disabled a.btn{
     background-color:#e02d1b;
     border-color:#d52a1a
 }
+.btn-leads{
+    color:#fff;
+    background-color:#9b5608;
+    border-color:#9b5608
+}
+.btn-leads:hover{
+    color:#fff;
+    background-color:#532805;
+    border-color:#532805
+}
 .btn-danger.focus,.btn-danger:focus{
     color:#fff;
     background-color:#e02d1b;
