@@ -92,7 +92,7 @@
                                             class="btn btn-primary m-2">
                                             <i class="fa-sharp fa-solid fa-warehouse"></i>
                                         </a>
-                                        <a class="btn btn-danger m-2" href="{{ route('company.leads', ['company' => $comp->id]) }}">
+                                        <a class="btn btn-leads m-2" href="{{ route('company.leads', ['company' => $comp->id]) }}">
                                             <i class="fa-solid fa-envelopes-bulk"></i>
                                         </a>
                                     </td>
