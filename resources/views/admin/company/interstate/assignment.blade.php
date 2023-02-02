@@ -63,7 +63,7 @@
 
                                 @csrf
                                 <div class="col-lg-12 mb-3 mt-3 mb-sm-0">
-                                    <h3>Select counties in </h3>
+                                    <h3>Select pickup counties in </h3>
                                         <ul class="astates">
                                             @foreach ($allowedstates as $astate)
                                             <li id="astates">
@@ -76,6 +76,12 @@
                                         </ul>
                                     <input type="hidden" value="{{ $company->id }}" name="cmp_id" id="cmp_id">
                                     <input type="hidden" value="1" name="svc_id" id="svc_id">
+                                </div>
+
+                                <div id="selectedSt">
+                                    @foreach ($jct_fr_cnty as $cnty)
+                                        {{$cnty}}
+                                    @endforeach
                                 </div>
                         </div>
 

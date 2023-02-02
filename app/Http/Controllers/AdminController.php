@@ -6,6 +6,8 @@ use App\Models\carshp;
 use App\Models\Company;
 use App\Models\inst;
 use App\Models\intl;
+use App\Models\jct_svc_mvsz;
+use App\Models\mvsz;
 use App\Models\strg;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -123,5 +125,43 @@ class AdminController extends Controller
             DB::rollBack();
             return back()->with('error', $th->getMessage());
         }
+    }
+
+    public function mvszprice(Request $request)
+    {
+
+        $jct_svc_mvsz = jct_svc_mvsz::leftJoin('mvsz', 'jct_svc_mvsz.mvsz_id', 'mvsz.mvsz_id')
+        ->leftJoin('company', 'jct_svc_mvsz.cmp_id', 'company.id')
+        ->select('jct_svc_mvsz.id as id', 'jct_svc_mvsz.price as price', 'mvsz.mvsz_name as name', 'company.name as cmp_name', 'jct_svc_mvsz.svc_id as svc_id')
+        ->get();
+
+        return view('admin.pages.mvszprice', compact('jct_svc_mvsz'));
+    }
+
+    public function mvszupdateprice(Request $request)
+    {
+        $request->validate([
+            'price'    => 'required'
+        ]);
+
+        DB::beginTransaction();
+        try {
+
+            // Store Data
+            $mvszprice = jct_svc_mvsz::query()
+            ->update([
+              'price' => $request->input('price')
+            ]);
+
+            DB::commit();
+
+            return redirect()->route('mvszprice')->with('success','Price Updated.');
+
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return redirect()->back()->withInput()->with('error', $th->getMessage());
+        }
+
+
     }
 }

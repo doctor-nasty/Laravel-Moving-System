@@ -576,7 +576,14 @@ class CompanyController extends Controller
         $jct_cmp_st = jct_cmp_st::where('cmp_id', $id)
         ->get();
 
+        $selectedCntys = jct_fr_cnty::where('cmp_id', $id)
+        ->where('svc_id', 4)
+        ->get('cnty_id');
 
+        // $test = Zip::where('zipcode', 'LIKE', 'junctioncntys.cnty_id')->get();
+
+
+        // return $test;
         return view('admin.company.interstate.assignment', ['jct_to_stt' => $jct_to_stt,
         'jct_svc_mvsz' => $jct_svc_mvsz,
          'jct_fr_cnty' => $jct_fr_cnty,
@@ -799,9 +806,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        $roles = Role::all();
-
-        return view('admin.company.add', ['roles' => $roles]);
+        return view('admin.company.add');
     }
 
     /**
