@@ -11,4 +11,9 @@ class jct_fr_cnty extends Model
     protected $table = 'jct_fr_cnty';
     protected $guarded = [];
 
+    public function zipcodes()
+    {
+      return $this->belongsTo(Zip::class);
+    }
+
 }

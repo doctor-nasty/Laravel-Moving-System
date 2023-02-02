@@ -1502,7 +1502,7 @@ pre code{
 }
 .form-control{
     display:block;
-    width:100%;
+    width: 100%;
     height:calc(1.5em + .75rem + 2px);
     padding:.375rem .75rem;
     font-size:1rem;
@@ -9164,12 +9164,12 @@ body.sidebar-toggled footer.sticky-footer{
 
  div#tostSelect li {
     float: left;
-    width: 18%;
+    width: 6%;
     margin: 1%;
-}
+    text-align: center;
+    }
 div#tostSelect ul {
     width: 100%;
-    display: table-cell;
     list-style: none;
 }
 
@@ -9190,20 +9190,24 @@ div#cntSelect ul {
 
 div#mvSz li {
     float: left;
-    width: 18%;
+    width: 13%;
     margin: 1%;
     white-space: nowrap;
     overflow: hidden;
+    text-align: center;
+    border: solid 1px;
+    padding: .5%;
+
 }
 div#mvSz ul {
     width: 100%;
-    display: table-cell;
+    /* display: table-cell; */
     list-style: none;
 }
 
 
 ul.astates a {
-    width: 22%;
+    width: 5%;
     margin: 1%;
     float: left;
     text-align: center;
@@ -9212,4 +9216,14 @@ ul.astates a {
 
 ul.astates {
     list-style: none;
+}
+
+div#selectedSt {
+    display:none;
+    padding: 1%;
+    margin: 1%;
+    background: #000;
+    position: fixed;
+    top: 364px;
+    width: 40%;
 }

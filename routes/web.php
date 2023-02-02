@@ -149,6 +149,8 @@ Route::get('/search/leads/{company}', 'App\Http\Controllers\LeadsController@sear
 
 Route::middleware('auth')->prefix('admin')->group(function(){
     Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('home');
+    Route::get('/prices/mvsz', [App\Http\Controllers\AdminController::class, 'mvszprice'])->name('mvszprice');
+    Route::post('/prices/mvsz', [App\Http\Controllers\AdminController::class, 'mvszupdateprice'])->name('mvszupdateprice');
 });
 
 Route::middleware('auth')->prefix('admin/company')->name('company.')->group(function(){
