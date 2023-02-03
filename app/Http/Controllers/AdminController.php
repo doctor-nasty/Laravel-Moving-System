@@ -132,16 +132,17 @@ class AdminController extends Controller
 
         $jct_svc_mvsz = jct_svc_mvsz::leftJoin('mvsz', 'jct_svc_mvsz.mvsz_id', 'mvsz.mvsz_id')
         ->leftJoin('company', 'jct_svc_mvsz.cmp_id', 'company.id')
-        ->select('jct_svc_mvsz.id as id', 'jct_svc_mvsz.price as price', 'mvsz.mvsz_name as name', 'company.name as cmp_name', 'jct_svc_mvsz.svc_id as svc_id')
+        ->select('jct_svc_mvsz.id as id', 'jct_svc_mvsz.price as price', 'mvsz.mvsz_name as name', 'jct_svc_mvsz.svc_id as svc_id')
         ->get();
 
+        // return $jct_svc_mvsz;
         return view('admin.pages.mvszprice', compact('jct_svc_mvsz'));
     }
 
     public function mvszupdateprice(Request $request)
     {
         $request->validate([
-            'price'    => 'required'
+            'price'    => 'required|numeric'
         ]);
 
         $id = $request->input('id');

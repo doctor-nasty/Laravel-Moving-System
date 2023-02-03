@@ -9230,8 +9230,10 @@ div#selectedSt {
 
 input#mindaysinter {
     width: 5%;
+    text-align: center;
 }
 
 input#price {
     width: 20%;
+    text-align: center;
 }
