@@ -9227,3 +9227,11 @@ div#selectedSt {
     top: 364px;
     width: 40%;
 }
+
+input#mindaysinter {
+    width: 5%;
+}
+
+input#price {
+    width: 20%;
+}

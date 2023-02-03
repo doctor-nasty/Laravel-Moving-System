@@ -66,8 +66,9 @@
                                     @csrf
 
                                         <input type="text" class="form-control form-control-user" id="price"
-                                            placeholder="Minimum Days" name="price" value="{{old('price', number_format($mvsz->price, 2))}}">
+                                            placeholder="Price" name="price" value="{{old('price', number_format($mvsz->price, 2))}}">
 
+                                            <input type="hidden" value="{{ $mvsz->id }}" name="id" id="id">
                                 </form>
                                 </td>
                             </tr>

@@ -144,11 +144,17 @@ class AdminController extends Controller
             'price'    => 'required'
         ]);
 
+        $id = $request->input('id');
+
+        // return $id;
+
         DB::beginTransaction();
         try {
 
             // Store Data
             $mvszprice = jct_svc_mvsz::query()
+            ->where('id', $id)
+            ->first()
             ->update([
               'price' => $request->input('price')
             ]);
