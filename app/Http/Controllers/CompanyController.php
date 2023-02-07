@@ -16,6 +16,7 @@ use App\Models\jct_to_cntry;
 use App\Models\jct_to_stt;
 use App\Models\jct_cmp_ld;
 use App\Models\mvsz;
+use App\Models\payments;
 use App\Models\storage;
 use App\Models\User;
 use App\Models\Zip;
@@ -1035,6 +1036,72 @@ class CompanyController extends Controller
         $payments = DB::table('payments')->get();
 
         return view('admin.company.payments', compact('company', 'payments'));
+    }
+
+    public function paymentupdatetotamnt(Request $request)
+    {
+        $request->validate([
+            'tot_amnt'    => 'required|numeric'
+        ]);
+
+        $id = $request->input('id');
+        $cmp_id = $request->input('cmp_id');
+
+        // return $id;
+
+        DB::beginTransaction();
+        try {
+
+            // Store Data
+            $mvszprice = payments::query()
+            ->where('id', $id)
+            ->where('cmp_id', $cmp_id)
+            ->first()
+            ->update([
+              'tot_amnt' => $request->input('tot_amnt')
+            ]);
+
+            DB::commit();
+
+            return redirect()->back()->with('success','Total Amount Updated.');
+
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return redirect()->back()->withInput()->with('error', $th->getMessage());
+        }
+    }
+
+    public function paymentupdateldqty(Request $request)
+    {
+        $request->validate([
+            'ld_qty'    => 'required|numeric'
+        ]);
+
+        $id = $request->input('id');
+        $cmp_id = $request->input('cmp_id');
+
+        // return $id;
+
+        DB::beginTransaction();
+        try {
+
+            // Store Data
+            $mvszprice = payments::query()
+            ->where('id', $id)
+            ->where('cmp_id', $cmp_id)
+            ->first()
+            ->update([
+              'ld_qty' => $request->input('ld_qty')
+            ]);
+
+            DB::commit();
+
+            return redirect()->back()->with('success','Lead Quantity Updated.');
+
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return redirect()->back()->withInput()->with('error', $th->getMessage());
+        }
     }
 
 

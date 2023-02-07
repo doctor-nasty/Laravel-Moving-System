@@ -8,6 +8,7 @@ use App\Models\inst;
 use App\Models\intl;
 use App\Models\jct_svc_mvsz;
 use App\Models\mvsz;
+use App\Models\payments;
 use App\Models\strg;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -171,4 +172,6 @@ class AdminController extends Controller
 
 
     }
+
+
 }

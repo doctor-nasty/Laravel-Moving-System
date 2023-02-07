@@ -9237,3 +9237,13 @@ input#price {
     width: 20%;
     text-align: center;
 }
+
+input#ld_qty {
+    width: 20%;
+    text-align: center;
+}
+
+input#tot_amnt {
+    width: 30%;
+    text-align: center;
+}

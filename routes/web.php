@@ -147,6 +147,10 @@ Route::middleware('auth')->prefix('users')->name('users.')->group(function(){
 Route::get('/search/leads/{company}', 'App\Http\Controllers\LeadsController@search')->name('search');
 
 
+Route::post('/payments/totamnt', [App\Http\Controllers\CompanyController::class, 'paymentupdatetotamnt'])->name('totamntpayment');
+Route::post('/payments/ldqty', [App\Http\Controllers\CompanyController::class, 'paymentupdateldqty'])->name('ldqtyprice');
+
+
 Route::middleware('auth')->prefix('admin')->group(function(){
     Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('home');
     Route::get('/prices/mvsz', [App\Http\Controllers\AdminController::class, 'mvszprice'])->name('mvszprice');
@@ -162,6 +166,7 @@ Route::middleware('auth')->prefix('admin/company')->name('company.')->group(func
 
     Route::get('/leads/{company}', [App\Http\Controllers\LeadsController::class, 'leads'])->name('leads');
     Route::get('/payments/{company}', [App\Http\Controllers\CompanyController::class, 'payments'])->name('payments');
+
 
     Route::get('/assignment/{company}/{state}/interstate', [App\Http\Controllers\CompanyController::class, 'assignmentstoragestatesinterstate'])->name('assignmentstoragestatesinterstate');
     Route::get('/assignment/{company}/{state}/international', [App\Http\Controllers\CompanyController::class, 'assignmentsstateinternational'])->name('assignmentsstateinternational');
@@ -207,6 +212,9 @@ Route::middleware('auth')->prefix('admin/company')->name('company.')->group(func
 
 
     Route::get('export/', [App\Http\Controllers\CompanyController::class, 'export'])->name('export');
+
+
+
 
 // Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });

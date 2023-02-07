@@ -40,8 +40,31 @@
                             @foreach ($payments as $payment)
                             <tr>
                                 <td>{{ $payment->id }}</td>
-                                <td>{{ $payment->ld_qty }}</td>
-                                <td>${{ number_format($payment->tot_amnt, 2) }}</td>
+                                <td>
+                                    <form method="POST" action="{{ route('ldqtyprice') }}">
+                                        @csrf
+
+                                        <input type="number" class="form-control form-control-user" id="ld_qty"
+                                            placeholder="Lead Quantity" name="ld_qty"
+                                            value="{{ old('ld_qty', $payment->ld_qty) }}">
+
+                                            <input type="hidden" value="{{ $payment->id }}" name="id" id="id">
+                                            <input type="hidden" value="{{ $company->id }}" name="cmp_id" id="cmp_id">
+                                        </form>
+                                </td>
+                                <td>
+                                    <form method="POST" action="{{ route('totamntpayment') }}">
+                                        @csrf
+
+                                        <input type="number" class="form-control form-control-user" id="tot_amnt"
+                                            placeholder="Total Amount" name="tot_amnt"
+                                            value="{{ old('tot_amnt', number_format($payment->tot_amnt, 2)) }}">
+
+                                        <input type="hidden" value="{{ $payment->id }}" name="id" id="id">
+                                        <input type="hidden" value="{{ $company->id }}" name="cmp_id" id="cmp_id">
+
+                                    </form>
+                                </td>
                                 <td>{{ $payment->created_at }}</td>
                                 </tr>
                             @endforeach
