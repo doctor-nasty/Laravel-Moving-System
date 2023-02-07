@@ -1028,6 +1028,15 @@ class CompanyController extends Controller
         return Excel::download(new companysExport, 'companys.xlsx');
     }
 
+    public function payments($id)
+    {
+        $company = Company::findOrFail($id);
+
+        $payments = DB::table('payments')->get();
+
+        return view('admin.company.payments', compact('company', 'payments'));
+    }
+
 
 
 
