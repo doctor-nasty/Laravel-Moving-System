@@ -39,9 +39,9 @@
                         <thead>
                             <tr>
                                 <th width="20%">Name</th>
-                                <th width="25%">Website</th>
-                                <th width="15%">Address</th>
-                                <th width="15%">Phone Number</th>
+                                {{-- <th width="25%">Website</th> --}}
+                                {{-- <th width="15%">Address</th> --}}
+                                {{-- <th width="15%">Phone Number</th> --}}
                                 <th width="15%">Status</th>
                                 <th width="10%">Action</th>
                             </tr>
@@ -50,9 +50,9 @@
                             @foreach ($company as $comp)
                                 <tr>
                                     <td>{{ $comp->name }}</td>
-                                    <td>{{ $comp->website }}</td>
-                                    <td>{{ $comp->state }}, {{ $comp->zip }}</td>
-                                    <td>{{ $comp->phonenumber }}</td>
+                                    {{-- <td>{{ $comp->website }}</td> --}}
+                                    {{-- <td>{{ $comp->state }}, {{ $comp->zip }}</td> --}}
+                                    {{-- <td>{{ $comp->phonenumber }}</td> --}}
                                     <td>
                                         @if ($comp->status == 0)
                                             <span class="badge badge-danger">Inactive</span>
@@ -94,6 +94,9 @@
                                         </a>
                                         <a class="btn btn-leads m-2" href="{{ route('company.leads', ['company' => $comp->id]) }}">
                                             <i class="fa-solid fa-envelopes-bulk"></i>
+                                        </a>
+                                        <a class="btn btn-primary m-2" href="{{ route('company.payments', ['company' => $comp->id]) }}">
+                                            <i class="fa-solid fa-credit-card"></i>
                                         </a>
                                     </td>
                                 </tr>

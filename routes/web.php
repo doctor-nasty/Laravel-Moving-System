@@ -161,6 +161,7 @@ Route::middleware('auth')->prefix('admin/company')->name('company.')->group(func
     Route::get('/assignment/{company}/storage', [App\Http\Controllers\CompanyController::class, 'assignmentstorage'])->name('assignmentstorage');
 
     Route::get('/leads/{company}', [App\Http\Controllers\LeadsController::class, 'leads'])->name('leads');
+    Route::get('/payments/{company}', [App\Http\Controllers\CompanyController::class, 'payments'])->name('payments');
 
     Route::get('/assignment/{company}/{state}/interstate', [App\Http\Controllers\CompanyController::class, 'assignmentstoragestatesinterstate'])->name('assignmentstoragestatesinterstate');
     Route::get('/assignment/{company}/{state}/international', [App\Http\Controllers\CompanyController::class, 'assignmentsstateinternational'])->name('assignmentsstateinternational');

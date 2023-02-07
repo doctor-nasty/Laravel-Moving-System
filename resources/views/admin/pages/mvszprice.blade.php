@@ -27,49 +27,56 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Company</th>
-                            <th scope="col">Service</th>
                             <th scope="col">Price</th>
                         </tr>
                     </thead>
                     <tbody>
-
+                        @php
+                            $tmp_hd = NULL;
+                        @endphp
                         @foreach ($jct_svc_mvsz as $mvsz)
+                            @if ($mvsz->svc_id != $tmp_hd)
+                                <tr>
+                                    <td colspan="2">
+                                        <h3>
+                                            @switch($mvsz->svc_id)
+                                                @case(1)
+                                                    Interstate
+                                                @break
+
+                                                @case(2)
+                                                    International
+                                                @break
+
+                                                @case(3)
+                                                    Car Shipping
+                                                @break
+
+                                                @case(4)
+                                                    Storage
+                                                @break
+                                            @endswitch
+                                        </h3>
+                                    </td>
+                                </tr>
+                                @php
+
+                                    $tmp_hd = $mvsz->svc_id;
+                                @endphp
+                            @endif
                             <tr>
-                                <th scope="row">{{ $mvsz->id }}</th>
                                 <td>{{ $mvsz->name }}</td>
-                                <td>{{ $mvsz->cmp_name }}</td>
                                 <td>
-                                    @switch($mvsz->svc_id)
-                                        @case(1)
-                                            Interstate
-                                        @break
+                                    <form method="POST" action="{{ route('mvszupdateprice') }}">
+                                        @csrf
 
-                                        @case(2)
-                                            International
-                                        @break
+                                        <input type="number" class="form-control form-control-user" id="price"
+                                            placeholder="Price" name="price"
+                                            value="{{ old('price', number_format($mvsz->price, 2)) }}">
 
-                                        @case(3)
-                                            Car Shipping
-                                        @break
-
-                                        @case(4)
-                                            Storage
-                                        @break
-                                    @endswitch
-                                </td>
-                                <td>
-                                    <form method="POST"
-                                    action="{{ route('mvszupdateprice') }}">
-                                    @csrf
-
-                                        <input type="text" class="form-control form-control-user" id="price"
-                                            placeholder="Price" name="price" value="{{old('price', number_format($mvsz->price, 2))}}">
-
-                                            <input type="hidden" value="{{ $mvsz->id }}" name="id" id="id">
-                                </form>
+                                        <input type="hidden" value="{{ $mvsz->id }}" name="id" id="id">
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
