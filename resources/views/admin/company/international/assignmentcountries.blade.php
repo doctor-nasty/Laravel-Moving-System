@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Company Assignment')
+@section('title', 'Country Assignment')
 
 @section('content')
 
@@ -8,8 +8,8 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Company Assignment</h1>
-            <a href="{{ route('company.index') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+            <h1 class="h3 mb-0 text-gray-800">Country Assignment</h1>
+            <a href="{{ route('company.assignmentinternational', ['company' => $company->id]) }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                     class="fas fa-arrow-left fa-sm text-white-50"></i> Back</a>
         </div>
 
@@ -34,19 +34,16 @@
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active show" id="Storage">
                         <div class="row">
-                            <form id="cntyselectform" method="POST"
-                                action="">
-                                @csrf
                                 <div class="col-lg-12 mb-3 mt-3 mb-sm-0">
-                                    <h3>Please select counties in {{ $st }}</h3>
+                                    <h3>Please select countries in {{ $cnt }}</h3>
                                     <div name="cntSelect[]" id="cntSelect">
                                         <ul>
-                                            @foreach ($counties as $county)
+                                            @foreach ($countries as $country)
                                                 <li>
-                                                    <input class="checkItinternat" type="checkbox" id="cnty_id" name="cnty_id"
-                                                        value="{{ $county->id }}"
-                                                        @foreach ($jct_fr_cnty_internat as $jct) @if ($jct->cnty_id == $county->id) checked @endif @endforeach>
-                                                    {{ $county->county }}
+                                                    <input class="checkIttocntry" type="checkbox" id="cnty_id" name="cnty_id"
+                                                        value="{{ $country->id }}"
+                                                        @foreach ($jct_to_cntry as $jct) @if ($jct->cntry_id == $country->id) checked @endif @endforeach>
+                                                    {{ $country->country }}
                                                 </li>
                                             @endforeach
                                         </ul>
@@ -54,7 +51,6 @@
                                     <input type="hidden" value="{{ $company->id }}" name="cmp_id" id="cmp_id">
                                     <input type="hidden" value="2" name="svc_id" id="svc_id">
                                 </div>
-                            </form>
 
 
                         </div>
@@ -66,17 +62,16 @@
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
     <script>
-        $('.checkItinternat').on('click', function() {
-            let cnty_id = $(this).val();
+        $('.checkIttocntry').on('click', function() {
+            let cntry_id = $(this).val();
 
             if ($(this).is(":checked")) {
                 $.ajax({
                     type: "POST",
-                    url: '{{ url('admin/company/assignment/international/cntys') }}',
+                    url: '{{ url('admin/company/assignment/international/tocntry') }}',
                     data: {
-                        'cnty_id': cnty_id,
+                        'cntry_id': cntry_id,
                         'cmp_id': $("#cmp_id").val(),
-                        'svc_id': $("#svc_id").val(),
                         _token: '{{ csrf_token() }}'
                     }
                 }).done(function(result) {
@@ -85,11 +80,10 @@
             } else {
                 $.ajax({
                     type: "DELETE",
-                    url: '{{ url('admin/company/assignment/international/cntysrem') }}',
+                    url: '{{ url('admin/company/assignment/international/tocntryrem') }}',
                     data: {
-                        'cnty_id': cnty_id,
+                        'cntry_id': cntry_id,
                         'cmp_id': $("#cmp_id").val(),
-                        'svc_id': $("#svc_id").val(),
                         _token: '{{ csrf_token() }}'
                     }
                 })

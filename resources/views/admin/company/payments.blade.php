@@ -24,6 +24,19 @@
 
         </div>
         <div class="row">
+            <div class="card">
+            <h3>Add Payment</h3>
+            <form method="POST" action="{{ route('addpayment') }}">
+                @csrf
+                <input class="form-control form-control-user" type="tel" step="any" maxlength="6" placeholder="Lead Quantity" name="ld_qty" id="ld_qty" required>
+                <input class="form-control form-control-user" type="tel" step="any" maxlength="6" placeholder="Total Amount" name="tot_amnt" id="tot_amnt" required>
+
+                <input type="hidden" name="cmp_id" id="cmp_id" value="{{ $company->id }}">
+                <button class="btn btn-primary">Add Payment</button>
+            </form>
+            </div>
+        </div>
+        <div class="row">
             <div class="card shadow col-lg-12">
 
                 <div class="tab-content">
@@ -44,7 +57,7 @@
                                     <form method="POST" action="{{ route('ldqtyprice') }}">
                                         @csrf
 
-                                        <input type="number" class="form-control form-control-user" id="ld_qty"
+                                        <input type="tel" step="any" maxlength="6"  class="form-control form-control-user" id="ld_qty"
                                             placeholder="Lead Quantity" name="ld_qty"
                                             value="{{ old('ld_qty', $payment->ld_qty) }}">
 
@@ -56,7 +69,7 @@
                                     <form method="POST" action="{{ route('totamntpayment') }}">
                                         @csrf
 
-                                        <input type="number" class="form-control form-control-user" id="tot_amnt"
+                                        <input type="tel" step="any" maxlength="6" class="form-control form-control-user" id="tot_amnt"
                                             placeholder="Total Amount" name="tot_amnt"
                                             value="{{ old('tot_amnt', number_format($payment->tot_amnt, 2)) }}">
 

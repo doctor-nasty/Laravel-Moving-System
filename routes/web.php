@@ -150,11 +150,15 @@ Route::get('/search/leads/{company}', 'App\Http\Controllers\LeadsController@sear
 Route::post('/payments/totamnt', [App\Http\Controllers\CompanyController::class, 'paymentupdatetotamnt'])->name('totamntpayment');
 Route::post('/payments/ldqty', [App\Http\Controllers\CompanyController::class, 'paymentupdateldqty'])->name('ldqtyprice');
 
+Route::post('/payments', [App\Http\Controllers\AdminController::class, 'addpayment'])->name('addpayment');
+
 
 Route::middleware('auth')->prefix('admin')->group(function(){
     Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('home');
     Route::get('/prices/mvsz', [App\Http\Controllers\AdminController::class, 'mvszprice'])->name('mvszprice');
     Route::post('/prices/mvsz', [App\Http\Controllers\AdminController::class, 'mvszupdateprice'])->name('mvszupdateprice');
+    Route::post('/prices/mvsz/strg', [App\Http\Controllers\AdminController::class, 'mvszupdatepricestrg'])->name('mvszupdatepricestrg');
+    Route::post('/prices/mvsz/car', [App\Http\Controllers\AdminController::class, 'mvszupdatepricecar'])->name('mvszupdatepricecar');
 });
 
 Route::middleware('auth')->prefix('admin/company')->name('company.')->group(function(){
@@ -170,6 +174,9 @@ Route::middleware('auth')->prefix('admin/company')->name('company.')->group(func
 
     Route::get('/assignment/{company}/{state}/interstate', [App\Http\Controllers\CompanyController::class, 'assignmentstoragestatesinterstate'])->name('assignmentstoragestatesinterstate');
     Route::get('/assignment/{company}/{state}/international', [App\Http\Controllers\CompanyController::class, 'assignmentsstateinternational'])->name('assignmentsstateinternational');
+    Route::get('/assignment/international/{company}/{continent}', [App\Http\Controllers\CompanyController::class, 'assignmentscontinentinternational'])->name('assignmentscontinentinternational');
+
+
     Route::get('/assignment/{company}/{state}/carshipping', [App\Http\Controllers\CompanyController::class, 'assignmentsstatecarshipping'])->name('assignmentsstatecarshipping');
     Route::get('/assignment/{company}/{state}/storage', [App\Http\Controllers\CompanyController::class, 'assignmentstoragestates'])->name('assignmentstoragestates');
 
@@ -194,7 +201,8 @@ Route::middleware('auth')->prefix('admin/company')->name('company.')->group(func
     Route::delete('/assignment/international/cntysrem', [App\Http\Controllers\CompanyController::class, 'postcntyinterstaterem'])->name('cntyinternatrem');
     Route::post('/assignment/international/mvsz', [App\Http\Controllers\CompanyController::class, 'postmvszinterstate'])->name('mvszinternat');
     Route::delete('/assignment/international/mvszrem', [App\Http\Controllers\CompanyController::class, 'postmvszinterstaterem'])->name('mvszinternatrem');
-    Route::post('/assignment/international/tocntry', [App\Http\Controllers\CompanyController::class, 'posttocntry'])->name('tocntry');
+    Route::post('/assignment/international/tocntry', [App\Http\Controllers\CompanyController::class, 'posttocntryinternat'])->name('posttocntryinternat');
+
     Route::delete('/assignment/international/tocntryrem', [App\Http\Controllers\CompanyController::class, 'posttocntryrem'])->name('tocntryrem');
 
     Route::post('/assignment/storage/cntys', [App\Http\Controllers\CompanyController::class, 'postcntyinterstate'])->name('cntystrg');

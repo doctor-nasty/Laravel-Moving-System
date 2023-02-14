@@ -9,7 +9,7 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Company Assignment</h1>
-            <a href="{{ route('company.index') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+            <a href="{{ route('company.index') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm bkbtn"><i
                     class="fas fa-arrow-left fa-sm text-white-50"></i> Back</a>
         </div>
 
@@ -21,8 +21,6 @@
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Assign Services to {{ $company->name }}</h6>
             </div>
-
-
         </div>
         <div class="row">
             <div class="card shadow col-lg-12">
@@ -59,30 +57,54 @@
 
 
                         </div>
-                        <div class="row">
 
-                                @csrf
-                                <div class="col-lg-12 mb-3 mt-3 mb-sm-0">
-                                    <h3>Select pickup counties in </h3>
-                                        <ul class="astates">
-                                            @foreach ($allowedstates as $astate)
-                                            <li id="astates">
-                                                <a href="{{ url('admin/company/assignment/' . $company->id . '/' . $astate->state_code . '/interstate') }}" id="allowedstateslist" name="allowedstateslist"
-                                                    value="{{ $astate->id }}" class="nav-link d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
-                                                    @foreach ($jct_cmp_st as $jct) @if ($jct->st_id == $astate->id) checked @endif @endforeach>
-                                                {{ $astate->state_code }}</a>
-                                            </li>
-                                        @endforeach
-                                        </ul>
-                                    <input type="hidden" value="{{ $company->id }}" name="cmp_id" id="cmp_id">
-                                    <input type="hidden" value="1" name="svc_id" id="svc_id">
-                                </div>
+                        <div class="row" id="slcnty">
 
-                                <div id="selectedSt">
-                                    @foreach ($jct_fr_cnty as $cnty)
-                                        {{$cnty}}
+                            @csrf
+                            <div class="col-lg-12 mb-3 mt-3 mb-sm-0">
+                                <h3>Pickup Counties</h3>
+                                @php
+                                    $tmp_hd = null;
+                                @endphp
+
+                                @foreach ($selectedCntys as $cnty)
+                                    @if ($cnty->state_code != $tmp_hd)
+                            </div>
+                            <div class="column">
+                                <h4>
+                                    {{ $cnty->state_code }}
+                                </h4>
+                                <span>
+                                    @php
+
+                                        $tmp_hd = $cnty->state_code;
+                                    @endphp
+                                    @endif
+
+                                    <p class="cnty">{{ $cnty->county }}</p>
                                     @endforeach
-                                </div>
+                                </span>
+                            </div>
+                            <div class="clear"></div>
+                            <ul class="astates">
+                                @foreach ($as as $astate)
+                                    <li id="astates">
+                                        <a href="{{ url('admin/company/assignment/' . $company->id . '/' . $astate->state_code . '/interstate') }}"
+                                            id="allowedstateslist" name="allowedstateslist" value="{{ $astate->id }}"
+                                            class="nav-link d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+                                            @foreach ($jct_cmp_st as $jct) @if ($jct->st_id == $astate->id) checked @endif @endforeach>
+                                            {{ $astate->state_code }}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                            <input type="hidden" value="{{ $company->id }}" name="cmp_id" id="cmp_id">
+                            <input type="hidden" value="1" name="svc_id" id="svc_id">
+
+                            <div id="selectedSt">
+                                @foreach ($jct_fr_cnty as $cnty)
+                                    {{ $cnty }}
+                                @endforeach
+                            </div>
                         </div>
 
                         <div class="row">
@@ -121,9 +143,9 @@
                                             @foreach ($states as $state)
                                                 <li>
                                                     <input class="checkIttost" type="checkbox" id="st_id" name="st_id"
-                                                        value="{{ $state->zipcode }}"
-                                                        @foreach ($jct_to_stt as $jct) @if ($jct->st_id == $state->zipcode) checked @endif @endforeach>
-                                                    {{ $state->z_state_code }}
+                                                        value="{{ $state->id }}"
+                                                        @foreach ($jct_to_stt as $jct) @if ($jct->st_id == $state->id) checked @endif @endforeach>
+                                                    {{ $state->state_code }}
                                                 </li>
                                             @endforeach
                                             <input type="hidden" value="{{ $company->id }}" name="cmp_id"
@@ -143,65 +165,66 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
 
 
-<script>
-    $('.checkItmvsz').on('click', function() {
-        let mvsz_id = $(this).val();
+    <script>
+        $('.checkItmvsz').on('click', function() {
+            let mvsz_id = $(this).val();
 
-        if ($(this).is(":checked")) {
-            $.ajax({
-                type: "POST",
-                url: '{{ url('admin/company/assignment/interstate/mvsz') }}',
-                data: {
-                    'mvsz_id': mvsz_id,
-                    'cmp_id': $("#cmp_id").val(),
-                    'svc_id': $("#svc_id").val(),
-                    _token: '{{ csrf_token() }}'
-                }
-            }).done(function(result) {
-                console.log(result);
-            });
-        } else {
-            $.ajax({
-                type: "DELETE",
-                url: '{{ url('admin/company/assignment/interstate/mvszrem') }}',
-                data: {
-                    'mvsz_id': mvsz_id,
-                    _token: '{{ csrf_token() }}'
-                }
-            })
-        }
-    });
-</script>
+            if ($(this).is(":checked")) {
+                $.ajax({
+                    type: "POST",
+                    url: '{{ url('admin/company/assignment/interstate/mvsz') }}',
+                    data: {
+                        'mvsz_id': mvsz_id,
+                        'cmp_id': $("#cmp_id").val(),
+                        'svc_id': $("#svc_id").val(),
+                        _token: '{{ csrf_token() }}'
+                    }
+                }).done(function(result) {
+                    console.log(result);
+                });
+            } else {
+                $.ajax({
+                    type: "DELETE",
+                    url: '{{ url('admin/company/assignment/interstate/mvszrem') }}',
+                    data: {
+                        'mvsz_id': mvsz_id,
+                        'cmp_id': $("#cmp_id").val(),
+                        'svc_id': $("#svc_id").val(),
+                        _token: '{{ csrf_token() }}'
+                    }
+                })
+            }
+        });
+    </script>
 
-<script>
-    $('.checkIttost').on('click', function() {
-        let st_id = $(this).val();
+    <script>
+        $('.checkIttost').on('click', function() {
+            let st_id = $(this).val();
 
-        if ($(this).is(":checked")) {
-            $.ajax({
-                type: "POST",
-                url: '{{ url('admin/company/assignment/interstate/tost') }}',
-                data: {
-                    'st_id': st_id,
-                    'cmp_id': $("#cmp_id").val(),
-                    'svc_id': $("#svc_id").val(),
-                    _token: '{{ csrf_token() }}'
-                }
-            }).done(function(result) {
-                console.log(result);
-            });
-        } else {
-            $.ajax({
-                type: "DELETE",
-                url: '{{ url('admin/company/assignment/interstate/tostrem') }}',
-                data: {
-                    'st_id': st_id,
-                    'cmp_id': $("#cmp_id").val(),
-                    _token: '{{ csrf_token() }}'
-                }
-            })
-        }
-    });
-</script>
-
+            if ($(this).is(":checked")) {
+                $.ajax({
+                    type: "POST",
+                    url: '{{ url('admin/company/assignment/interstate/tost') }}',
+                    data: {
+                        'st_id': st_id,
+                        'cmp_id': $("#cmp_id").val(),
+                        'svc_id': $("#svc_id").val(),
+                        _token: '{{ csrf_token() }}'
+                    }
+                }).done(function(result) {
+                    console.log(result);
+                });
+            } else {
+                $.ajax({
+                    type: "DELETE",
+                    url: '{{ url('admin/company/assignment/interstate/tostrem') }}',
+                    data: {
+                        'st_id': st_id,
+                        'cmp_id': $("#cmp_id").val(),
+                        _token: '{{ csrf_token() }}'
+                    }
+                })
+            }
+        });
+    </script>
 @endsection

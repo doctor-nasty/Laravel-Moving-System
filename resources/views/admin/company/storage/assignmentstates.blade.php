@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Company Assignment')
 
@@ -14,7 +14,7 @@
         </div>
 
         {{-- Alert Messages --}}
-        @include('common.alert')
+        @include('admin.common.alert')
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -83,7 +83,7 @@
             if ($(this).is(":checked")) {
                 $.ajax({
                     type: "POST",
-                    url: '{{ url('company/assignment/storage/cntys') }}',
+                    url: '{{ url('admin/company/assignment/storage/cntys') }}',
                     data: {
                         'cnty_id': cnty_id,
                         'cmp_id': $("#cmp_id").val(),
@@ -96,9 +96,11 @@
             } else {
                 $.ajax({
                     type: "DELETE",
-                    url: '{{ url('company/assignment/storage/cntysrem') }}',
+                    url: '{{ url('admin/company/assignment/storage/cntysrem') }}',
                     data: {
                         'cnty_id': cnty_id,
+                        'cmp_id': $("#cmp_id").val(),
+                        'svc_id': $("#svc_id").val(),
                         _token: '{{ csrf_token() }}'
                     }
                 })

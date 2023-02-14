@@ -71,7 +71,7 @@
                                     <form method="POST" action="{{ route('mvszupdateprice') }}">
                                         @csrf
 
-                                        <input type="number" class="form-control form-control-user" id="price"
+                                        <input type="number" step="any" class="form-control form-control-user" id="price"
                                             placeholder="Price" name="price"
                                             value="{{ old('price', number_format($mvsz->price, 2)) }}">
 
@@ -80,6 +80,56 @@
                                 </td>
                             </tr>
                         @endforeach
+
+                        <tr>
+                            <td colspan="2">
+                                <h3>
+                                Car
+                                </h3>
+                            </td>
+                        </tr>
+                        @foreach ($jct_svc_car as $car)
+
+                    <tr>
+                        <td>{{ $car->name }}</td>
+                        <td>
+                            <form method="POST" action="{{ route('mvszupdatepricecar') }}">
+                                @csrf
+
+                                <input type="number" step="any" class="form-control form-control-user" id="price"
+                                    placeholder="Price" name="price"
+                                    value="{{ old('price', number_format($car->price, 2)) }}">
+
+                                <input type="hidden" value="{{ $car->id }}" name="id" id="id">
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+
+                <tr>
+                    <td colspan="2">
+                        <h3>
+                        Storage
+                        </h3>
+                    </td>
+                </tr>
+                @foreach ($jct_svc_strg as $strg)
+
+            <tr>
+                <td>{{ $strg->name }}</td>
+                <td>
+                    <form method="POST" action="{{ route('mvszupdatepricestrg') }}">
+                        @csrf
+
+                        <input type="number" step="any" class="form-control form-control-user" id="price"
+                            placeholder="Price" name="price"
+                            value="{{ old('price', number_format($strg->price, 2)) }}">
+
+                        <input type="hidden" value="{{ $strg->id }}" name="id" id="id">
+                    </form>
+                </td>
+            </tr>
+        @endforeach
                     </tbody>
                 </table>
             </div>
