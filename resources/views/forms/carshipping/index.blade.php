@@ -252,15 +252,15 @@
         });
     </script>
 
-        <input type="hidden" name="cityto2" id="cityto3" value="{{ old('cityto3') }}">
-        <input type="hidden" name="cityfrom2" id="cityfrom3" value="{{ old('cityfrom3') }}">
+        <input type="hidden" name="cityto3" id="cityto3" value="{{ old('cityto3') }}">
+        <input type="hidden" name="cityfrom3" id="cityfrom3" value="{{ old('cityfrom3') }}">
 
     {{-- <div class="col-12 d-none">
         <input type="text" id="others-moving-form-botcheck" name="others-moving-form-botcheck" value="" />
     </div> --}}
     <div class="col-12">
         <button type="submit" name="others-moving-form-submit"
-            class="btn bg-color text-white fw-medium w-100 py-2 mt-2" tabindex=7><i>Next >></i></button>
+            class="btn btn-color text-blue fw-medium w-100 py-2 mt-2" tabindex=7><i>Next >></i></button>
     </div>
 
 </form>

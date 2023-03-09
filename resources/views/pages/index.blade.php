@@ -7,11 +7,11 @@
     <section id="slider" class="slider-element bg-color">
         <div class="container mt-4" style="z-index: 2">
             <div class="center">
-                <h2 class="text-white h2 fw-semibold mb-2">Welcome to MOVINGWYZE.COM</h2>
-                <p class="text-white-50">One Stop Shop For Relocation Needs</p>
+                <h2 class="text-blue h2 fw-semibold mb-2">MovingWyze.com</h2>
+                <p class="text-blue">Everything You Need For Relocation</p>
             </div>
 
-            <div class="row justify-content-center">
+            <div class="row justify-content-center formscontent">
                 <div class="col-lg-6">
                     <p class="text-white-50">Find Out Everything You Need To Know For Your Upcoming Move. Start Here:</p>
                     <ul class="nav nav-tabs nav-fill flex-column border-bottom-0 flex-md-row bg-color mt-4" role="tablist" id="tabs" data-tabs="tabs">
@@ -69,9 +69,9 @@
 })
 </script> --}}
 
-                <div class="col-lg-5 d-none d-lg-flex flex-wrap justify-content-center">
+                {{-- <div class="col-lg-5 d-none d-lg-flex flex-wrap justify-content-center">
                     <img src="{{ asset('images/2.svg') }}" alt="Image 1" class="d-flex align-self-end ms-5 mt-3">
-                </div>
+                </div> --}}
             </div>
         </div>
         <div class="svg-separator">
@@ -390,35 +390,13 @@
                 <div class="container">
                     <img src="images/svg/map.png" alt="Map Image" class="img-fluid map-image">
                     <div class="map-title">
-                        <h2 class="center">More than 10 States included in Our Network. Some of Our Most Popular Countries
+                        <h2 class="center">More than 10 States included in Our Network.
                         </h2>
                         <div class="d-flex justify-content-center">
                             <ul class="iconlist m-0 pe-5">
-                                <li><img src="" alt="Country Flag"><a href="#">California</a>
-                                </li>
-                                <li><img src="" alt="Country Flag"><a href="#">Colorado</a></li>
-                                <li><img src="" alt="Country Flag"><a href="#">Massachusetts</a>
-                                </li>
-                                <li><img src="" alt="Country Flag"><a href="#">Connecticut</a>
-                                </li>
-                                <li><img src="" alt="Country Flag"><a href="#">New York</a></li>
-                                <li><img src="" alt="Country Flag"><a href="#">Florida</a></li>
-                                <li><img src="" alt="Country Flag"><a href="#">Illinois</a></li>
-                            </ul>
-                            <ul class="iconlist m-0 ps-5">
-                                <li><img src="" alt="Country Flag"><a href="#">New Jersey</a>
-                                </li>
-                                <li><img src="" alt="Country Flag"><a href="#">Pennsylvania</a>
-                                </li>
-                                <li><img src="" alt="Country Flag"><a href="#">Virginia</a></li>
-                                <li><img src="" alt="Country Flag"><a href="#">North
-                                        Carolina</a></li>
-                                <li><img src="" alt="Country Flag"><a href="#">Georgia</a></li>
-                                <li><img src="" alt="Country Flag"><a href="#">South
-                                        Carolina</a></li>
-                                <li><img src="" alt="Country Flag"><a href="#">Tennessee</a>
-                                </li>
-                                <li><a href="#" class="text-black-50">See all..</a></li>
+                                @foreach ($states as $state)
+                                <li><a href="#">{{$state->state_name}}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -428,25 +406,25 @@
                         <div class="col-sm-3 col-6 center">
                             <div class="counter-dots"></div>
                             <div class="counter font-secondary"><span data-from="100" data-to="11000"
-                                    data-refresh-interval="50" data-speed="2100" data-comma="true"></span>+</div>
+                                    data-refresh-interval="50" data-speed="2100" data-comma="true"></span>100+</div>
                             <h5 class="text-capitalize ls0 mt-0"><u>Moved Monthly</u></h5>
                         </div>
                         <div class="col-sm-3 col-6 center">
                             <div class="counter-dots"></div>
                             <div class="counter font-secondary"><span data-from="3" data-to="26"
-                                    data-refresh-interval="50" data-speed="2200" data-comma="true"></span>+</div>
+                                    data-refresh-interval="50" data-speed="2200" data-comma="true"></span>10+</div>
                             <h5 class="text-capitalize ls0 mt-0"><u>Years of Experience</u></h5>
                         </div>
                         <div class="col-sm-3 col-6 center">
                             <div class="counter-dots"></div>
                             <div class="counter font-secondary"><span data-from="100" data-to="6000"
-                                    data-refresh-interval="25" data-speed="2300" data-comma="true"></span>+</div>
+                                    data-refresh-interval="25" data-speed="2300" data-comma="true"></span>100+</div>
                             <h5 class="text-capitalize ls0 mt-0"><u>Trained Manpower</u></h5>
                         </div>
                         <div class="col-sm-3 col-6 center">
                             <div class="counter-dots"></div>
                             <div class="counter font-secondary"><span data-from="1" data-to="21"
-                                    data-refresh-interval="10" data-speed="2100" data-comma="true"></span>+</div>
+                                    data-refresh-interval="10" data-speed="2100" data-comma="true"></span>100+</div>
                             <h5 class="text-capitalize ls0 mt-0"><u>Countries Worldwide</u></h5>
                         </div>
                     </div>
@@ -527,64 +505,6 @@
                         <div class="grid-bg d-none d-md-block">
                             <img src="{{ asset('images/dot-grid.svg') }}" alt="Dot Image">
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container mb-5">
-                <div class="section-clients mx-auto" style="max-width: 700px">
-                    <div class="center clearfix mb-4">
-                        <span
-                            class="badge rounded-pill lightthemecolor color text-uppercase ls1 fw-medium py-2 px-3">WeÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ve
-                            valuable Organizations Since 2021</span>
-                    </div>
-                    <div class="clear"></div>
-                    <div class="toggle mt-5" data-state="open">
-                        <div class="toggle-header flex-row-reverse">
-                            <div class="toggle-icon">
-                                <i class="toggle-closed icon-line-circle-plus"></i>
-                                <i class="toggle-open icon-line-circle-cross"></i>
-                            </div>
-                            <div class="toggle-title fw-medium">
-                                Why Canvas for Home Shifting?
-                            </div>
-                        </div>
-                        <div class="toggle-content text-black-50">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Assumenda, dolorum, vero ipsum molestiae minima odio quo voluptate illum excepturi quam cum
-                            voluptates doloribus quae nisi tempore necessitatibus dolores ducimus enim libero eaque
-                            explicabo suscipit animi at quaerat aliquid ex expedita perspiciatis? Saepe, aperiam, nam unde
-                            quas beatae vero vitae nulla.</div>
-                    </div>
-                    <div class="toggle">
-                        <div class="toggle-header flex-row-reverse">
-                            <div class="toggle-icon">
-                                <i class="toggle-closed icon-line-circle-plus"></i>
-                                <i class="toggle-open icon-line-circle-cross"></i>
-                            </div>
-                            <div class="toggle-title fw-medium">
-                                Advanced Moving Equipments
-                            </div>
-                        </div>
-                        <div class="toggle-content text-black-50">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Assumenda, dolorum, vero ipsum molestiae minima odio quo voluptate illum excepturi quam cum
-                            voluptates doloribus quae nisi tempore necessitatibus dolores ducimus enim libero eaque
-                            explicabo suscipit animi at quaerat aliquid ex expedita perspiciatis? Saepe, aperiam, nam unde
-                            quas beatae vero vitae nulla.</div>
-                    </div>
-                    <div class="toggle border-0">
-                        <div class="toggle-header flex-row-reverse">
-                            <div class="toggle-icon">
-                                <i class="toggle-closed icon-line-circle-plus"></i>
-                                <i class="toggle-open icon-line-circle-cross"></i>
-                            </div>
-                            <div class="toggle-title fw-medium">
-                                Best Moving Equipments
-                            </div>
-                        </div>
-                        <div class="toggle-content text-black-50">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Assumenda, dolorum, vero ipsum molestiae minima odio quo voluptate illum excepturi quam cum
-                            voluptates doloribus quae nisi tempore necessitatibus dolores ducimus enim libero eaque
-                            explicabo suscipit animi at quaerat aliquid ex expedita perspiciatis? Saepe, aperiam, nam unde
-                            quas beatae vero vitae nulla.</div>
                     </div>
                 </div>
             </div>

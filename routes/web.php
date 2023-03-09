@@ -105,6 +105,9 @@ Route::get('/about', function () {
 
 
 Route::get('interstateForm/submit', 'App\Http\Controllers\Forms\InterstateController@submit')->name('interstatesubmit');
+Route::get('internationalForm/submit', 'App\Http\Controllers\Forms\InternationalController@submit')->name('internationalsubmit');
+Route::get('carshippingForm/submit', 'App\Http\Controllers\Forms\CarshippingController@submit')->name('carshippingsubmit');
+Route::get('storageForm/submit', 'App\Http\Controllers\Forms\StorageController@submit')->name('storagesubmit');
 
 
 // Route::get('/zip', 'App\Http\Controllers\ZipCodeController@index')->name('home');
@@ -218,6 +221,8 @@ Route::middleware('auth')->prefix('admin/company')->name('company.')->group(func
     Route::get('/update/status/{id}/{status}', [App\Http\Controllers\CompanyController::class, 'updateStatus'])->name('status');
 
 
+
+    Route::post('/upload-image', [App\Http\Controllers\CompanyController::class, 'storeImage'])->name('imagestore');
 
     Route::get('export/', [App\Http\Controllers\CompanyController::class, 'export'])->name('export');
 

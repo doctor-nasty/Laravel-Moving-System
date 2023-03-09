@@ -175,8 +175,10 @@ $("#intl_fr_zip").autocomplete({autoFocus: true},{
         </div>
     </div>
 
+    <input type="hidden" name="cityfrom" id="cityfrom2" value="{{ old('cityfrom') }}">
+
 
     <div class="col-12">
-        <button type="submit" class="btn bg-color text-white fw-medium w-100 py-2 mt-2">Next</button>
+        <button type="submit" class="btn btn-color text-white fw-medium w-100 py-2 mt-2">Next</button>
     </div>
 </form>

@@ -30,12 +30,13 @@
     --font-family-monospace:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace
 }
 *,::after,::before{
-    box-sizing:border-box
+    box-sizing:border-box;
 }
 .clear{
     width:100%;
-    /* height: 5px; */
+    height: 5px;
     background: #000;
+    display: inline-block;
 }
 .bkbtn {
     position: fixed;
@@ -198,7 +199,7 @@ button,input{
     overflow:visible
 }
 button,select{
-    text-transform:none
+    text-transform:none;
 }
 [role=button]{
     cursor:pointer
@@ -3333,7 +3334,7 @@ input[type=button].btn-block,input[type=reset].btn-block,input[type=submit].btn-
     flex-direction:column;
     padding-left:0;
     margin-bottom:0;
-    list-style:none
+    list-style:none;
 }
 .navbar-nav .nav-link{
     padding-right:0;
@@ -8199,7 +8200,7 @@ a:focus{
     content:'\f107'
 }
 .sidebar .nav-item .nav-link,.topbar .nav-item .nav-link{
-    position:relative
+    position:relative;
 }
 .sidebar .nav-item .nav-link .badge-counter,.topbar .nav-item .nav-link .badge-counter{
     position:absolute;
@@ -8342,7 +8343,7 @@ a:focus{
     min-height:100vh
 }
 .sidebar .nav-item{
-    position:relative
+    position:relative;
 }
 .sidebar .nav-item:last-child{
     margin-bottom:1rem
@@ -8412,7 +8413,7 @@ a:focus{
     height:2.5rem;
     text-align:center;
     margin-bottom:1rem;
-    cursor:pointer
+    cursor:pointer;
 }
 .sidebar #sidebarToggle::after{
     font-weight:900;
@@ -8424,7 +8425,7 @@ a:focus{
     text-decoration:none
 }
 .sidebar #sidebarToggle:focus{
-    outline:0
+    outline:0;
 }
 .sidebar.toggled{
     width:0!important;
@@ -8537,7 +8538,7 @@ a:focus{
         font-family:'Font Awesome 5 Free'
     }
     .sidebar .nav-item .nav-link[data-toggle=collapse].collapsed::after{
-        content:'\f105'
+        content:'\f105';
     }
     .sidebar .sidebar-brand .sidebar-brand-icon i{
         font-size:2rem
@@ -8652,7 +8653,7 @@ a:focus{
     color:rgba(255,255,255,.4)
 }
 .sidebar-dark .nav-item .nav-link{
-    color:rgba(255,255,255,.8)
+    color:rgba(255,255,255,.8);
 }
 .sidebar-dark .nav-item .nav-link i{
     color:rgba(255,255,255,.3)
@@ -8664,7 +8665,7 @@ a:focus{
     color:#fff
 }
 .sidebar-dark .nav-item .nav-link[data-toggle=collapse]::after{
-    color:rgba(255,255,255,.5)
+    color:rgba(255,255,255,.5);
 }
 .sidebar-dark .nav-item.active .nav-link{
     color:#fff
@@ -8673,7 +8674,7 @@ a:focus{
     color:#fff
 }
 .sidebar-dark #sidebarToggle{
-    background-color:rgba(255,255,255,.2)
+    background-color:rgba(255,255,255,.2);
 }
 .sidebar-dark #sidebarToggle::after{
     color:rgba(255,255,255,.5)
@@ -9262,7 +9263,7 @@ input#ld_qty {
 }
 
 input#tot_amnt {
-    /* width: 10%; */
+    width: 20%;
     text-align: center;
 }
 
@@ -9297,4 +9298,11 @@ div#slcnty {
     margin: 1%;
     margin-bottom: 0;
     padding-bottom: 0;
+}
+
+
+.column {
+    float: left;
+    width: 14%;
+    min-height: 123px;
 }

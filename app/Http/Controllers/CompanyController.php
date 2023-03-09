@@ -32,6 +32,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
 use Symfony\Component\Console\Input\Input;
+use Image;
 
 class CompanyController extends Controller
 {
@@ -54,135 +55,13 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $company = Company::select('company.id', 'company.name', 'company.status')
+        $company = Company::select('company.id', 'company.name', 'company.status', 'company.created_at')
+        ->orderBy('company.id', 'asc')
         ->paginate(10);
 
-        // $payments = payments::select('payments.cmp_id', 'payments.ld_qty', 'payments.tot_amnt', 'payments.created_at as post_date')
-        // ->leftJoin('company', 'payments.cmp_id', 'company.id')
-        // ->orderBy('post_date', 'desc')
-        // ->first();
-
-        // return $payments;
         return view('admin.company.index', ['company' => $company]);
     }
 
-    // public function assignment($id)
-    // {
-    //     $company = Company::findOrFail($id);
-
-    //     $states = zipcodes::select('STATE_CODE as state_code', 'id')
-    //     ->where('state_code', '<>', '')
-    //     ->groupBy('state_code', 'id')
-    //     ->orderBy('state_code')
-    //     ->get('state_code', 'id')
-    //     ->unique('state_code');
-
-    //     $countries = Country::select('country', 'id')
-    //     ->groupBy('country', 'id')
-    //     ->orderBy('country')
-    //     ->get('country', 'id')
-    //     ->unique('country');
-
-
-    //     $counties = zipcodes::select(DB::raw('COUNTY as county, id, STATE_CODE as state_code'))
-    //     ->where('county', '<>', '')
-    //     ->where('state_code', '=', $company->state)
-    //     ->groupBy('county', 'id', 'state_code')
-    //     ->orderBy('county')
-    //     ->orderBy('id')
-    //     ->orderBy('state_code')
-    //     ->get()
-    //     ->unique('county');
-
-    //     $movesize = mvsz::orderBy('mvsz_id')
-    //     ->get();
-
-    //     $storages = storage::orderBy('id')
-    //     ->get();
-
-
-    //     $jct_fr_days = DB::table('jct_fr_days')
-    //     ->where('cmp_id', $id)
-    //     ->where('svc_id', '1')
-    //     ->first();
-
-    //     $jct_fr_days_car = DB::table('jct_fr_days')
-    //     ->where('cmp_id', $id)
-    //     ->where('svc_id', '3')
-    //     ->first();
-
-    //     $jct_fr_days_internat = DB::table('jct_fr_days')
-    //     ->where('cmp_id', $id)
-    //     ->where('svc_id', '2')
-    //     ->first();
-
-    //     $jct_fr_cnty = jct_fr_cnty::where('cmp_id', $id)
-    //     ->get()
-    //     ->unique('cnty_id');
-
-    //     $jct_fr_cnty_car = jct_fr_cnty::where('cmp_id', $id)
-    //     ->where('svc_id', '3')
-    //     ->get()
-    //     ->unique('cnty_id');
-
-    //     $jct_fr_cnty_internat = jct_fr_cnty::where('cmp_id', $id)
-    //     ->where('svc_id', '2')
-    //     ->get()
-    //     ->unique('cnty_id');
-
-    //     $jct_fr_cnty_strg = jct_fr_cnty::where('cmp_id', $id)
-    //     ->where('svc_id', '4')
-    //     ->get()
-    //     ->unique('cnty_id');
-
-    //     $jct_to_stt = jct_to_stt::where('cmp_id', $id)
-    //     ->get()
-    //     ->unique('st_id');
-
-    //     $jct_to_stt_car = jct_to_stt::where('cmp_id', $id)
-    //     ->where('svc_id', '3')
-    //     ->get()
-    //     ->unique('st_id');
-
-    //     $jct_to_cntry = jct_to_cntry::where('cmp_id', $id)
-    //     ->get()
-    //     ->unique('cntry_id');
-
-
-    //     $jct_svc_mvsz = jct_svc_mvsz::where('cmp_id', $id)
-    //     ->get();
-
-    //     $jct_svc_mvsz_internat = jct_svc_mvsz::where('cmp_id', $id)
-    //     ->where('svc_id', '2')
-    //     ->get();
-
-    //     $jct_svc_strg = jct_svc_strg::where('cmp_id', $id)
-    //     ->get();
-
-    //     // $movesize = DB::select('select mvsz_id, mvsz_name from mvsz');
-
-
-    //     return view('admin.company.assignment', ['jct_to_stt' => $jct_to_stt,
-    //     'jct_to_stt_car' => $jct_to_stt_car,
-    //     'jct_svc_mvsz' => $jct_svc_mvsz,
-    //     'jct_fr_cnty_strg' => $jct_fr_cnty_strg,
-    //      'jct_fr_cnty' => $jct_fr_cnty,
-    //      'jct_to_cntry' => $jct_to_cntry,
-    //      'jct_fr_cnty_car' => $jct_fr_cnty_car,
-    //      'jct_svc_strg' => $jct_svc_strg,
-    //      'storages' => $storages,
-    //      'jct_fr_cnty_internat' => $jct_fr_cnty_internat,
-    //      'jct_svc_mvsz_internat' => $jct_svc_mvsz_internat,
-    //      'jct_fr_days_internat' => $jct_fr_days_internat,
-    //        'company' => $company,
-    //        'jct_fr_days' => $jct_fr_days,
-    //        'jct_fr_days_car' => $jct_fr_days_car,
-    //          'id' => $id,
-    //           'states' => $states,
-    //           'counties' => $counties,
-    //           'countries' => $countries,
-    //             'movesize' => $movesize]);
-    // }
 
     public function assignmentstorage($id)
     {
@@ -934,20 +813,28 @@ class CompanyController extends Controller
             'address'    => 'required',
             'city'    => 'required',
             'state'    => 'required',
-            'zip'    => 'required',
+            'zip'    => 'required|numeric|digits:5',
             'phonenumber'    => 'required',
             'description'    => 'required',
             'usdot'    => 'required',
             'mcno'    => 'required',
-            'intrastate'    => 'required',
-            'fleetsize'    => 'required',
+            'logo' => 'required|image|mimes:png,jpg,jpeg|max:2048',
+            // 'intrastate'    => 'required',
+            // 'fleetsize'    => 'required',
             'email'         => 'required',
             'phonenumber' => 'required|numeric|digits:10',
             'status'       =>  'required|numeric|in:0,1',
         ]);
 
+
+
+
         DB::beginTransaction();
         try {
+
+
+            $imageName = time().'.'.$request->logo->extension();
+
 
             // Store Data
             $company = Company::create([
@@ -961,12 +848,21 @@ class CompanyController extends Controller
                 'description'    => $request->description,
                 'usdot'    => $request->usdot,
                 'mcno'    => $request->mcno,
+                'logo'    => $imageName,
                 'intrastate'    => $request->intrastate,
                 'fleetsize'    => $request->fleetsize,
                 'email'         => $request->email,
                 'phonenumber' => $request->phonenumber,
                 'status'       =>  $request->status,
             ]);
+
+
+            $request->logo->move(public_path('images/companies'), $imageName);
+
+
+            $company->save();
+
+            DB::commit();
 
             return redirect()->route('company.index')->with('success','company Created Successfully.');
 
@@ -1059,6 +955,7 @@ class CompanyController extends Controller
             'status'       =>  'required|numeric|in:0,1',
         ]);
 
+
         DB::beginTransaction();
         try {
 
@@ -1091,6 +988,40 @@ class CompanyController extends Controller
             DB::rollBack();
             return redirect()->back()->withInput()->with('error', $th->getMessage());
         }
+    }
+
+    public function storeImage(Request $request, Company $company)
+    {
+        $request->validate([
+            'logo' => 'required|image|mimes:png,jpg,jpeg|max:2048'
+        ]);
+
+        // $imageName = time().'.'.$request->logo->extension();
+
+        $image = $request->file('logo');
+        $input['imagename'] = time().'.'.$image->extension();
+
+
+        $destinationPath = public_path('images/companies');
+
+        $img = Image::make($image->path());
+
+        $img->resize(400, 200, function ($constraint) {
+            $constraint->aspectRatio();
+
+        })->save($destinationPath.'/'.$input['imagename']);
+
+
+        // Public Folder
+        // $request->logo->move(public_path('images/companies'), $imageName);
+
+        $company_updated = Company::whereId($company->id)->update([
+            'logo' => $input['imagename']
+        ]);
+
+
+        return back()->with('success', 'Image uploaded Successfully!')
+        ->with('logo', $input['imagename']);
     }
 
     /**

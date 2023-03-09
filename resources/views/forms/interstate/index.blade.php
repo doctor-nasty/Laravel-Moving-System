@@ -30,26 +30,6 @@
                   id="inst_fr_zip" placeholder="Moving From (zip)" name="inst_fr_zip" required>
 
           </div>
-          <style>
-              .citystate {
-                  text-indent: 50px;
-                  margin-bottom: 0.1em;
-                  font-size: .8em;
-                  height: 4px;
-              }
-              input[type="date"]::-webkit-calendar-picker-indicator {
-    background: transparent;
-    bottom: 0;
-    color: transparent;
-    cursor: pointer;
-    height: auto;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: auto;
-}
-          </style>
           <p id="citystatefrom" style="text-transform: capitalize;" class="citystate"></p>
 
       </div>
@@ -84,9 +64,9 @@ $(document).ready(function(){
               select: function(event, ui) {
 
                   $('#inst_fr_zip').val(ui.item.label);
-                  $('#citystatefrom').empty().append(ui.item.z_city.toLowerCase() + ", " + ui.item.z_state_code + ", " + ui
+                  $('#citystatefrom').empty().append(ui.item.city.toLowerCase() + ", " + ui.item.state_code + ", " + ui
                       .item.label);
-                  $('#cityfrom1').val(ui.item.z_city + ", " + ui.item.z_state_code);
+                  $('#cityfrom1').val(ui.item.city + ", " + ui.item.state_code);
                   console.log(ui.item);
                   return false;
               },
@@ -123,9 +103,9 @@ $(document).ready(function(){
               },
               select: function(event, ui) {
                   $('#inst_to_zip').val(ui.item.label);
-                  $('#citystateto').empty().append(ui.item.z_city.toLowerCase() + ", " + ui.item.z_state_code + ", " + ui.item
+                  $('#citystateto').empty().append(ui.item.city.toLowerCase() + ", " + ui.item.state_code + ", " + ui.item
                       .label);
-                  $('#cityto1').val(ui.item.z_city + ", " + ui.item.z_state_code);
+                  $('#cityto1').val(ui.item.city + ", " + ui.item.state_code);
                   console.log(ui.item);
                   return false;
               },
@@ -137,12 +117,17 @@ $(document).ready(function(){
       </script>
       <div class="col-sm-6 form-group">
           <div class="input-group">
-              <span class="input-group-text bg-transparent"><i class="icon-calendar3"></i></span>
+              <span class="input-group-text bg-transparent"><a onclick="datepicker()"><i class="icon-calendar3"></i></a></span>
               <input type="date" value="{{ old('inst_dt') }}" class="form-control mb4 calendar required"
                   placeholder="Moving Date" id="inst_dt" name="inst_dt" required>
 
           </div>
       </div>
+      <script>
+function datepicker(){
+    document.getElementById('inst_dt').select();
+};
+      </script>
 
       <div class="col-sm-6 form-group">
           <div class="input-group">
@@ -168,7 +153,7 @@ $(document).ready(function(){
 
 
       <div class="col-12">
-          <button type="submit" class="btn bg-color text-white fw-medium w-100 py-2 mt-2">Next</button>
+          <button type="submit" class="btn btn-color text-blue fw-medium w-100 py-2 mt-2">Next</button>
       </div>
 
   </form>

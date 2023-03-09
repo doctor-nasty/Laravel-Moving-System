@@ -9,7 +9,12 @@ class Zip extends Model
 {
     use HasFactory;
 
-    protected $connection = 'mysql_2';
+    protected $connection = 'sqlite2';
     protected $table = 'zipcode_zipcode';
+
+    public function junctioncntys()
+    {
+      return $this->hasOne(jct_fr_cnty::class);
+    }
 
 }

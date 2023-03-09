@@ -9,10 +9,6 @@ class International extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'inst_id'; // or null
-
-    public $incrementing = false;
-
-    protected $table = 'inst';
+    protected $table = 'intl';
     protected $guarded = [];
 }

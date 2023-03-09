@@ -160,7 +160,7 @@
 
                         {{-- Mobile Number --}}
                         <div class="col-sm-6 mb-3 mt-3 mb-sm-0">
-                            <span style="color:red;">*</span>Intrastate</label>
+                            <span style="color:red;"></span>Intrastate</label>
                             <input type="text"
                                 class="form-control form-control-user @error('intrastate') is-invalid @enderror"
                                 id="intrastate" placeholder="Intrastate" name="intrastate"
@@ -173,7 +173,7 @@
 
                         {{-- Mobile Number --}}
                         <div class="col-sm-6 mb-3 mt-3 mb-sm-0">
-                            <span style="color:red;">*</span>Fleetsize</label>
+                            <span style="color:red;"></span>Fleetsize</label>
                             <input type="text"
                                 class="form-control form-control-user @error('fleetsize') is-invalid @enderror"
                                 id="fleetsize" placeholder="Fleetsize" name="fleetsize"
@@ -198,16 +198,6 @@
                             @enderror
                         </div>
 
-
-                        {{-- Status --}}
-
-                        <div class="col-sm-6 mb-3 mt-3 mb-sm-0">
-                            <span style="color:red;">*</span>County</label>
-                            <select multiple class="form-control"
-                                name="cntSelect" id="cntSelect">
-                                <option selected disabled>Select State First</option>
-                            </select>
-                        </div>
                     </div>
 
                     <div class="card-footer">
@@ -215,6 +205,29 @@
                         <a class="btn btn-primary float-right mr-3 mb-3" href="{{ route('company.index') }}">Cancel</a>
                     </div>
             </form>
+        </div>
+        <div id="contact" class="container">
+            <h1 class="text-center" style="margin-top: 100px">Image Upload</h1>
+
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success alert-block">
+                    <strong>{{$message}}</strong>
+                </div>
+
+                <img src="{{ asset('images/companies/'.Session::get('logo')) }}" />
+            @endif
+            <img src="{{ asset('images/companies/'.$company->logo) }}" />
+
+            @if($errors->any())
+            {!! implode('', $errors->all('<div>:message</div>')) !!}
+        @endif
+            <form method="POST" action="{{ route('company.imagestore') }}" enctype="multipart/form-data">
+                @csrf
+                <input type="file" class="form-control" name="logo" />
+
+                <button type="submit" class="btn btn-sm">Upload</button>
+            </form>
+
         </div>
 
                 {{-- <script>

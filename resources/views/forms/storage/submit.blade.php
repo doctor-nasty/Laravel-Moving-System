@@ -1,94 +1,111 @@
-
-
-            @extends('layouts.master', ['title' => 'MOVINGWYZ'])
+@extends('layouts.master', ['title' => 'Form Submitted'])
 
 
 
 
-@section("content")
-<section id="slider" class="slider-element bg-color">
-    <div class="container mt-4" style="z-index: 2">
-        <div class="center">
-            <h2 class="text-white h2 fw-semibold mb-2">Welcome to MOVINGWYZE.COM</h2>
-            <p class="text-white-50">One Stop Shop For Relocation Needs</p>
+@section('content')
+
+    <section id="content">
+        <div class="content-wrap p-0">
+
+            <div class="section section-features bg-transparent pb-0 mb-4 clearfix">
+                <div class="container clearfix">
+                    <h3>Moving Companies near {{ app('request')->input('inst_fr_zip') }} ({{ app('request')->input('cityfrom') }})</h3>
+                    <p class="text-muted">The following companies will be contacting you to provide moving quotes. Be sure to ask themquestions
+by reading our advice on interviewing moving companies.</p>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+        @if(count($companies) > 0)
+            @foreach ($companies as $company)
+            <ul class="list-group">
+            <div class="row align-items-center">
+                <div class="col-sm-6 center">
+                    <img src="{{asset ('images/companies')}}/{{ $company->logo }}" alt="Image 1" style="width:50%">
+                </div>
+                <div class="col-sm-6">
+                    <h5>{{ $company->name }}</h5>
+                    <p class="mb-2">{{ $company->description }}</p>
+                    <p class="mb-2">{{ $company->phonenumber }}</p>
+                    <p class="mb-2">{{ $company->address }}, {{ $company->city }}, {{ $company->state }}, {{ $company->zip }}</p>
+                    <a target="_blank" href="{{ $company->website }}" title="{{ $company->website }}" class="color btn btn-sm p-0 btn-link"><u>{{ $company->website }}</u> <i class="icon-line-arrow-right"></i></a>
+                </div>
+            </div>
+        </ul>
+            @endforeach
+        @else
+        Show Volt Relocation
+        @endif
         </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-6">
-                <p class="text-white-50">Find Out Everything You Need To Know For Your Upcoming Move. Start Here:</p>
-                <ul class="nav nav-tabs nav-justified flex-column border-bottom-0 flex-md-row bg-color mt-4"
-                    role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link py-3 active" id="home-moving-tab" data-bs-toggle="tab" href="#home-moving"
-                            role="tab" aria-controls="home-moving" aria-selected="true">Storage</a>
-                    </li>
-                </ul>
-                <div class="tab-content rounded-bottom shadow bg-white py-4 px-5">
-                    <div class="tab-pane fade show active" id="home-moving" role="tabpanel"
-                        aria-labelledby="home-moving-tab">
-                        <p class="mb-4">Moving to a new area? We have collected several tools to help you with your upcoming moving date.</p>
-                        <div class="">
-                            <div class="form-result"></div>
-    <p>Form submitted</p>
+            {{-- @foreach ($companies as $company)
+            <div class="feature-box media-box">
+                <div class="fbox-icon position-relative mb-4"
+                    style="background-image: url('images/featured-img/1.jpg');">
+                    <img src="{{asset ('images/companies')}}/{{ $company->logo }}">
+                </div>
+                <div class="fbox-content">
+                    <h3 class="fw-semibold">{{ $company->name }}</h3>
+                    <br>
+                    <label>{{ $company->address }}, {{ $company->city }}, {{ $company->state }}, {{ $company->zip }}</label>
+                    <label>{{ $company->phonenumber }}</label>
+                    <br>
+                    <a href="{{ $company->website }}">{{ $company->website }}</a>
+                    <p class="text-muted">{{ $company->description }}</p>
+                    <p class="text-muted">US DOT: {{ $company->usdot }}</p>
+                    <p class="text-muted">MC NO: {{ $company->mcno }}</p>
+                    <p class="text-muted">Intrastate: {{ $company->intrastate }}</p>
+                    <p class="text-muted">Fleet Size: {{ $company->fleetsize }}</p>
+                </div>
+            </div>
+        @endforeach --}}
+          <div class="col">
+            <table class="table">
+                <tr>
+                    <td class="mb4">Storage In:</td>
+                    <td class="mb4">{{ app('request')->input('cityfrom') }}</td>
+                </tr>
+                <tr>
+                    <td class="mb4">Storage Date:</td>
+                    <td class="mb4">{{ app('request')->input('strg_dt') }}</td>
+                </tr>
+                <tr>
+                    <td class="mb4">Storage Size:</td>
+                    <td class="mb4">{{ app('request')->input('storage') }}</td>
+                </tr>
+            </table>
+
+          </div>
+
+    </div>
+</div>
+                    <div class="row col-mb-50 col-mb-lg-80">
+
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="section dark pt-0 mb-0 bg-color"
+                style="background: url('images/bg-2.png') no-repeat center bottom / 100%; overflow: visible">
+                <svg viewBox="0 0 1960 206.8" class="bg-white">
+                    <path class="svg-themecolor" style="opacity:0.2;"
+                        d="M0,142.8A2337.49,2337.49,0,0,1,297.5,56.3C569.33-3.53,783.89.22,849.5,2.3c215.78,6.86,382.12,45.39,503.25,73.45,158.87,36.8,283.09,79.13,458.75,54.55A816.49,816.49,0,0,0,1983,86.8v110H0Z" />
+                    <path class="svg-themecolor" d="M.5,152.8s498-177,849-150,1031,238,1134,94v110H.5Z" />
+                </svg>
+                <div class="container">
+                    <div class="row align-items-center justify-content-center center my-4">
+                        <div class="col-sm-8">
+                            <div class="heading-block border-bottom-0 mb-4">
+                                <h2 class="fw-semibold ls0 nott mb-3" style="font-size: 44px; line-height: 1.3">Contact
+                                    Our Movers Specialist</h2>
+                                <p>Phosfluorescently develop customized relationships vis-a-vis B2C infomediaries.</p>
+                            </div>
+                            <a href="/contact" class="button button-white button-light button-rounded fw-medium m-0">Get
+                                In Touch</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5 d-none d-lg-flex flex-wrap justify-content-center">
-                <img src="images/2.svg" alt="Image 1" class="d-flex align-self-end ms-5 mt-3">
-            </div>
         </div>
-    </div>
-    <div class="svg-separator">
-        <div>
-            <svg preserveAspectRatio="xMidYMax meet" viewBox="0 0 1600 100" data-height="100">
-                <path style="opacity: 1;fill: rgba(255,255,255,0.75);" d="M1040,56c0.5,0,1,0,1.6,0c-16.6-8.9-36.4-15.7-66.4-15.7c-56,0-76.8,23.7-106.9,41C881.1,89.3,895.6,96,920,96
-						C979.5,96,980,56,1040,56z"></path>
-                <path style="opacity: 1;fill: rgba(255,255,255,0.75);"
-                    d="M1699.8,96l0,10H1946l-0.3-6.9c0,0,0,0-88,0s-88.6-58.8-176.5-58.8c-51.4,0-73,20.1-99.6,36.8 c14.5,9.6,29.6,18.9,58.4,18.9C1699.8,96,1699.8,96,1699.8,96z">
-                </path>
-                <path style="opacity: 1;fill: rgba(255,255,255,0.75);"
-                    d="M1400,96c19.5,0,32.7-4.3,43.7-10c-35.2-17.3-54.1-45.7-115.5-45.7c-32.3,0-52.8,7.9-70.2,17.8 c6.4-1.3,13.6-2.1,22-2.1C1340.1,56,1340.3,96,1400,96z">
-                </path>
-                <path style="opacity: 1;fill: rgba(255,255,255,0.75);"
-                    d="M320,56c6.6,0,12.4,0.5,17.7,1.3c-17-9.6-37.3-17-68.5-17c-60.4,0-79.5,27.8-114,45.2 c11.2,6,24.6,10.5,44.8,10.5C260,96,259.9,56,320,56z">
-                </path>
-                <path style="opacity: 1;fill: rgba(255,255,255,0.75);"
-                    d="M680,96c23.7,0,38.1-6.3,50.5-13.9C699.6,64.8,679,40.3,622.2,40.3c-30,0-49.8,6.8-66.3,15.8 c1.3,0,2.7-0.1,4.1-0.1C619.7,56,620.2,96,680,96z">
-                </path>
-                <path style="opacity: 1;fill: rgba(255,255,255,0.75);" d="M-40,95.6c28.3,0,43.3-8.7,57.4-18C-9.6,60.8-31,40.2-83.2,40.2c-14.3,0-26.3,1.6-36.8,4.2V106h60V96L-40,95.6
-						z"></path>
-                <path style="opacity: 1;fill: rgba(255,255,255,0.3);;"
-                    d="M504,73.4c-2.6-0.8-5.7-1.4-9.6-1.4c-19.4,0-19.6,13-39,13c-19.4,0-19.5-13-39-13c-14,0-18,6.7-26.3,10.4 C402.4,89.9,416.7,96,440,96C472.5,96,487.5,84.2,504,73.4z">
-                </path>
-                <path style="opacity: 1;fill: rgba(255,255,255,0.3);;"
-                    d="M1205.4,85c-0.2,0-0.4,0-0.6,0c-19.5,0-19.5-13-39-13s-19.4,12.9-39,12.9c0,0-5.9,0-12.3,0.1 c11.4,6.3,24.9,11,45.5,11C1180.6,96,1194.1,91.2,1205.4,85z">
-                </path>
-                <path style="opacity: 1;fill: rgba(255,255,255,0.3);;"
-                    d="M1447.4,83.9c-2.4,0.7-5.2,1.1-8.6,1.1c-19.3,0-19.6-13-39-13s-19.6,13-39,13c-3,0-5.5-0.3-7.7-0.8 c11.6,6.6,25.4,11.8,46.9,11.8C1421.8,96,1435.7,90.7,1447.4,83.9z">
-                </path>
-                <path style="opacity: 1;fill: rgba(255,255,255,0.3);;"
-                    d="M985.8,72c-17.6,0.8-18.3,13-37,13c-19.4,0-19.5-13-39-13c-18.2,0-19.6,11.4-35.5,12.8 c11.4,6.3,25,11.2,45.7,11.2C953.7,96,968.5,83.2,985.8,72z">
-                </path>
-                <path style="opacity: 1;fill: rgba(255,255,255,0.3);;"
-                    d="M743.8,73.5c-10.3,3.4-13.6,11.5-29,11.5c-19.4,0-19.5-13-39-13s-19.5,13-39,13c-0.9,0-1.7,0-2.5-0.1 c11.4,6.3,25,11.1,45.7,11.1C712.4,96,727.3,84.2,743.8,73.5z">
-                </path>
-                <path style="opacity: 1;fill: rgba(255,255,255,0.3);;"
-                    d="M265.5,72.3c-1.5-0.2-3.2-0.3-5.1-0.3c-19.4,0-19.6,13-39,13c-19.4,0-19.6-13-39-13 c-15.9,0-18.9,8.7-30.1,11.9C164.1,90.6,178,96,200,96C233.7,96,248.4,83.4,265.5,72.3z">
-                </path>
-                <path style="opacity: 1;fill: rgba(255,255,255,0.3);;"
-                    d="M1692.3,96V85c0,0,0,0-19.5,0s-19.6-13-39-13s-19.6,13-39,13c-0.1,0-0.2,0-0.4,0c11.4,6.2,24.9,11,45.6,11 C1669.9,96,1684.8,96,1692.3,96z">
-                </path>
-                <path style="opacity: 1;fill: rgba(255,255,255,0.3);;"
-                    d="M25.5,72C6,72,6.1,84.9-13.5,84.9L-20,85v8.9C0.7,90.1,12.6,80.6,25.9,72C25.8,72,25.7,72,25.5,72z">
-                </path>
-                <path style="fill: rgb(255, 255, 255);"
-                    d="M-40,95.6C20.3,95.6,20.1,56,80,56s60,40,120,40s59.9-40,120-40s60.3,40,120,40s60.3-40,120-40s60.2,40,120,40s60.1-40,120-40s60.5,40,120,40s60-40,120-40s60.4,40,120,40s59.9-40,120-40s60.3,40,120,40s60.2-40,120-40s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z">
-                </path>
-            </svg>
-            <div class="bg-white" style="height: 150px"></div>
-        </div>
-    </div>
-</section>
-
+    </section>
 
 @endsection

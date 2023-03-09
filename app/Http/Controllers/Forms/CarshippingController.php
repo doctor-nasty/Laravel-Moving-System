@@ -5,6 +5,11 @@ namespace App\Http\Controllers\Forms;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Carshipping;
+use App\Models\Company;
+use App\Models\jct_cmp_ld;
+use App\Models\jct_fr_cnty;
+use App\Models\jct_to_stt;
+use App\Models\zipcodes;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
@@ -12,13 +17,13 @@ class CarshippingController extends Controller
 {
     public function createStepOne(Request $request)
     {
-        $request->session()->forget('forms');
-        $forms = $request->session()->get('forms');
+        $request->session()->forget('formscar');
+        $formscar = $request->session()->get('formscar');
 
         $cars = \App\Models\Cars::orderBy('make','asc')->get();
         $carsUnique = $cars->unique('make');
 
-        return view('forms.carshipping.index',compact('forms', 'carsUnique'));
+        return view('forms.carshipping.index',compact('formscar', 'carsUnique'));
     }
 
     public function postCreateStepOne(Request $request)
@@ -33,19 +38,19 @@ class CarshippingController extends Controller
             'carshp_vhyr' => 'required'
         ]);
 
-        if(empty($request->session()->get('forms'))){
-            $forms = new Carshipping();
-            $forms->fill($validatedData);
-            $request->session()->put('forms', $forms);
-            $request->session()->put('cityfrom2', $request->input('cityfrom2'));
-            $request->session()->put('cityto2', $request->input('cityto2'));
+        if(empty($request->session()->get('formscar'))){
+            $formscar = new Carshipping();
+            $formscar->fill($validatedData);
+            $request->session()->put('formscar', $formscar);
+            $request->session()->put('cityfrom3', $request->input('cityfrom3'));
+            $request->session()->put('cityto3', $request->input('cityto3'));
 
         }else{
-            $forms = $request->session()->get('forms');
-            $forms->fill($validatedData);
-            $request->session()->put('forms', $forms);
-            $request->session()->put('cityfrom2', $request->input('cityfrom2'));
-            $request->session()->put('cityto2', $request->input('cityto2'));
+            $formscar = $request->session()->get('formscar');
+            $formscar->fill($validatedData);
+            $request->session()->put('formscar', $formscar);
+            $request->session()->put('cityfrom3', $request->input('cityfrom3'));
+            $request->session()->put('cityto3', $request->input('cityto3'));
 
         }
 
@@ -59,9 +64,9 @@ class CarshippingController extends Controller
      */
     public function createStepTwo(Request $request)
     {
-        $forms = $request->session()->get('forms');
+        $formscar = $request->session()->get('formscar');
 
-        return view('forms.carshipping.steptwo',compact('forms'));
+        return view('forms.carshipping.steptwo',compact('formscar'));
     }
 
     /**
@@ -86,25 +91,25 @@ class CarshippingController extends Controller
 
          Mail::to($email)->send(new \App\Mail\VerifyEmail($pin));
 
-         $forms = $request->session()->get('forms');
-         $forms->fill($validatedData);
-         $request->session()->put('forms', $forms);
+         $formscar = $request->session()->get('formscar');
+         $formscar->fill($validatedData);
+         $request->session()->put('formscar', $formscar);
 
          return redirect()->route('carForm.verify');
      }
     public function Verify(Request $request)
     {
-        $forms = $request->session()->get('forms');
+        $formscar = $request->session()->get('formscar');
 
 
-        return view('forms.carshipping.verify',compact('forms'));
+        return view('forms.carshipping.verify',compact('formscar'));
     }
     public function postVerify(Request $request)
     {
-        $forms = $request->session()->get('forms');
-        $token = $forms->carshp_tkn;
-        $cityfrom = session('cityfrom2');
-        $cityto = session('cityto2');
+        $formscar = $request->session()->get('formscar');
+        $token = $formscar->carshp_tkn;
+        $cityfrom = session('cityfrom3');
+        $cityto = session('cityto3');
 
         // $validatedData = $request->validate([
         //     'pin' => 'required'
@@ -115,44 +120,79 @@ class CarshippingController extends Controller
 
         if ($token == $pin2) {
 
-        // $forms->fill($validatedData);
-        // $forms->fill($pin2);
-        $forms->email_verified_at = Carbon::now()->toDateTimeString();
-        $request->session()->put('forms', $forms);
+            // $forms->fill($validatedData);
+            // $forms->fill($pin2);
+            $formscar->email_verified_at = Carbon::now()->toDateTimeString();
+            $request->session()->put('forms', $formscar);
 
-        return view('forms.carshipping.stepthree',compact('forms', 'cityfrom', 'cityto'));
+            $carshp_fr_zip = $formscar->carshp_fr_zip;
+            $carshp_to_zip = $formscar->carshp_to_zip;
+            $carshp_dt = $formscar->carshp_dt;
+            $carshp_vhmk = $formscar->carshp_vhmk;
+            $carshp_vhmdl = $formscar->carshp_vhmdl;
+            $carshp_vhyr = $formscar->carshp_vhyr;
+            $cityfrom = session('cityfrom');
+            $cityto = session('cityto');
+            $formscar->save();
+
+
+            $zip_fr_zip = zipcodes::where('zip',$carshp_fr_zip)->select('id')->first();
+            $zip_to_zip = zipcodes::Where('zip',$carshp_to_zip)->select('id')->first();
+
+
+            $jct_fr_cnty = jct_fr_cnty::where('cnty_id',$zip_fr_zip->id)->select('cmp_id')->get();
+
+            $jct_to_stt = jct_to_stt::where('st_id',$zip_to_zip->id)->select('cmp_id')->get();
+
+            $companies = Company::whereIn('id',$jct_fr_cnty)->whereIn('id',$jct_to_stt)->get();
+
+
+            $test = "Variable Passed";
+
+
+            foreach ($companies as $c) {
+                Mail::to($c->email)->send(new \App\Mail\VerifyEmail($test));
+
+                $record= new jct_cmp_ld();
+
+                $record->cmp_id = $c->id;
+                $record->svc_id = '3';
+                $record->frm_id = $formscar->id;
+
+                $record->save();
+
+            }
+
+
+            $request->session()->forget('forms');
+
+            return redirect()->route('carshippingsubmit',['carshp_vhmk'=>$carshp_vhmk,'carshp_vhmdl'=>$carshp_vhmdl,'carshp_vhyr'=>$carshp_vhyr,'carshp_fr_zip'=>$carshp_fr_zip,'carshp_to_zip'=>$carshp_to_zip,'carshp_dt'=>$carshp_dt,'cityfrom'=>$cityfrom,'cityto'=>$cityto])->with('message','Submit');
         } else {
             return redirect()->back()->withErrors(['msg' => 'Pin is incorrect']);
         }
-
     }
 
-    /**
-     * Show the step One Form for creating a new form.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function createStepThree(Request $request)
+    public function submit(Request $request)
     {
-        $forms = $request->session()->get('forms');
-        $cityfrom = session('cityfrom2');
-        $cityto = session('cityto2');
 
-        return view('forms.carshipping.stepthree',compact('forms', 'cityfrom', 'cityto'));
+        $carshp_fr_zip = $request->carshp_fr_zip;
+        $carshp_to_zip = $request->carshp_to_zip;
+        $carshp_vhmk = $request->carshp_vhmk;
+        $carshp_vhmdl = $request->carshp_vhmdl;
+        $carshp_vhyr = $request->carshp_vhyr;
+
+
+        $zip_fr_zip = zipcodes::where('zip',$carshp_fr_zip)->select('id')->first();
+        $zip_to_zip = zipcodes::Where('zip',$carshp_to_zip)->select('id')->first();
+
+
+        $jct_fr_cnty = jct_fr_cnty::where('cnty_id',$zip_fr_zip->id)->select('cmp_id')->get();
+
+        $jct_to_stt = jct_to_stt::where('st_id',$zip_to_zip->id)->select('cmp_id')->get();
+
+        $companies = Company::whereIn('id',$jct_fr_cnty)->whereIn('id',$jct_to_stt)->get();
+
+        return view('forms.carshipping.submit', compact('companies'));
     }
 
-    /**
-     * Show the step One Form for creating a new form.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function postCreateStepThree(Request $request)
-    {
-        $forms = $request->session()->get('forms');
-        $forms->save();
-
-        $request->session()->forget('forms');
-
-        return view('forms.carshipping.submit');
-    }
 }
