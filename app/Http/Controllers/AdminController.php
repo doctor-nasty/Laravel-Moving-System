@@ -6,8 +6,11 @@ use App\Models\carshp;
 use App\Models\Company;
 use App\Models\inst;
 use App\Models\intl;
+use App\Models\jct_svc_car;
 use App\Models\jct_svc_mvsz;
+use App\Models\jct_svc_strg;
 use App\Models\mvsz;
+use App\Models\payments;
 use App\Models\strg;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -135,8 +138,19 @@ class AdminController extends Controller
         ->select('jct_svc_mvsz.id as id', 'jct_svc_mvsz.price as price', 'mvsz.mvsz_name as name', 'jct_svc_mvsz.svc_id as svc_id')
         ->get();
 
-        // return $jct_svc_mvsz;
-        return view('admin.pages.mvszprice', compact('jct_svc_mvsz'));
+        $jct_svc_strg = jct_svc_strg::leftJoin('storage', 'jct_svc_strg.strg_id', 'storage.id')
+        ->leftJoin('company', 'jct_svc_strg.cmp_id', 'company.id')
+        ->select('jct_svc_strg.id as id', 'jct_svc_strg.price as price', 'storage.name as name', 'jct_svc_strg.svc_id as svc_id')
+        ->get();
+
+        $jct_svc_car = jct_svc_car::leftJoin('carprc', 'jct_svc_car.crprc_id', 'carprc.id')
+        ->leftJoin('company', 'jct_svc_car.cmp_id', 'company.id')
+        ->select('jct_svc_car.id as id', 'jct_svc_car.price as price', 'carprc.name as name', 'jct_svc_car.svc_id as svc_id')
+        ->get();
+
+
+        // return $jct_svc_strg;
+        return view('admin.pages.mvszprice', compact('jct_svc_mvsz', 'jct_svc_strg', 'jct_svc_car'));
     }
 
     public function mvszupdateprice(Request $request)
@@ -171,4 +185,92 @@ class AdminController extends Controller
 
 
     }
+
+    public function mvszupdatepricestrg(Request $request)
+    {
+        $request->validate([
+            'price'    => 'required|numeric'
+        ]);
+
+        $id = $request->input('id');
+
+        // return $id;
+
+        DB::beginTransaction();
+        try {
+
+            // Store Data
+            $mvszprice = jct_svc_strg::query()
+            ->where('id', $id)
+            ->first()
+            ->update([
+              'price' => $request->input('price')
+            ]);
+
+            DB::commit();
+
+            return redirect()->back()->with('success','Price Updated.');
+
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return redirect()->back()->withInput()->with('error', $th->getMessage());
+        }
+
+
+    }
+    public function mvszupdatepricecar(Request $request)
+    {
+        $request->validate([
+            'price'    => 'required|numeric'
+        ]);
+
+        $id = $request->input('id');
+
+        // return $id;
+
+        DB::beginTransaction();
+        try {
+
+            // Store Data
+            $mvszprice = jct_svc_car::query()
+            ->where('id', $id)
+            ->first()
+            ->update([
+              'price' => $request->input('price')
+            ]);
+
+            DB::commit();
+
+            return redirect()->back()->with('success','Price Updated.');
+
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            return redirect()->back()->withInput()->with('error', $th->getMessage());
+        }
+
+
+    }
+
+    public function addpayment(Request $request)
+    {
+        $request->validate([
+            'ld_qty'    => 'required|numeric',
+            'tot_amnt'    => 'required|numeric',
+            'cmp_id'    => 'required|numeric'
+        ]);
+
+
+        $payment = new payments;
+
+        $payment->ld_qty = $request->ld_qty;
+        $payment->tot_amnt = $request->tot_amnt;
+        $payment->cmp_id = $request->cmp_id;
+
+        $payment->save();
+
+        return redirect()->back()->with('success','Payment Created.');
+
+    }
+
+
 }

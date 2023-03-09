@@ -25,16 +25,16 @@
             <ul class="header-extras d-none d-sm-flex mx-auto mx-md-0 mb-4 mb-md-0">
                 <li>
                     <i class="i-plain icon-call m-0"></i>
-                    <div class="he-text fw-normal text-white-50">
+                    <div class="he-text fw-normal text-black-50">
                         Call Us:
-                        <span><a href="tel:+111-22-33-44" class="text-white fw-medium">+111 22-33-44</a></span>
+                        <span><a href="tel:+111-22-33-44" class="text-blue fw-medium">+111 22-33-44</a></span>
                     </div>
                 </li>
                 <li>
                     <i class="i-plain icon-line2-envelope m-0"></i>
-                    <div class="he-text fw-normal text-white-50">
+                    <div class="he-text fw-normal text-black-50">
                         Email Us:
-                        <span><a href="/" target="_top" class="text-white fw-medium">email@email.com</a></span>
+                        <span><a href="/" target="_top" class="text-blue fw-medium">email@email.com</a></span>
                     </div>
                 </li>
             </ul>
@@ -113,3 +113,4 @@
     </div>
     <div class="header-wrap-clone"></div>
 </header>
+<div class="push"></div>

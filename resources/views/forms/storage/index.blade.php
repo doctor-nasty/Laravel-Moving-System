@@ -76,7 +76,7 @@
           // document.getElementById('#citystatefrom2').value = ''";
           $('#citystatefrom4').empty().append(ui.item.city.toLowerCase() + ", " + ui.item.state_code + ", " + ui
               .item.label);
-          $('#storagezip').val(ui.item.city + ", " + ui.item.state_code);
+          $('#cityfrom4').val(ui.item.city + ", " + ui.item.state_code);
           console.log(ui.item);;
           return false;
       },
@@ -117,11 +117,11 @@
     </div>
 
 
-    <input type="hidden" name="storagezip" id="storagezip" value="{{ old('storagezip') }}">
+    <input type="hidden" name="cityfrom" id="cityfrom4" value="{{ old('cityfrom') }}">
 
 
     <div class="col-12">
-        <button type="submit" class="btn bg-color text-white fw-medium w-100 py-2 mt-2">Next</button>
+        <button type="submit" class="btn btn-color text-blue fw-medium w-100 py-2 mt-2">Next</button>
     </div>
 
 </form>

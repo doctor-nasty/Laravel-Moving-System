@@ -9,7 +9,7 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Company Assignment</h1>
-            <a href="{{ route('company.index') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+            <a href="{{ route('company.assignmentinterstate', ['company' => $company->id]) }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                     class="fas fa-arrow-left fa-sm text-white-50"></i> Back</a>
         </div>
 
@@ -26,15 +26,15 @@
         </div>
         <div class="row">
             <div class="card shadow col-lg-12">
-                <ul id="myTabs" class="nav nav-pills nav-justified bg-white py-2 collapse-inner rounded"
-                    role="tablist" data-tabs="tabs">
+                <ul id="myTabs" class="nav nav-pills nav-justified bg-white py-2 collapse-inner rounded" role="tablist"
+                    data-tabs="tabs">
                     <li class="nav-item"><a class="nav-link d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
                             href="#Storage" data-toggle="tab">Storage</a></li>
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active show" id="Storage">
                         <div class="row">
-{{-- <form method="POST" action="{{ url('api/fetch-allowedstates') }}">
+                            {{-- <form method="POST" action="{{ url('api/fetch-allowedstates') }}">
     @csrf
     <select class="required form-select" name="allowedstateslist" id="allowedstateslist" required>
         <option value="" disabled selected>Select State</option>
@@ -44,26 +44,27 @@
     </select>
     <button type="submit">Change</button>
 </form> --}}
-                            <form id="cntyselectform" method="POST"
-                                action="">
+                            <form id="cntyselectform" method="POST" action="">
                                 @csrf
                                 <div class="col-lg-12 mb-3 mt-3 mb-sm-0">
-                                    <h3>Please select counties in {{$st}} </h3>
+                                    <h3>Please select counties in {{ $st }} </h3>
                                     <div name="cntSelect[]" id="cntSelect">
+                                        <input id="checkAll" type="checkbox">Select All
+
                                         <ul>
 
                                             @foreach ($counties as $county)
                                                 <li>
                                                     <input class="checkIt" type="checkbox" id="cnty_id" name="cnty_id"
-                                                        value="{{ $county->zipcode }}"
-                                                        @foreach ($jct_fr_cnty as $jct) @if ($jct->cnty_id == $county->zipcode) checked @endif @endforeach>
-                                                    {{ $county->z_county }}
+                                                        value="{{ $county->id }}"
+                                                        @foreach ($jct_fr_cnty as $jct) @if ($jct->cnty_id == $county->id) checked @endif @endforeach>
+                                                    {{ $county->county }}
                                                 </li>
                                             @endforeach
                                         </ul>
                                     </div>
                                     <input type="hidden" value="{{ $company->id }}" name="cmp_id" id="cmp_id">
-                                    <input type="hidden" value="4" name="svc_id" id="svc_id">
+                                    <input type="hidden" value="1" name="svc_id" id="svc_id">
                                 </div>
                             </form>
 
@@ -106,4 +107,16 @@
             }
         });
     </script>
+<script type="text/javascript">
+$("#checkAll").click(function() {
+    if("checkall" === $(this).val()) {
+         $(".checkIt").attr('checked', true);
+         $(this).val("uncheckall"); //change button text
+    }
+    else if("uncheckall" === $(this).val()) {
+         $(".checkIt").attr('checked', false);
+         $(this).val("checkall"); //change button text
+    }
+});
+  </script>
 @endsection

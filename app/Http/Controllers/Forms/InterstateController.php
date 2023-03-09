@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Company;
 use App\Models\inst;
-use App\Models\Zip;
 use App\Models\jct_fr_cnty;
 use App\Models\jct_to_stt;
 use App\Models\jct_cmp_ld;
 
 use App\Models\mvsz;
+use App\Models\zipcodes;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
@@ -63,7 +63,7 @@ class InterstateController extends Controller
             $forms = $request->session()->get('forms');
             $forms->fill($validatedData);
             $request->session()->put('forms', $forms);
-            $request->session()->put('cityfrom', $request->input('cityto'));
+            $request->session()->put('cityfrom', $request->input('cityfrom'));
             $request->session()->put('cityto', $request->input('cityto'));
         }
 
@@ -159,13 +159,13 @@ class InterstateController extends Controller
             $mvsz = mvsz::where('mvsz_id', '=', $forms->inst_sz_id)->get('mvsz_name')->implode('mvsz_name', ',');
 
 
-            $zip_fr_zip = Zip::where('z_zip',$inst_fr_zip)->select('zipcode')->first();
-            $zip_to_zip = Zip::Where('z_zip',$inst_to_zip)->select('zipcode')->first();
+            $zip_fr_zip = zipcodes::where('zip',$inst_fr_zip)->select('id')->first();
+            $zip_to_zip = zipcodes::Where('zip',$inst_to_zip)->select('id')->first();
 
 
-            $jct_fr_cnty = jct_fr_cnty::where('cnty_id',$zip_fr_zip->zipcode)->select('cmp_id')->get();
+            $jct_fr_cnty = jct_fr_cnty::where('cnty_id',$zip_fr_zip->id)->select('cmp_id')->get();
 
-            $jct_to_stt = jct_to_stt::where('st_id',$zip_to_zip->zipcode)->select('cmp_id')->get();
+            $jct_to_stt = jct_to_stt::where('st_id',$zip_to_zip->id)->select('cmp_id')->get();
 
             $companies = Company::whereIn('id',$jct_fr_cnty)->whereIn('id',$jct_to_stt)->get();
 
@@ -201,17 +201,19 @@ class InterstateController extends Controller
         $inst_fr_zip = $request->inst_fr_zip;
         $inst_to_zip = $request->inst_to_zip;
 
-        $zip_fr_zip = Zip::where('z_zip',$inst_fr_zip)->select('zipcode')->first();
-        $zip_to_zip = Zip::Where('z_zip',$inst_to_zip)->select('zipcode')->first();
+        $zip_fr_zip = zipcodes::where('zip',$inst_fr_zip)->select('id')->first();
+        $zip_to_zip = zipcodes::Where('zip',$inst_to_zip)->select('id')->first();
 
 
-        $jct_fr_cnty = jct_fr_cnty::where('cnty_id',$zip_fr_zip->zipcode)->select('cmp_id')->get();
+        $jct_fr_cnty = jct_fr_cnty::where('cnty_id',$zip_fr_zip->id)->select('cmp_id')->get();
 
-        $jct_to_stt = jct_to_stt::where('st_id',$zip_to_zip->zipcode)->select('cmp_id')->get();
+        $jct_to_stt = jct_to_stt::where('st_id',$zip_to_zip->id)->select('cmp_id')->get();
 
         $companies = Company::whereIn('id',$jct_fr_cnty)->whereIn('id',$jct_to_stt)->get();
 
-        return view('forms.interstate.submit', compact('companies'));
+        $volt = Company::where('id', 1)->get();
+
+        return view('forms.interstate.submit', compact('companies', 'volt'));
     }
 }
 

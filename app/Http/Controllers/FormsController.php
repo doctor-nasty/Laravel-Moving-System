@@ -16,22 +16,22 @@ class FormsController extends Controller
 
     public function fetchModel(Request $request)
     {
-        $data = \App\Models\Cars::where("make",$request->make)->get(["model", 'year'])->unique('model');
+        $data = \App\Models\Cars::where("make",$request->make)->get(["model"])->unique('model');
         // $dataUnique = $data->unique('model');
         return response()->json($data);
     }
 
     public function fetchYear(Request $request)
     {
-        // $data = \App\Models\Cars::where("model",$request->model)->get(["year"])->unique('year');
-        $data = DB::select('select * from year order by year DESC');
+        $data = \App\Models\Cars::get(["year"])->unique('year');
+        // $data = DB::select('select * from year order by year DESC');
         // $dataUnique = $data->unique('model');
         return response()->json($data);
     }
 
     public function fetchZip(Request $request)
     {
-        $data = \App\Models\Zip::where("ZIP",$request->ZIP)->get(["ZIP", "CITY"]);
+        $data = \App\Models\Zip::where("zip",$request->zip)->get(["zip", "city"]);
         // $dataUnique = $data->unique('model');
         return response()->json($data);
     }
@@ -49,11 +49,11 @@ class FormsController extends Controller
     {
         $requested = $request->STATE_CODE;
 
-        $data = \App\Models\Zip::select("STATE_CODE as state_code", "COUNTY as county")
+        $data = \App\Models\Zip::select("state_code", "county")
         ->where('state_code','LIKE',$requested)
-        ->distinct('COUNTY')
-        ->orderBy('COUNTY')
-        ->get(["STATE_CODE", "COUNTY"]);
+        ->distinct('county')
+        ->orderBy('county')
+        ->get(["state_code", "county"]);
 
 
         // $dataUnique = $data->unique('model');

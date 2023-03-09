@@ -8,91 +8,214 @@
     <section id="content">
         <div class="content-wrap p-0">
 
-            <div class="section section-features bg-transparent pb-0 mb-4 clearfix">
+            <div class="section section-features bg-transparent pb-0 mb-4">
                 <div class="container clearfix">
-                    <h3>Moving Companies near {{ app('request')->input('inst_fr_zip') }} ({{ app('request')->input('cityfrom') }})</h3>
-                    <p class="text-muted">The following companies will be contacting you to provide moving quotes. Be sure to ask themquestions
-by reading our advice on interviewing moving companies.</p>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8">
-            @foreach ($companies as $company)
-            <ul class="list-group">
-            <div class="row align-items-center">
-                <div class="col-sm-6 center">
-                    <img src="{{asset ('images/companies')}}/{{ $company->logo }}" alt="Image 1" style="width:50%">
-                </div>
-                <div class="col-sm-6">
-                    <h5>{{ $company->name }}</h5>
-                    <p class="mb-2">{{ $company->description }}</p>
-                    <p class="mb-2">{{ $company->phonenumber }}</p>
-                    <p class="mb-2">{{ $company->address }}, {{ $company->city }}, {{ $company->state }}, {{ $company->zip }}</p>
-                    <a target="_blank" href="{{ $company->website }}" title="{{ $company->website }}" class="color btn btn-sm p-0 btn-link"><u>{{ $company->website }}</u> <i class="icon-line-arrow-right"></i></a>
-                </div>
-            </div>
-        </ul>
-            @endforeach
-        </div>
-            {{-- @foreach ($companies as $company)
-            <div class="feature-box media-box">
-                <div class="fbox-icon position-relative mb-4"
-                    style="background-image: url('images/featured-img/1.jpg');">
-                    <img src="{{asset ('images/companies')}}/{{ $company->logo }}">
-                </div>
-                <div class="fbox-content">
-                    <h3 class="fw-semibold">{{ $company->name }}</h3>
-                    <br>
-                    <label>{{ $company->address }}, {{ $company->city }}, {{ $company->state }}, {{ $company->zip }}</label>
-                    <label>{{ $company->phonenumber }}</label>
-                    <br>
-                    <a href="{{ $company->website }}">{{ $company->website }}</a>
-                    <p class="text-muted">{{ $company->description }}</p>
-                    <p class="text-muted">US DOT: {{ $company->usdot }}</p>
-                    <p class="text-muted">MC NO: {{ $company->mcno }}</p>
-                    <p class="text-muted">Intrastate: {{ $company->intrastate }}</p>
-                    <p class="text-muted">Fleet Size: {{ $company->fleetsize }}</p>
-                </div>
-            </div>
-        @endforeach --}}
-          <div class="col">
-            <table class="table">
-                <tr>
-                    <td class="mb4">Moving From:</td>
-                    <td class="mb4">{{ app('request')->input('cityfrom') }}</td>
-                </tr>
-                <tr>
-                    <td class="mb4">Moving To:</td>
-                    <td class="mb4">{{ app('request')->input('cityto') }}</td>
-                </tr>
-                <tr>
-                    <td class="mb4">Moving Date:</td>
-                    <td class="mb4">{{ app('request')->input('inst_dt') }}</td>
-                </tr>
-                <tr>
-                    <td class="mb4">Move Size:</td>
-                    <td class="mb4">{{ app('request')->input('mvsz') }}</td>
-                </tr>
-                <tr>
-                    <td class="mb4">Duration:</td>
-                    <td class="mb4" id="duration"></td>
-                </tr>
-                <tr>
-                    <td class="mb4">Distance:</td>
-                    <td class="mb4" id="distance"></td>
-                </tr>
-            </table>
-            <div id="map" style="width: 300px; height: 300px; float: left;"></div>
+                    <h3>Moving Companies near {{ app('request')->input('inst_fr_zip') }}
+                        ({{ app('request')->input('cityfrom') }})</h3>
+                    <p class="text-muted">The following companies will be contacting you to provide moving quotes. Be sure to
+                        ask themquestions
+                        by reading our advice on interviewing moving companies.</p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                @if (count($companies) > 0)
+                                    <ul class="list-group">
+                                        @foreach ($companies as $company)
+                                            <li class="row align-items-center">
+                                                <div class="col-sm-6 center">
+                                                    <img src="{{ asset('images/companies') }}/{{ $company->logo }}"
+                                                        alt="{{ $company->name }}" style="width: auto;max-height: 155px;">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <h5>{{ $company->name }}</h5>
+                                                    <p class="mb-2">{{ $company->description }}</p>
+                                                    <p class="mb-2">{{ $company->phonenumber }}</p>
+                                                    <p class="mb-2">{{ $company->address }}, {{ $company->city }},
+                                                        {{ $company->state }}, {{ $company->zip }}</p>
+                                                    <a target="_blank" href="{{ $company->website }}"
+                                                        title="{{ $company->website }}"
+                                                        class="color btn btn-sm p-0 btn-link"><u>{{ $company->website }}</u>
+                                                        <i class="icon-line-arrow-right"></i></a>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                    @foreach ($volt as $vt)
+                                        <ul class="list-group">
+                                            <li class="row align-items-center">
+                                                <div class="col-sm-6 center">
+                                                    <img src="{{ asset('images/companies') }}/{{ $vt->logo }}"
+                                                        alt="{{ $vt->name }}" style="width: auto;max-height: 155px;">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <h5>{{ $vt->name }}</h5>
+                                                    <p class="mb-2">{{ $vt->description }}</p>
+                                                    <p class="mb-2">{{ $vt->phonenumber }}</p>
+                                                    <p class="mb-2">{{ $vt->address }}, {{ $vt->city }},
+                                                        {{ $vt->state }}, {{ $vt->zip }}</p>
+                                                    <a target="_blank" href="{{ $vt->website }}"
+                                                        title="{{ $vt->website }}"
+                                                        class="color btn btn-sm p-0 btn-link"><u>{{ $vt->website }}</u> <i
+                                                            class="icon-line-arrow-right"></i></a>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    @endforeach
+                                @endif
+                            </div>
+                            <div class="col" id="mvdt">
+                                <table class="table">
+                                    <tr>
+                                        <td class="mb4">Moving From:</td>
+                                        <td class="mb4">{{ app('request')->input('cityfrom') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="mb4">Moving To:</td>
+                                        <td class="mb4">{{ app('request')->input('cityto') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="mb4">Moving Date:</td>
+                                        <td class="mb4">{{ app('request')->input('inst_dt') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="mb4">Move Size:</td>
+                                        <td class="mb4">{{ app('request')->input('mvsz') }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="mb4">Duration:</td>
+                                        <td class="mb4" id="duration"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="mb4">Distance:</td>
+                                        <td class="mb4" id="distance"></td>
+                                    </tr>
+                                </table>
+                                <div id="map" class="gmap"></div>
 
-          </div>
+                            </div>
 
-    </div>
-</div>
-                    <div class="row col-mb-50 col-mb-lg-80">
-
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="clear"></div>
+
+            <div class="section section-features bg-transparent mt-0 p-0 clearfix">
+                <div class="container clearfix">
+                    <div class="row col-mb-50 col-mb-lg-80">
+
+                        <div class="col-md-4">
+                            <div class="feature-box media-box">
+                                <div class="fbox-icon position-relative mb-4"
+                                    style="background-image: url('images/featured-img/1.jpg');">
+                                    <i class="icon-line-codesandbox"></i>
+                                </div>
+                                <div class="fbox-content">
+                                    <h3 class="fw-semibold">Packing For Moving in {{ app('request')->input('cityto') }}, {{ app('request')->input('inst_to_zip') }}</h3>
+                                    <p class="text-muted">Packing the right way is crucial in order to keep your belonging
+                                        safe.</p>
+                                        <ul class="list-unstyled iconlist ms-0">
+                                            <li class="mb-2">
+                                            <a href="https://www.google.com/search?q=Packing+for+Moving+IN+{{ app('request')->input('cityto') }}%2C+{{ app('request')->input('inst_to_zip') }}">Packing for Moving in {{ app('request')->input('cityto') }}, {{ app('request')->input('inst_to_zip') }}</a>
+                                            </li>
+                                            </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-box media-box">
+                                <div class="fbox-icon position-relative mb-4">
+                                    <i class="icon-house-user"></i>
+                                </div>
+                                <div class="fbox-content">
+                                    <h3 class="fw-semibold">Real Estate & Housing in {{ app('request')->input('cityto') }}, {{ app('request')->input('inst_to_zip') }}</h3>
+
+                                    <p class="text-muted">Finding a home for rent or a house to buy. Learn about the
+                                        housing market you intend to move to</p>
+                                        <ul class="list-unstyled iconlist ms-0">
+                                            <li class="mb-2">
+                                            <a href="https://www.google.com/search?q=REAL+ESTATE+%26+HOUSING+IN+{{ app('request')->input('cityto') }}%2C+{{ app('request')->input('inst_to_zip') }}">Real Estate in {{ app('request')->input('cityto') }}, {{ app('request')->input('inst_to_zip') }}</a>
+                                            </li>
+                                            </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="feature-box media-box">
+                                <div class="fbox-icon position-relative mb-4">
+                                    <i class="icon-city"></i>
+                                </div>
+                                <div class="fbox-content">
+                                    <h3 class="fw-semibold">Utilities in {{ app('request')->input('cityto') }}, {{ app('request')->input('inst_to_zip') }}</h3>
+                                    <p class="text-muted">Gas & Electric - Contacts and information of local utility
+                                        providers</p>
+                                        <ul class="list-unstyled iconlist ms-0">
+                                            <li class="mb-2">
+                                            <a href="https://www.google.com/search?q=UTILITIES+IN+{{ app('request')->input('cityto') }}%2C+{{ app('request')->input('inst_to_zip') }}">Utilities in {{ app('request')->input('cityto') }}, {{ app('request')->input('inst_to_zip') }}</a>
+                                            </li>
+                                            </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="feature-box media-box">
+                                <div class="fbox-icon position-relative mb-4">
+                                    <i class="icon-school"></i>
+                                </div>
+                                <div class="fbox-content">
+                                    <h3 class="fw-semibold">Education in {{ app('request')->input('cityto') }}, {{ app('request')->input('inst_to_zip') }}</h3>
+                                    <p class="text-muted">Schooling and education is an important aspect or relocating to a
+                                        new place.</p>
+                                        <ul class="list-unstyled iconlist ms-0">
+                                            <li class="mb-2">
+                                            <a href="https://www.google.com/search?q=Education+IN+{{ app('request')->input('cityto') }}%2C+{{ app('request')->input('inst_to_zip') }}">Education in {{ app('request')->input('cityto') }}, {{ app('request')->input('inst_to_zip') }}</a>
+                                            </li>
+                                            </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="feature-box media-box">
+                                <div class="fbox-icon position-relative mb-4">
+                                    <i class="icon-deploydog"></i>
+                                </div>
+                                <div class="fbox-content">
+                                    <h3 class="fw-semibold">Pets in {{ app('request')->input('cityto') }}, {{ app('request')->input('inst_to_zip') }}</h3>
+                                    <p class="text-muted">Your loved pet in a new habitat. How should you prepare? What
+                                        should you know?</p>
+                                        <ul class="list-unstyled iconlist ms-0">
+                                            <li class="mb-2">
+                                            <a href="https://www.google.com/search?q=Pets+IN+{{ app('request')->input('cityto') }}%2C+{{ app('request')->input('inst_to_zip') }}">Pets in {{ app('request')->input('cityto') }}, {{ app('request')->input('inst_to_zip') }}</a>
+                                            </li>
+                                            </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="feature-box media-box">
+                                <div class="fbox-icon position-relative mb-4">
+                                    <i class="icon-phone"></i>
+                                </div>
+                                <div class="fbox-content">
+                                    <h3 class="fw-semibold">Telecom in {{ app('request')->input('cityto') }}, {{ app('request')->input('inst_to_zip') }}</h3>
+                                    <p class="text-muted">New place, new area code, new internet providers - what are your
+                                        telecommunication options in
+                                        your new residence...</p>
+                                        <ul class="list-unstyled iconlist ms-0">
+                                            <li class="mb-2">
+                                            <a href="https://www.google.com/search?q=TELECOM++IN+{{ app('request')->input('cityto') }}%2C+{{ app('request')->input('inst_to_zip') }}">Telecom in {{ app('request')->input('cityto') }}, {{ app('request')->input('inst_to_zip') }}</a>
+                                            </li>
+                                            </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="section dark pt-0 mb-0 bg-color"
                 style="background: url('images/bg-2.png') no-repeat center bottom / 100%; overflow: visible">
                 <svg viewBox="0 0 1960 206.8" class="bg-white">

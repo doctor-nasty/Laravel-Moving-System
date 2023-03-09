@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Company Assignment')
 
@@ -14,7 +14,7 @@
         </div>
 
         {{-- Alert Messages --}}
-        @include('common.alert')
+        @include('admin.common.alert')
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -33,7 +33,7 @@
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active show" id="Storage">
-                        <div class="row">
+                        <div class="row" id="slcnty">
 {{-- <form method="POST" action="{{ url('api/fetch-allowedstates') }}">
     @csrf
     <select class="required form-select" name="allowedstateslist" id="allowedstateslist" required>
@@ -49,8 +49,32 @@
                                 @csrf
                                 <div class="col-lg-12 mb-3 mt-3 mb-sm-0">
                                     <h3>Please select counties in </h3>
-                                    <div name="cntSelect[]" id="cntSelect">
-                                        <ul>
+                                    @php
+                                    $tmp_hd = null;
+                                @endphp
+
+                                @foreach ($selectedCntys as $cnty)
+                                    @if ($cnty->state_code != $tmp_hd)
+                            </div>
+                            <div class="column">
+                                <h4>
+                                    {{ $cnty->state_code }}
+                                </h4>
+                                <span>
+                                    @php
+
+                                        $tmp_hd = $cnty->state_code;
+                                    @endphp
+                                    @endif
+
+                                    <p class="cnty">{{ $cnty->county }}</p>
+                                    @endforeach
+                                </span>
+                            </div>
+                            <div class="clear"></div>
+
+                                    <div>
+                                        <ul class="astates">
                                             {{-- @foreach ($counties as $county)
                                                 <li>
                                                     <input class="checkItstrg" type="checkbox" id="cnty_id" name="cnty_id"
@@ -60,9 +84,10 @@
                                                 </li>
                                             @endforeach --}}
                                             @foreach ($allowedstates as $astate)
-                                            <li>
-                                                <a href="{{ url('/company/assignment/' . $company->id . '/' . $astate->state_code . '/storage') }}" id="allowedstateslist" name="allowedstateslist"
+                                            <li id="astates">
+                                                <a href="{{ url('admin/company/assignment/' . $company->id . '/' . $astate->state_code . '/storage') }}" id="allowedstateslist" name="allowedstateslist"
                                                     value="{{ $astate->id }}"
+                                                    class="nav-link d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
                                                     @foreach ($jct_cmp_st as $jct) @if ($jct->st_id == $astate->id) checked @endif @endforeach>
                                                 {{ $astate->state_code }}</a>
                                             </li>
@@ -133,7 +158,7 @@ $(document).ready(function() {
         if ($(this).is(":checked")) {
             $.ajax({
                 type: "POST",
-                url: '{{ url('company/assignment/storage/cntys') }}',
+                url: '{{ url('admin/company/assignment/storage/cntys') }}',
                 data: {
                     'cnty_id': cnty_id,
                     'cmp_id': $("#cmp_id").val(),
@@ -146,9 +171,11 @@ $(document).ready(function() {
         } else {
             $.ajax({
                 type: "DELETE",
-                url: '{{ url('company/assignment/storage/cntysrem') }}',
+                url: '{{ url('admin/company/assignment/storage/cntysrem') }}',
                 data: {
                     'cnty_id': cnty_id,
+                    'cmp_id': $("#cmp_id").val(),
+                    'svc_id': $("#svc_id").val(),
                     _token: '{{ csrf_token() }}'
                 }
             })
@@ -163,7 +190,7 @@ $(document).ready(function() {
         if ($(this).is(":checked")) {
             $.ajax({
                 type: "POST",
-                url: '{{ url('company/assignment/storage/strg') }}',
+                url: '{{ url('admin/company/assignment/storage/strg') }}',
                 data: {
                     'strg_id': strg_id,
                     'cmp_id': $("#cmp_id").val(),
@@ -176,9 +203,11 @@ $(document).ready(function() {
         } else {
             $.ajax({
                 type: "DELETE",
-                url: '{{ url('company/assignment/storage/strgrem') }}',
+                url: '{{ url('admin/company/assignment/storage/strgrem') }}',
                 data: {
                     'strg_id': strg_id,
+                    'cmp_id': $("#cmp_id").val(),
+                    'svc_id': $("#svc_id").val(),
                     _token: '{{ csrf_token() }}'
                 }
             })

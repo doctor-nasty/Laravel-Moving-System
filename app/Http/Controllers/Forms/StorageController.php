@@ -4,7 +4,12 @@ namespace App\Http\Controllers\Forms;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Company;
+use App\Models\jct_cmp_ld;
+use App\Models\jct_fr_cnty;
 use App\Models\Storage;
+use App\Models\strg;
+use App\Models\zipcodes;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
@@ -12,11 +17,11 @@ class StorageController extends Controller
 {
     public function createStepOne(Request $request)
     {
-        $request->session()->forget('forms');
-        $forms = $request->session()->get('forms');
+        $request->session()->forget('formsstrg');
+        $formsstrg = $request->session()->get('formsstrg');
 
 
-        return view('forms.storage.index',compact('forms'));
+        return view('forms.storage.index',compact('formsstrg'));
     }
 
     public function postCreateStepOne(Request $request)
@@ -28,16 +33,16 @@ class StorageController extends Controller
             'strg_dt' => 'required|date'
         ]);
 
-        if(empty($request->session()->get('forms'))){
-            $forms = new Storage();
-            $forms->fill($validatedData);
-            $request->session()->put('forms', $forms);
-            $request->session()->put('storagezip', $request->input('storagezip'));
+        if(empty($request->session()->get('formsstrg'))){
+            $formsstrg = new strg();
+            $formsstrg->fill($validatedData);
+            $request->session()->put('formsstrg', $formsstrg);
+            $request->session()->put('cityfrom', $request->input('cityfrom'));
         }else{
-            $forms = $request->session()->get('forms');
-            $forms->fill($validatedData);
-            $request->session()->put('forms', $forms);
-            $request->session()->put('storagezip', $request->input('storagezip'));
+            $formsstrg = $request->session()->get('formsstrg');
+            $formsstrg->fill($validatedData);
+            $request->session()->put('formsstrg', $formsstrg);
+            $request->session()->put('cityfrom', $request->input('cityfrom'));
         }
 
         return redirect()->route('storageForm.create.step.two');
@@ -50,9 +55,9 @@ class StorageController extends Controller
      */
     public function createStepTwo(Request $request)
     {
-        $forms = $request->session()->get('forms');
+        $formsstrg = $request->session()->get('formsstrg');
 
-        return view('forms.storage.steptwo',compact('forms'));
+        return view('forms.storage.steptwo',compact('formsstrg'));
     }
 
     /**
@@ -76,9 +81,9 @@ class StorageController extends Controller
 
          Mail::to($email)->send(new \App\Mail\VerifyEmail($pin));
 
-         $forms = $request->session()->get('forms');
-         $forms->fill($validatedData);
-         $request->session()->put('forms', $forms);
+         $formsstrg = $request->session()->get('formsstrg');
+         $formsstrg->fill($validatedData);
+         $request->session()->put('formsstrg', $formsstrg);
 
          return redirect()->route('storageForm.verify');    }
 
@@ -89,16 +94,17 @@ class StorageController extends Controller
      */
     public function Verify(Request $request)
     {
-        $forms = $request->session()->get('forms');
+        $formsstrg = $request->session()->get('formsstrg');
+        $storage = storage::where('id', '=', $formsstrg->strg_sz_id)->get('name')->implode('name', ',');
 
 
-        return view('forms.storage.verify',compact('forms'));
+        return view('forms.storage.verify',compact('formsstrg'));
     }
     public function postVerify(Request $request)
     {
-        $forms = $request->session()->get('forms');
-        $token = $forms->strg_tkn;
-        $storagezip = session('storagezip');
+        $formsstrg = $request->session()->get('formsstrg');
+        $token = $formsstrg->strg_tkn;
+        $cityfrom = session('cityfrom');
 
         // $validatedData = $request->validate([
         //     'pin' => 'required'
@@ -109,38 +115,68 @@ class StorageController extends Controller
 
         if ($token == $pin2) {
 
-        // $forms->fill($validatedData);
-        // $forms->fill($pin2);
-        $forms->email_verified_at = Carbon::now()->toDateTimeString();
-        $request->session()->put('forms', $forms);
+            // $formsstrg->fill($validatedData);
+            // $formsstrg->fill($pin2);
+            $formsstrg->email_verified_at = Carbon::now()->toDateTimeString();
+            $request->session()->put('formsstrg', $formsstrg);
 
-        return view('forms.storage.stepthree',compact('forms', 'storagezip'));
+            $strg_zip = $formsstrg->strg_zip;
+            $strg_dt = $formsstrg->strg_dt;
+            $cityfrom = session('cityfrom');
+            $formsstrg->save();
+
+            $storage = storage::where('id', '=', $formsstrg->strg_sz_id)->get('name')->implode('name', ',');
+
+
+            $zip_fr_zip = zipcodes::where('zip',$strg_zip)->select('id')->first();
+
+
+            $jct_fr_cnty = jct_fr_cnty::where('cnty_id',$zip_fr_zip->id)->select('cmp_id')->get();
+
+            $companies = Company::whereIn('id',$jct_fr_cnty)->get();
+
+
+            $test = "Variable Passed";
+
+
+            foreach ($companies as $c) {
+                Mail::to($c->email)->send(new \App\Mail\VerifyEmail($test));
+
+                $record= new jct_cmp_ld();
+
+                $record->cmp_id = $c->id;
+                $record->svc_id = '4';
+                $record->frm_id = $formsstrg->id;
+
+                $record->save();
+
+            }
+
+
+            $request->session()->forget('formsstrg');
+
+            return redirect()->route('storagesubmit',['strg_zip'=>$strg_zip,'strg_dt'=>$strg_dt,'storage'=>$storage,'cityfrom'=>$cityfrom])->with('message','Submit');
         } else {
             return redirect()->back()->withErrors(['msg' => 'Pin is incorrect']);
         }
 
     }
-    public function createStepThree(Request $request)
+
+
+    public function submit(Request $request)
     {
-        $forms = $request->session()->get('forms');
-        $storagezip = session('storagezip');
+
+        $strg_zip = $request->strg_zip;
 
 
-        return view('forms.storage.verify',compact('forms', 'storagezip'));
+        $zip_fr_zip = zipcodes::where('zip',$strg_zip)->select('id')->first();
+
+
+        $jct_fr_cnty = jct_fr_cnty::where('cnty_id',$zip_fr_zip->id)->select('cmp_id')->get();
+
+        $companies = Company::whereIn('id',$jct_fr_cnty)->get();
+
+        return view('forms.storage.submit', compact('companies'));
     }
 
-    /**
-     * Show the step One Form for creating a new form.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function postCreateStepThree(Request $request)
-    {
-        $forms = $request->session()->get('forms');
-        $forms->save();
-
-        $request->session()->forget('forms');
-
-        return view('forms.storage.submit');
-    }
 }

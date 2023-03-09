@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Company Assignment')
 
@@ -14,7 +14,7 @@
         </div>
 
         {{-- Alert Messages --}}
-        @include('common.alert')
+        @include('admin.common.alert')
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -33,7 +33,7 @@
                 </ul>
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane fade in active show" id="International">
-                        <div class="row">
+                        <div class="row" id="slcnty">
 
                             <form method="POST"
                                 action="{{ route('company.mindaysinternat', ['company' => $company->id]) }}">
@@ -54,28 +54,39 @@
                                 @csrf
                                 <div class="col-lg-12 mb-3 mt-3 mb-sm-0">
                                     <h3>Please select counties in </h3>
-                                    <div name="cntSelect[]" id="cntSelect">
-                                        <ul>
+                                    @php
+                                    $tmp_hd = null;
+                                @endphp
+
+                                @foreach ($selectedCntys as $cnty)
+                                    @if ($cnty->state_code != $tmp_hd)
+                            </div>
+                            <div class="column">
+                                <h4>
+                                    {{ $cnty->state_code }}
+                                </h4>
+                                <span>
+                                    @php
+
+                                        $tmp_hd = $cnty->state_code;
+                                    @endphp
+                                    @endif
+
+                                    <p class="cnty">{{ $cnty->county }}</p>
+                                    @endforeach
+                                </span>
+                            </div>
+                            <div class="clear"></div>
+                                    <div>
+                                        <ul class="astates">
                                             @foreach ($allowedstates as $astate)
-                                            <li>
-                                                <a href="{{ url('/company/assignment/' . $company->id . '/' . $astate->state_code . '/international') }}" id="allowedstateslist" name="allowedstateslist"
-                                                    value="{{ $astate->id }}"
-                                                    @foreach ($jct_cmp_st as $jct) @if ($jct->st_id == $astate->id) checked @endif @endforeach>
+                                            <li id="astates">
+                                                <a href="{{ url('admin/company/assignment/' . $company->id . '/' . $astate->state_code . '/international') }}" id="allowedstateslist" name="allowedstateslist"
+                                                    value="{{ $astate->id }}" class="nav-link d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+                                                    >
                                                 {{ $astate->state_code }}</a>
                                             </li>
                                         @endforeach
-                                {{-- <div class="col-lg-12 mb-3 mt-3 mb-sm-0">
-                                    <h3>Please select counties in {{ $company->state }}</h3>
-                                    <div name="cntSelect[]" id="cntSelect">
-                                        <ul>
-                                            @foreach ($counties as $county)
-                                                <li>
-                                                    <input class="checkItinternat" type="checkbox" id="cnty_id" name="cnty_id"
-                                                        value="{{ $county->id }}"
-                                                        @foreach ($jct_fr_cnty_internat as $jct) @if ($jct->cnty_id == $county->id) checked @endif @endforeach>
-                                                    {{ $county->county }}
-                                                </li>
-                                            @endforeach --}}
                                         </ul>
                                     </div>
                                     <input type="hidden" value="{{ $company->id }}" name="cmp_id" id="cmp_id">
@@ -107,20 +118,20 @@
                                         @endforeach
                                         <input type="hidden" value="{{ $company->id }}" name="cmp_id"
                                             id="cmp_id">
-                                        <input type="hidden" value="1" name="svc_id" id="svc_id">
+                                        <input type="hidden" value="2" name="svc_id" id="svc_id">
 
                                     </ul>
                                 </div>
                             </div>
                         </form>
 
-                            <form id="tostselectform" method="POST"
+                            {{-- <form id="tostselectform" method="POST"
                                 action="{{ route('company.tostcar', ['company' => $company->id]) }}">
-                                @csrf
+                                @csrf --}}
                                 <div class="col-lg-12 mb-3 mt-3 mb-sm-0">
                                     <h3>To Country</h3>
-                                    <div name="tostSelect[]" id="tostSelect" multiple="multiple">
-                                        <ul>
+                                    <div multiple="multiple">
+                                        {{-- <ul>
                                             @foreach ($countries as $country)
                                                 <li>
                                                     <input class="checkIttocntry" type="checkbox" id="cntry_id" name="cntry_id"
@@ -132,10 +143,21 @@
                                             <input type="hidden" value="{{ $company->id }}" name="cmp_id"
                                                 id="cmp_id">
                                             <input type="hidden" value="2" name="svc_id" id="svc_id">
+                                        </ul> --}}
+
+                                        <ul class="astates">
+                                            @foreach ($continents as $continent)
+                                            <li id="astates">
+                                                <a href="{{ route('company.assignmentscontinentinternational', ['company' => $company->id, 'continent' => $continent->continent]) }}" id="allowedstateslist" name="allowedstateslist"
+                                                    value="{{ $continent->id }}" class="nav-link d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
+                                                    >
+                                                {{ $continent->continent }}</a>
+                                            </li>
+                                        @endforeach
                                         </ul>
                                     </div>
                                 </div>
-                            </form>
+                            {{-- </form> --}}
                         </div>
                     </div>
                 </div>
@@ -154,7 +176,7 @@
         if ($(this).is(":checked")) {
             $.ajax({
                 type: "POST",
-                url: '{{ url('company/assignment/international/mvsz') }}',
+                url: '{{ url('admin/company/assignment/international/mvsz') }}',
                 data: {
                     'mvsz_id': mvsz_id,
                     'cmp_id': $("#cmp_id").val(),
@@ -167,7 +189,7 @@
         } else {
             $.ajax({
                 type: "DELETE",
-                url: '{{ url('company/assignment/international/mvszrem') }}',
+                url: '{{ url('admin/company/assignment/international/mvszrem') }}',
                 data: {
                     'mvsz_id': mvsz_id,
                     _token: '{{ csrf_token() }}'
@@ -177,32 +199,5 @@
     });
 </script>
 
-<script>
-    $('.checkIttocntry').on('click', function() {
-        let cntry_id = $(this).val();
 
-        if ($(this).is(":checked")) {
-            $.ajax({
-                type: "POST",
-                url: '{{ url('company/assignment/international/tocntry') }}',
-                data: {
-                    'cntry_id': cntry_id,
-                    'cmp_id': $("#cmp_id").val(),
-                    _token: '{{ csrf_token() }}'
-                }
-            }).done(function(result) {
-                console.log(result);
-            });
-        } else {
-            $.ajax({
-                type: "DELETE",
-                url: '{{ url('company/assignment/international/tocntryrem') }}',
-                data: {
-                    'cntry_id': cntry_id,
-                    _token: '{{ csrf_token() }}'
-                }
-            })
-        }
-    });
-</script>
 @endsection
