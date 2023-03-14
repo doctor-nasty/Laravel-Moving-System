@@ -87,10 +87,7 @@ top:1px;
 -webkit-transition:transform .3s ease;
 -o-transition:transform .3s ease;
 transition:transform .3s ease}a.btn-link:hover i{
-transform:translateX(4px)}.svg-curve{
-position:absolute;
-left:0;
-bottom:0}.row-eq-height [class^=col]{
+transform:translateX(4px)}.svg-curve{position:absolute;left:0;bottom: -58px;}.row-eq-height [class^=col]{
 display:flex;
 flex-direction:column}.row-eq-height [class^=col]>div{
 flex-grow:1;
@@ -353,3 +350,89 @@ section#slider {
     background: rgb(11 53 105 / 62%);
     box-shadow: 0 0 53px #fff;
 }
+
+
+ul.header-extras.d-none.d-sm-flex.mx-auto.mx-md-0.mb-4.mb-md-0 {
+    padding-left: 1px;
+    /* float: left; */
+}
+
+ul#nwfd {
+    width: 20%;
+    display: inline-block;
+    overflow: hidden;
+}
+
+div#nwfd {
+    width: 20%;
+    position: fixed;
+    background: #fff;
+    right: 0%;
+    top: 136px;
+    padding: 1%;
+    height: auto;
+    overflow-y: scroll;
+}
+.justify-content-right {
+    justify-content: right!important;
+    padding: 100px 0 160px
+}
+
+
+
+:root {
+    --bg-color: #ffffff;
+    --border-color: #1E90FF;
+  }
+
+  .news-box {
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+    border-radius: 4px;
+    padding: 10px;
+    position: fixed;
+    right: 0%;
+    top: 136px;
+    padding: 1%;
+    height: auto;
+  }
+
+  .news-box .news-box-header {
+    color: var(--border-color);
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .news-box .news-box-header .fa {
+    margin-right: 2px;
+  }
+
+  .news-box .news-box-contents {
+    color: var(--border-color);
+    height: 0px;
+    margin: 0;
+    margin-left: 28px;
+    overflow: hidden;
+    transition: all 1s ease;
+  }
+
+  .news-box .news-box-contents label {
+    color: #000;
+  }
+
+  .news-box .news-box-footer {
+    color: var(--border-color);
+    margin-top: -28px;
+    font-size: 20px;
+    margin-right: 5px;
+    font-weight: bold;
+  }
+
+  .news-box:hover .news-box-contents {
+    height: auto;
+    margin-top: 10px;
+  }
+
+  .news-box:hover .news-box-footer {
+    margin-top: 0;
+  }

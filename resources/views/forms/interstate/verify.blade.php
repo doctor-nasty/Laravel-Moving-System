@@ -6,13 +6,9 @@
 @section('content')
     <section id="slider" class="slider-element bg-color">
         <div class="container mt-4" style="z-index: 2">
-            <div class="center">
-                <h2 class="text-white h2 fw-semibold mb-2">Welcome to MOVINGWYZE.COM</h2>
-                <p class="text-white-50">One Stop Shop For Relocation Needs</p>
-            </div>
+            @include('partials.headertext')
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <p class="text-white-50">Find Out Everything You Need To Know For Your Upcoming Move. Start Here:</p>
                     <ul class="nav nav-tabs nav-justified flex-column border-bottom-0 flex-md-row bg-color mt-4"
                         role="tablist">
                         <li class="nav-item">
@@ -35,7 +31,7 @@
                                     </ul>
                                 </div>
                             @endif
-                                <p>Enter PIN to verify</p>
+                                <p>Check your email for a verification code, and enter below.</p>
                                 <div class="col-lg-6 form-group">
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent"><i
@@ -45,15 +41,13 @@
                                 </div>
 
                                 <div class="card-footer text-right">
-                                    <button type="submit" class="btn bg-color text-white fw-medium w-100 py-2 mt-2">Next</button>
+                                    <button type="submit"
+                                        class="btn btn-color text-blue fw-medium w-100 py-2 mt-2">Next</button>
                                 </div>
 
                             </form>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-5 d-none d-lg-flex flex-wrap justify-content-center">
-                    <img src="{{ asset('images/2.svg') }}" alt="Image 1" class="d-flex align-self-end ms-5 mt-3">
                 </div>
             </div>
         </div>

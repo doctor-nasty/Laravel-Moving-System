@@ -22,22 +22,9 @@
 
             <link rel="shortcut icon" type="image/x-icon" href="https://offthem.com/favicon.ico">
             <link rel="apple-touch-icon" type="image/x-icon" href="https://offthem.com/favicon.ico">
-            <ul class="header-extras d-none d-sm-flex mx-auto mx-md-0 mb-4 mb-md-0">
-                <li>
-                    <i class="i-plain icon-call m-0"></i>
-                    <div class="he-text fw-normal text-black-50">
-                        Call Us:
-                        <span><a href="tel:+111-22-33-44" class="text-blue fw-medium">+111 22-33-44</a></span>
-                    </div>
-                </li>
-                <li>
-                    <i class="i-plain icon-line2-envelope m-0"></i>
-                    <div class="he-text fw-normal text-black-50">
-                        Email Us:
-                        <span><a href="/" target="_top" class="text-blue fw-medium">email@email.com</a></span>
-                    </div>
-                </li>
-            </ul>
+
+                       @include('partials.weather')
+
         </div>
     </div>
     <div id="header-wrap">
@@ -57,15 +44,18 @@
                                 href="/">
                                 <div>Home</div>
                             </a></li>
-                        <li class="menu-item"><a class="menu-link" href="/">
+                        <li class="menu-item"><a class="menu-link" href="{{ url('interstate') }}">
                                 <div>Long Distance</div>
                             </a></li>
-                        <li class="menu-item"><a class="menu-link" href="/">
+                        <li class="menu-item"><a class="menu-link" href="{{ url('carshipping') }}">
                                 <div>Car Shipping</div>
                             </a></li>
-                        <li class="menu-item"><a class="menu-link" href="/">
-                                <div>International</div>
-                            </a></li>
+                            <li class="menu-item"><a class="menu-link" href="{{ url('international') }}">
+                                    <div>International</div>
+                                </a></li>
+                                <li class="menu-item"><a class="menu-link" href="{{ url('storage') }}">
+                                        <div>Storage</div>
+                                    </a></li>
                         <!-- <li class="menu-item"><a class="menu-link" href="demo-movers-company.html"><div>Our Company</div></a></li> -->
                         <li class="menu-item"><a class="menu-link" href="demo-movers-rates.html">
                                 <div>Moving Tools</div>
@@ -77,7 +67,7 @@
                                 <li class="menu-item"><a class="menu-link" href="demo-movers-rates.html">
                                         <div><i class="icon-building2"></i>Office Moving</div>
                                     </a></li>
-                                <li class="menu-item"><a class="menu-link" href="demo-movers-rates.html">
+                                <li class="menu-item"><a class="menu-link" href="{{ url('international') }}">
                                         <div><i class="icon-line2-globe"></i>International Moving</div>
                                     </a></li>
                                 <li class="menu-item"><a class="menu-link" href="demo-movers-rates.html">

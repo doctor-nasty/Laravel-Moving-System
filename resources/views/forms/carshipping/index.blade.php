@@ -259,8 +259,7 @@
         <input type="text" id="others-moving-form-botcheck" name="others-moving-form-botcheck" value="" />
     </div> --}}
     <div class="col-12">
-        <button type="submit" name="others-moving-form-submit"
-            class="btn btn-color text-blue fw-medium w-100 py-2 mt-2" tabindex=7><i>Next >></i></button>
+        <button type="submit" class="btn btn-color text-blue fw-medium w-100 py-2 mt-2">Next</button>
     </div>
 
 </form>
