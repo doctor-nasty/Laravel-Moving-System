@@ -7,7 +7,7 @@
     <div class="section p-0 dark mb-0"
         style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,221,0.5)), url('/images/section/1.jpg') no-repeat center center / cover; min-height: 400px">
         <div class="container">
-            <h2>Storage in {{$stslug}}, {{$cntyslug}} County, {{$ctyslug}}</h2>
+            <h2>Storage in {{$stslug}}, {{ucfirst(strtolower($cntyslug))}} County, {{ucfirst(strtolower($ctyslug))}}</h2>
 
             <div class="row justify-content-right mb-4">
                 <!-- <a href="" data-lightbox="iframe" class="play-video ms-3"><i class="icon-play"></i></a> -->

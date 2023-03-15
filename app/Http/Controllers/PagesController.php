@@ -6,6 +6,7 @@ use App\Models\mvsz;
 use App\Models\states;
 use App\Models\zipcodes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PagesController extends Controller
 {
@@ -59,7 +60,7 @@ class PagesController extends Controller
         $stslug = states::where('state_code', $stateslug)->implode('state_name', ', ');
 
         if ($stslug !== '') {
-            return view('pages.interstatest', compact('states', 'movesize', 'stslug', 'cntys'));
+            return view('pages.interstatest', compact('states', 'movesize', 'stslug', 'cntys', 'stateslug'));
 
         } else {
             abort(404);
@@ -73,6 +74,7 @@ class PagesController extends Controller
         $states = states::where('status', 1)->get();
 
         $stslug = states::where('state_code', $stateslug)->implode('state_name', ', ');
+        $stcslug = states::where('state_code', $stateslug)->implode('state_code', ', ');
 
         $cntyslug2 = zipcodes::where('county', $cntyslug)->get('county')->first();
 
@@ -85,7 +87,7 @@ class PagesController extends Controller
 
 
         if ($cntyslug2 !== '') {
-            return view('pages.interstatecnty', compact('states', 'movesize', 'stslug', 'cntyslug', 'cnty', 'ctys'));
+            return view('pages.interstatecnty', compact('states', 'movesize', 'stslug', 'cntyslug', 'cnty', 'ctys', 'stcslug'));
 
         } else {
             abort(404);
@@ -130,7 +132,7 @@ class PagesController extends Controller
         $continents = \App\Models\Country::orderBy('continent','asc')->get()->unique('continent');
 
 
-        return view('pages.international', compact('movesize', 'countries', 'continents'));
+        return view('pages.international', compact('movesize', 'countries', 'continents', 'states'));
 
     }
 
@@ -218,11 +220,13 @@ class PagesController extends Controller
     public function carshipping(Request $request)
     {
         $cars = \App\Models\Cars::orderBy('make','asc')->orderBy('year','desc')->get();
+        $states = states::where('status', 1)->get();
+
         $carsUnique = $cars->unique('make');
         $yearUnique = $cars->unique('year');
 
 
-        return view('pages.carshipping', compact('cars', 'carsUnique', 'yearUnique'));
+        return view('pages.carshipping', compact('cars', 'carsUnique', 'yearUnique', 'states'));
 
     }
 
@@ -230,7 +234,9 @@ class PagesController extends Controller
     {
         $movesize = mvsz::get();
         $states = states::where('status', 1)->get();
+
         $cntys = zipcodes::where('state_code', $stateslug)->groupBy('county')->get();
+
         $cars = \App\Models\Cars::orderBy('make','asc')->orderBy('year','desc')->get();
         $carsUnique = $cars->unique('make');
         $yearUnique = $cars->unique('year');
@@ -240,6 +246,10 @@ class PagesController extends Controller
 
 
         $stslug = states::where('state_code', $stateslug)->implode('state_name', ', ');
+
+        // $cnty2 = strtolower(ucfirst($cntys));
+
+        // return $cnty2;
 
         if ($stslug !== '') {
             return view('pages.carshippingstate', compact('states', 'movesize', 'stslug', 'cntys', 'continents', 'countries', 'cars', 'carsUnique', 'yearUnique'));
@@ -312,8 +322,11 @@ class PagesController extends Controller
 
     public function storage(Request $request)
     {
+        $states = states::where('status', 1)->get();
 
-        return view('pages.storage');
+
+
+        return view('pages.storage', compact('states'));
 
     }
 

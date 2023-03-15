@@ -218,14 +218,16 @@ window.scwEvents = window.scwEvents || {},
                         pluginfn: 'typeof jQuery.easing["easeOutQuad"] !== "undefined"',
                         trigger: "pluginEasingReady",
                         class: "has-plugin-easing"
-                    }), SEMICOLON.initialize.functions({
-                        default: "body",
-                        file: "plugins.bootstrap.js",
-                        error: "plugins.bootstrap.js: Plugin could not be loaded",
-                        pluginfn: 'typeof bootstrap !== "undefined"',
-                        trigger: "pluginBootstrapReady",
-                        class: "has-plugin-bootstrap"
-                    }), !1 in window) {
+                    }),
+                    //  SEMICOLON.initialize.functions({
+                    //     default: "body",
+                    //     file: "plugins.bootstrap.js",
+                    //     error: "plugins.bootstrap.js: Plugin could not be loaded",
+                    //     pluginfn: 'typeof bootstrap !== "undefined"',
+                    //     trigger: "pluginBootstrapReady",
+                    //     class: "has-plugin-bootstrap"
+                    // }),
+                     !1 in window) {
                     let e = {
                         default: "body",
                         file: "intersection-observer.js",
