@@ -4,7 +4,7 @@
 
 
 @section('content')
-    <div class="section p-0 dark mb-0"
+    <div class="section dark mb-0"
         style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,221,0.5)), url('/images/section/1.jpg') no-repeat center center / cover; min-height: 400px">
         <div class="container">
             <h2>Storage in {{$stslug}}</h2>
