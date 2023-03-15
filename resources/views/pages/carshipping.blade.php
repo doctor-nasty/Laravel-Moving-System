@@ -4,9 +4,11 @@
 
 
 @section("content")
-<div class="section p-0 dark mb-0"
-style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,221,0.5)), url('images/carshipping.png') no-repeat center center / cover; min-height: 400px">
+<div class="section dark mb-0"
+style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,221,0.5)), url('/images/carshipping.png') no-repeat center center / cover; min-height: 400px">
 <div class="container">
+    <h2>Car Shipping</h2>
+
     <div class="row justify-content-right mb-4">
             <!-- <a href="" data-lightbox="iframe" class="play-video ms-3"><i class="icon-play"></i></a> -->
             <div class="col-lg-6">
@@ -61,6 +63,14 @@ style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,2
         transform="translate(0 -171.47)" />
 </svg>
 </div>
+
+<div class="d-flex justify-content-center">
+    <ul class="iconlist m-0 pe-5" id="zpcd">
+        @foreach ($states as $state)
+        <li><a href="{{ url('carshipping') }}/{{$state->state_code}}" title="{{$state->state_name}} Car Shipping">Car Shipping {{ $state->state_code }} </a></li>
+        @endforeach
+    </ul>
+</div>
 <div class="section section-features bg-transparent mt-0 p-0 clearfix">
 <div class="container clearfix">
     <div class="row col-mb-50 col-mb-lg-80">
@@ -78,6 +88,7 @@ style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,2
                 </div>
             </div>
         </div>
+
         <div class="col-md-4">
             <div class="feature-box media-box">
                 <div class="fbox-icon position-relative mb-4">

@@ -4,7 +4,7 @@
 
 
 @section('content')
-    <div class="section p-0 dark mb-0"
+    <div class="section dark mb-0"
         style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,221,0.5)), url('/images/section/1.jpg') no-repeat center center / cover; min-height: 400px">
         <div class="container">
             <h2>Long Distance Moving</h2>
@@ -71,10 +71,13 @@
                 transform="translate(0 -171.47)" />
         </svg>
     </div>
-    <div class="row">
-        @foreach ($states as $state)
-        <li><a href="{{ url('interstate') }}/{{$state->state_code}}" title="{{$state->state_name}} Long Distance Moving">{{$state->state_name}} Long Distance Moving</a></li>
-        @endforeach
+
+    <div class="d-flex justify-content-center">
+        <ul class="iconlist m-0 pe-5" id="zpcd">
+            @foreach ($states as $state)
+            <li><a href="{{ url('interstate') }}/{{$state->state_code}}" title="Long Distance Moving {{$state->state_name}} Long Distance Moving">Long Distance Moving {{ $state->state_code }}</a></li>
+            @endforeach
+        </ul>
     </div>
     <div class="section section-features bg-transparent mt-0 p-0 clearfix">
         <div class="container clearfix">

@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="section p-0 dark mb-0"
-        style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,221,0.5)), url('/images/section/1.jpg') no-repeat center center / cover; min-height: 400px">
+        style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,221,0.5)), url('/images/carshipping.png') no-repeat center center / cover; min-height: 400px">
         <div class="container">
             <h2>Car Shipping in {{$stslug}}</h2>
 
@@ -71,9 +71,14 @@
                 transform="translate(0 -171.47)" />
         </svg>
     </div>
-    @foreach ($cntys as $cnty)
-    <li><a href="{{ url('carshipping') }}/{{$cnty->state_code}}/{{$cnty->county}}">{{$cnty->county}}</a></li>
-    @endforeach
+
+    <div class="d-flex justify-content-center">
+        <ul class="iconlist m-0 pe-5" id="zpcd">
+            @foreach ($cntys as $cnty)
+            <li><a href="{{ url('carshipping') }}/{{$cnty->state_code}}/{{$cnty->county}}" title="{{$cnty->county}} Car Shipping">Car Shipping {{ ucfirst(strtolower($cnty->county)) }} County</a></li>
+            @endforeach
+        </ul>
+    </div>
     <div class="section section-features bg-transparent mt-0 p-0 clearfix">
         <div class="container clearfix">
             <div class="row col-mb-50 col-mb-lg-80">

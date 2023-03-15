@@ -135,7 +135,7 @@ input.switch-toggle-flat:checked + label::after,
 .widget-filter-links li.active-filter span,
 .page-item.active .page-link,
 .page-link:hover,
-.page-link:focus {/* background-color: #236ded !important; *//* background-image: url("images/bg.png"); */}
+.page-link:focus {background-color: #003258 !important;/* background-image: url("images/bg.png"); */}
 
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-themecolor,
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-themecolor,

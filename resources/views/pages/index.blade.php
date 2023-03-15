@@ -11,25 +11,49 @@
             <div class="row justify-content-center formscontent">
                 <div class="col-lg-6">
                     <p class="text-white-50">Find Out Everything You Need To Know For Your Upcoming Move. Start Here:</p>
-                    <ul class="nav nav-tabs nav-fill flex-column border-bottom-0 flex-md-row bg-color mt-4" role="tablist" id="tabs" data-tabs="tabs">
-                        <li class="nav-item @if($errors->count() == 0) active @endif @error('movingfromzip1') active @enderror @error('movingtozip1') active @enderror @error('movingdate1') active @enderror @error('movesize1') active @enderror" role="tabpanel"><a class="nav-link py-3 @if($errors->count() == 0) active @endif @error('movingfromzip1') active @enderror @error('movingtozip1') active @enderror @error('movingdate1') active @enderror @error('movesize1') active @enderror" href="#interstate" aria-controls="interstate" role="tab" data-toggle="tab">Interstate</a></li>
-                        <li class="nav-item @error('movingfromzip2') active @enderror @error('movingdate2') active @enderror @error('movingtocontinent2') active @enderror @error('movingtocountry2') active @enderror @error('movesize2') active @enderror" role="tabpanel"><a class="nav-link py-3 @error('movingfromzip2') active @enderror @error('movingdate2') active @enderror @error('movingtocontinent2') active @enderror @error('movingtocountry2') active @enderror @error('movesize2') active @enderror" href="#international" aria-controls="international" role="tab" data-toggle="tab">International</a></li>
-                        <li class="nav-item @error('movingfromzip3') active @enderror @error('movingtozip3') active @enderror @error('movingdate3') active @enderror @error('vehiclemake3') active @enderror @error('vehiclemodel3') active @enderror @error('caryear3') active @enderror" role="tabpanel"><a class="nav-link py-3 @error('movingfromzip3') active @enderror @error('movingtozip3') active @enderror @error('movingdate3') active @enderror @error('vehiclemake3') active @enderror @error('vehiclemodel3') active @enderror @error('caryear3') active @enderror" href="#carshipping" aria-controls="carshipping" role="tab" data-toggle="tab">Car Shipping</a></li>
-                        <li class="nav-item @error('movingfromzip4') active @enderror @error('movingtozip4') active @enderror @error('movingdate4') active @enderror @error('movesize4') active @enderror" role="tabpanel"><a class="nav-link py-3 @error('movingfromzip4') active @enderror @error('movingtozip4') active @enderror @error('movingdate4') active @enderror @error('movesize4') active @enderror" href="#storage" aria-controls="storage" role="tab" data-toggle="tab">Storage</a></li>
+                    <ul class="nav nav-tabs nav-fill flex-column border-bottom-0 flex-md-row bg-color mt-4" role="tablist"
+                        id="tabs" data-tabs="tabs">
+                        <li class="nav-item @if ($errors->count() == 0) active @endif @error('movingfromzip1') active @enderror @error('movingtozip1') active @enderror @error('movingdate1') active @enderror @error('movesize1') active @enderror"
+                            role="tabpanel"><a
+                                class="nav-link py-3 @if ($errors->count() == 0) active @endif @error('movingfromzip1') active @enderror @error('movingtozip1') active @enderror @error('movingdate1') active @enderror @error('movesize1') active @enderror"
+                                href="#interstate" aria-controls="interstate" role="tab"
+                                data-toggle="tab">Interstate</a></li>
+                        <li class="nav-item @error('movingfromzip2') active @enderror @error('movingdate2') active @enderror @error('movingtocontinent2') active @enderror @error('movingtocountry2') active @enderror @error('movesize2') active @enderror"
+                            role="tabpanel"><a
+                                class="nav-link py-3 @error('movingfromzip2') active @enderror @error('movingdate2') active @enderror @error('movingtocontinent2') active @enderror @error('movingtocountry2') active @enderror @error('movesize2') active @enderror"
+                                href="#international" aria-controls="international" role="tab"
+                                data-toggle="tab">International</a></li>
+                        <li class="nav-item @error('movingfromzip3') active @enderror @error('movingtozip3') active @enderror @error('movingdate3') active @enderror @error('vehiclemake3') active @enderror @error('vehiclemodel3') active @enderror @error('caryear3') active @enderror"
+                            role="tabpanel"><a
+                                class="nav-link py-3 @error('movingfromzip3') active @enderror @error('movingtozip3') active @enderror @error('movingdate3') active @enderror @error('vehiclemake3') active @enderror @error('vehiclemodel3') active @enderror @error('caryear3') active @enderror"
+                                href="#carshipping" aria-controls="carshipping" role="tab" data-toggle="tab">Car
+                                Shipping</a></li>
+                        <li class="nav-item @error('movingfromzip4') active @enderror @error('movingtozip4') active @enderror @error('movingdate4') active @enderror @error('movesize4') active @enderror"
+                            role="tabpanel"><a
+                                class="nav-link py-3 @error('movingfromzip4') active @enderror @error('movingtozip4') active @enderror @error('movingdate4') active @enderror @error('movesize4') active @enderror"
+                                href="#storage" aria-controls="storage" role="tab" data-toggle="tab">Storage</a></li>
                     </ul>
                     <div class="tab-content rounded-bottom shadow bg-white py-4 px-5">
-                        <div role="tabpanel" class="tab-pane @if($errors->count() == 0) active @endif @error('movingfromzip1') active @enderror @error('movingtozip1') active @enderror @error('movingdate1') active @enderror @error('movesize1') active @enderror" id="interstate">
+                        <div role="tabpanel"
+                            class="tab-pane @if ($errors->count() == 0) active @endif @error('movingfromzip1') active @enderror @error('movingtozip1') active @enderror @error('movingdate1') active @enderror @error('movesize1') active @enderror"
+                            id="interstate">
                             <p class="mb-4">Moving to a new area? We have collected several tools to help you with your
                                 upcoming moving date.</p>
                             @include('forms.interstate.index')
                         </div>
-                        <div role="tabpanel" class="tab-pane @error('movingfromzip2') active @enderror @error('movingdate2') active @enderror @error('movingtocontinent2') active @enderror @error('movingtocountry2') active @enderror @error('movesize2') active @enderror" id="international">
+                        <div role="tabpanel"
+                            class="tab-pane @error('movingfromzip2') active @enderror @error('movingdate2') active @enderror @error('movingtocontinent2') active @enderror @error('movingtocountry2') active @enderror @error('movesize2') active @enderror"
+                            id="international">
                             @include('forms.international.index')
                         </div>
-                        <div role="tabpanel" class="tab-pane @error('movingfromzip3') active @enderror @error('movingtozip3') active @enderror @error('movingdate3') active @enderror @error('vehiclemake3') active @enderror @error('vehiclemodel3') active @enderror @error('caryear3') active @enderror" id="carshipping">
+                        <div role="tabpanel"
+                            class="tab-pane @error('movingfromzip3') active @enderror @error('movingtozip3') active @enderror @error('movingdate3') active @enderror @error('vehiclemake3') active @enderror @error('vehiclemodel3') active @enderror @error('caryear3') active @enderror"
+                            id="carshipping">
                             @include('forms.carshipping.index')
                         </div>
-                        <div role="tabpanel" class="tab-pane @error('movingfromzip4') active @enderror @error('movingtozip4') active @enderror @error('movingdate4') active @enderror @error('movesize4') active @enderror" id="storage">
+                        <div role="tabpanel"
+                            class="tab-pane @error('movingfromzip4') active @enderror @error('movingtozip4') active @enderror @error('movingdate4') active @enderror @error('movesize4') active @enderror"
+                            id="storage">
                             @include('forms.storage.index')
                         </div>
                     </div>
@@ -37,38 +61,12 @@
                 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                {{-- <script>
-                    $(function() {
-                        $('a[data-toggle="tab"]').on('click', function(e) {
-                            window.localStorage.setItem('activeTab', $(e.target).attr('href'));
-                        });
-                        var activeTab = window.localStorage.getItem('activeTab');
-                        if (activeTab) {
-                            $('#FormsTab a[href="' + activeTab + '"]').tab('show');
-                            window.localStorage.removeItem("activeTab");
-                        }
-                    });
-
-                    $(document).ready(function () {
-                      $('#nav-tab a[href="#{{ old('tab') }}"]').tab('show')
-                    });
-                        </script> --}}
                 <script>
-                    $(".nav-tabs li a").click(function(){
-      $(".nav-tabs li a").removeClass("active");
-      $(this).addClass("active");
-    });
-    </script>
-    {{-- <script>
-            $('#FormsTab a').click(function (e) {
-  e.preventDefault()
-  $(this).tab('show')
-})
-</script> --}}
-
-                {{-- <div class="col-lg-5 d-none d-lg-flex flex-wrap justify-content-center">
-                    <img src="{{ asset('images/2.svg') }}" alt="Image 1" class="d-flex align-self-end ms-5 mt-3">
-                </div> --}}
+                    $(".nav-tabs li a").click(function() {
+                        $(".nav-tabs li a").removeClass("active");
+                        $(this).addClass("active");
+                    });
+                </script>
             </div>
         </div>
         <div class="svg-separator">
@@ -126,9 +124,9 @@
             </div>
         </div>
     </section>
-
     <section id="content">
         <div class="content-wrap pb-0">
+
             <div class="container clearfix">
                 <div class="row justify-content-center mb-5">
                     <div class="col-lg-7 center">
@@ -206,244 +204,65 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="clear"></div>
-            <div class="section p-0 dark mb-0"
-                style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,221,0.5)), url('images/section/1.jpg') no-repeat center center / cover; min-height: 400px">
-                <div class="container">
-                    <div class="row justify-content-between mb-4" style="padding: 100px 0 160px;">
-                        <div class="col-lg-5 col-md-6 offset-lg-1 pt-3">
-                            <!-- <a href="" data-lightbox="iframe" class="play-video ms-3"><i class="icon-play"></i></a> -->
-                            <h2 class="display-4 fw-bold text-white topmargin-lg">Long Distance Moving Guides</h2>
-                        </div>
-                        <div class="col-lg-5 col-md-6 mb-0 mb-md-5">
-                            <p class="mb-5">Here we have collected useful guides and information that you should know
-                                when
-                                you decide to relocate. With years of experience helping
-                                Americans relocate we know what are
-                                the important aspects that you should be aware to. We hope you find this useful.</p>
-                            <h3 class="mb-2 text-white">Long Distance Moving Guides:</h3>
-                            <div class="d-flex">
-                                <ul class="col-6 iconlist">
-                                    <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                            class="ps-2">100%
-                                            Trustable</span></li>
-                                    <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                            class="ps-2">100%
-                                            Safe &amp; Secure</span></li>
-                                    <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                            class="ps-2">On-Time Delivery</span></li>
-                                </ul>
-                                <ul class="col-6 iconlist">
-                                    <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                            class="ps-2">24x7
-                                            Support</span></li>
-                                    <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                            class="ps-2">No
-                                            Extra Payments</span></li>
-                                    <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                            class="ps-2">Also
-                                            Deliver on Sunday</span></li>
-                                </ul>
-                            </div>
-                            <h3 class="mb-2 text-white">International Moving Guides:</h3>
-                            <div class="d-flex">
-                                <ul class="col-6 iconlist">
-                                    <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                            class="ps-2">Verified Movers</span></li>
-                                    <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                            class="ps-2">Licensed Company</span></li>
-                                    <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                            class="ps-2">No
-                                            Hidden Charges</span></li>
-                                    <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                            class="ps-2">Live
-                                            Chat</span></li>
-                                </ul>
-                                <ul class="col-6 iconlist">
-                                    <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                            class="ps-2">Minimum 1 Mover Free</span></li>
-                                    <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                            class="ps-2">Track Items by App</span></li>
-                                    <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                            class="ps-2">International Delivery</span></li>
-                                    <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                            class="ps-2">Door
-                                            to Door</span></li>
-                                </ul>
-                            </div>
-                            <h3 class="mb-2 text-white">Car Shipping Guides:</h3>
-                            <div class="d-flex">
-                                <ul class="col-6 iconlist">
-                                    <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                            class="ps-2">Verified Movers</span></li>
-                                    <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                            class="ps-2">Licensed Company</span></li>
-                                    <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                            class="ps-2">Track Items by App</span></li>
-                                </ul>
-                                <ul class="col-6 iconlist">
-                                    <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                            class="ps-2">Minimum 1 Mover Free</span></li>
-                                    <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                            class="ps-2">International Delivery</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="clear"></div>
-                <svg class="svg-curve" viewBox="0 0 1463 188.03">
-                    <path style="fill:#FFF;" d="M-.5,288.5s297-175,792-97,599,52,671,25v143H-.5Z"
-                        transform="translate(0 -171.47)" />
-                </svg>
-            </div>
-            <div class="section section-features bg-transparent mt-0 p-0 clearfix">
-                <div class="container clearfix">
-                    <div class="row col-mb-50 col-mb-lg-80">
+        </div>
 
-                        <div class="col-md-4">
-                            <div class="feature-box media-box">
-                                <div class="fbox-icon position-relative mb-4"
-                                    style="background-image: url('images/featured-img/1.jpg');">
-                                    <i class="icon-line-codesandbox"></i>
-                                </div>
-                                <div class="fbox-content">
-                                    <h3 class="fw-semibold">Packing For Moving</h3>
-                                    <p class="text-muted">Packing the right way is crucial in order to keep your belonging
-                                        safe.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="feature-box media-box">
-                                <div class="fbox-icon position-relative mb-4">
-                                    <i class="icon-house-user"></i>
-                                </div>
-                                <div class="fbox-content">
-                                    <h3 class="fw-semibold">Real Estate & Housing</h3>
-                                    <p class="text-muted">Finding a home for rent or a house to buy. Learn about the
-                                        housing market you intend to move to</p>
-                                </div>
-                            </div>
-                        </div>
+    </section>
+    <section id="news">
+        <div class="content-wrap pb-0">
 
-                        <div class="col-md-4">
-                            <div class="feature-box media-box">
-                                <div class="fbox-icon position-relative mb-4">
-                                    <i class="icon-city"></i>
-                                </div>
-                                <div class="fbox-content">
-                                    <h3 class="fw-semibold">Utilities</h3>
-                                    <p class="text-muted">Gas & Electric - Contacts and information of local utility
-                                        providers</p>
-                                </div>
-                            </div>
-                        </div>
+            @include('partials.news')
+        </div>
+    </section>
+    <section id="states">
+        <div class="content-wrap pb-0">
 
-                        <div class="col-md-4">
-                            <div class="feature-box media-box">
-                                <div class="fbox-icon position-relative mb-4">
-                                    <i class="icon-school"></i>
-                                </div>
-                                <div class="fbox-content">
-                                    <h3 class="fw-semibold">Education</h3>
-                                    <p class="text-muted">Schooling and education is an important aspect or relocating to a
-                                        new place.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="feature-box media-box">
-                                <div class="fbox-icon position-relative mb-4">
-                                    <i class="icon-deploydog"></i>
-                                </div>
-                                <div class="fbox-content">
-                                    <h3 class="fw-semibold">Pets</h3>
-                                    <p class="text-muted">Your loved pet in a new habitat. How should you prepare? What
-                                        should you know?</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="feature-box media-box">
-                                <div class="fbox-icon position-relative mb-4">
-                                    <i class="icon-phone"></i>
-                                </div>
-                                <div class="fbox-content">
-                                    <h3 class="fw-semibold">Telecom</h3>
-                                    <p class="text-muted">New place, new area code, new internet providers - what are your
-                                        telecommunication options in
-                                        your new residence...</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> --}}
-            <div class="clear"></div>
-            <div class="section-map clearfix bottommargin-lg topmargin-lg">
+            <div class="clearfix bottommargin-lg topmargin-lg">
                 <div class="container">
                     <img src="images/svg/map.png" alt="Map Image" class="img-fluid map-image">
                     <div class="map-title">
                         <h2 class="center">More than 10 States included in Our Network.
                         </h2>
-                        <div class="d-flex justify-content-center">
+                        <div class="justify-content-center">
                             <ul class="iconlist m-0 pe-5">
                                 @foreach ($states as $state)
-                                <li><a href="{{ url('interstate') }}/{{$state->state_code}}" title="{{$state->state_name}} Long Distance Moving">{{$state->state_name}} Long Distance Moving</a></li>
+                                    <li><a href="{{ url('interstate') }}/{{ $state->state_code }}"
+                                            title="{{ $state->state_name }} Long Distance Moving">Long Distance Moving
+                                            {{ $state->state_code }}</a></li>
                                 @endforeach
                             </ul>
                             <ul class="iconlist m-0 pe-5">
                                 @foreach ($states as $state)
-                                <li><a href="{{ url('international') }}/{{$state->state_code}}" title="{{$state->state_name}} International Moving">{{$state->state_name}} International Moving</a></li>
+                                    <li><a href="{{ url('international') }}/{{ $state->state_code }}"
+                                            title="{{ $state->state_name }} International Moving">International Moving
+                                            {{ $state->state_code }}</a></li>
                                 @endforeach
                             </ul>
                             <ul class="iconlist m-0 pe-5">
                                 @foreach ($states as $state)
-                                <li><a href="{{ url('carshipping') }}/{{$state->state_code}}" title="{{$state->state_name}} Car Shipping">{{$state->state_name}} Car Shipping</a></li>
+                                    <li><a href="{{ url('carshipping') }}/{{ $state->state_code }}"
+                                            title="{{ $state->state_name }} Car Shipping">Car Shipping
+                                            {{ $state->state_code }}</a></li>
                                 @endforeach
                             </ul>
                             <ul class="iconlist m-0 pe-5">
                                 @foreach ($states as $state)
-                                <li><a href="{{ url('storage') }}/{{$state->state_code}}" title="{{$state->state_name}} Storage">{{$state->state_name}} Storage</a></li>
+                                    <li><a href="{{ url('storage') }}/{{ $state->state_code }}"
+                                            title="{{ $state->state_name }} Storage">Storage {{ $state->state_code }}</a>
+                                    </li>
                                 @endforeach
                             </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="counter-section">
-                    <div class="row align-items-stretch m-0 w-100 clearfix">
-                        <div class="col-sm-3 col-6 center">
-                            <div class="counter-dots"></div>
-                            <div class="counter font-secondary"><span data-from="100" data-to="11000"
-                                    data-refresh-interval="50" data-speed="2100" data-comma="true"></span>100+</div>
-                            <h5 class="text-capitalize ls0 mt-0"><u>Moved Monthly</u></h5>
-                        </div>
-                        <div class="col-sm-3 col-6 center">
-                            <div class="counter-dots"></div>
-                            <div class="counter font-secondary"><span data-from="3" data-to="26"
-                                    data-refresh-interval="50" data-speed="2200" data-comma="true"></span>10+</div>
-                            <h5 class="text-capitalize ls0 mt-0"><u>Years of Experience</u></h5>
-                        </div>
-                        <div class="col-sm-3 col-6 center">
-                            <div class="counter-dots"></div>
-                            <div class="counter font-secondary"><span data-from="100" data-to="6000"
-                                    data-refresh-interval="25" data-speed="2300" data-comma="true"></span>100+</div>
-                            <h5 class="text-capitalize ls0 mt-0"><u>Trained Manpower</u></h5>
-                        </div>
-                        <div class="col-sm-3 col-6 center">
-                            <div class="counter-dots"></div>
-                            <div class="counter font-secondary"><span data-from="1" data-to="21"
-                                    data-refresh-interval="10" data-speed="2100" data-comma="true"></span>100+</div>
-                            <h5 class="text-capitalize ls0 mt-0"><u>Countries Worldwide</u></h5>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="clear"></div>
-            <div class="section section-gradient m-0">
+
+        </div>
+    </section>
+    <div class="clear"></div>
+    <section id="gradient">
+        <div class="content-wrap pb-0">
+
+            <div class="section-gradient m-0">
                 <div class="svg-separator top rotate">
                     <div>
                         <svg preserveAspectRatio="xMidYMax meet" class="svg-separator sep3" viewBox="0 0 1600 100">
@@ -459,7 +278,7 @@
                         </svg>
                     </div>
                 </div>
-                <div class="container">
+                {{-- <div class="container">
                     <div class="mx-auto" style="max-width: 1200px; padding: 120px 0 50px;">
                         <div class="d-flex justify-content-between align-items-center mb-4 dark">
                             <h3 class="mb-0">What Our Users Say:</h3>
@@ -518,10 +337,16 @@
                             <img src="{{ asset('images/dot-grid.svg') }}" alt="Dot Image">
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
-            <div class="clear"></div>
-            <div class="section dark pt-0 mb-0 bg-color">
+
+        </div>
+    </section>
+    <div class="clear"></div>
+    <section id="contact">
+        <div class="content-wrap pb-0">
+
+            <div class="dark pt-0 mb-0 bg-color">
                 <svg viewBox="0 0 1960 206.8" class="bg-white">
                     <path class="svg-themecolor" style="opacity:0.2;"
                         d="M0,142.8A2337.49,2337.49,0,0,1,297.5,56.3C569.33-3.53,783.89.22,849.5,2.3c215.78,6.86,382.12,45.39,503.25,73.45,158.87,36.8,283.09,79.13,458.75,54.55A816.49,816.49,0,0,0,1983,86.8v110H0Z" />
@@ -543,6 +368,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 @endsection

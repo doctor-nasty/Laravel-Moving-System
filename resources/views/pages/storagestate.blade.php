@@ -71,9 +71,13 @@
                 transform="translate(0 -171.47)" />
         </svg>
     </div>
-    @foreach ($cntys as $cnty)
-    <li><a href="{{ url('storage') }}/{{$cnty->state_code}}/{{$cnty->county}}">{{$cnty->county}}</a></li>
-    @endforeach
+    <div class="d-flex justify-content-center">
+        <ul class="iconlist m-0 pe-5" id="zpcd">
+            @foreach ($cntys as $cnty)
+            <li><a href="{{ url('storage') }}/{{$cnty->state_code}}/{{$cnty->county}}">Storage {{ ucfirst(strtolower($cnty->county)) }} Storage</a></li>
+            @endforeach
+        </ul>
+    </div>
     <div class="section section-features bg-transparent mt-0 p-0 clearfix">
         <div class="container clearfix">
             <div class="row col-mb-50 col-mb-lg-80">

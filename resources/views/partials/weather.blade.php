@@ -36,13 +36,12 @@
 
 @endphp
 
-
 <div id="weather">
     <p class="text-black">{{ $temp }} degrees in {{ $city }}</p>
 </div>
 
-
-    <div class="news-box" style="width: 400px;">
+{{--
+    <div class="news-box">
         <div class="news-box-header">
             <div class="">
             <span class="fa fa-news"></span> <span class="count">News</span>
@@ -61,14 +60,14 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="news-box-footer">
+            <div class="news-box-footer">
                 <div class="right"><a href="{{ $item->link }}">Read More</a></div>
-            </div> --}}
+            </div>
             @php
                 $counter++;
             @endphp
         @endforeach
-    </div>
+    </div> --}}
 
 {{-- <div c>
 @foreach ($news->channel->item as $item)

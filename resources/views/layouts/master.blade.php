@@ -84,6 +84,38 @@
             $('.calendar').attr('min', maxDate);
         });
         </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+    <script src="{{ url('js/functions.js') }}" crossorigin="anonymous"></script>
+
+
+<script>
+
+
+    $(document).ready(function() {
+        $("#news-slider").owlCarousel({
+            items : 3,
+            itemsDesktop:[1199,3],
+            itemsDesktopSmall:[980,2],
+            itemsMobile : [600,1],
+            navigation:true,
+            navigationText:["",""],
+            pagination:true,
+            autoPlay:true,
+            responsiveClass: true,
+    responsive: {
+      0: {
+        items: 1,
+        nav: true
+      },
+      600: {
+        items: 3,
+        nav: false
+      }
+    }
+        });
+    });
+    </script>
+
 </body>
 
 </html>
