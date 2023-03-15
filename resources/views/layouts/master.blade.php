@@ -47,7 +47,9 @@
 
     <div id="gotoTop" class="icon-angle-up"></div>
 
+
     <script src="{{ url('js/jquery.js') }}"></script>
+
     {{-- <script src="{{ url('js/plugins.min.js') }}"></script> --}}
     {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> --}}
 

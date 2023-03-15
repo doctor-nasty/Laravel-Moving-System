@@ -103,6 +103,27 @@ Route::get('/about', function () {
     return view('pages.about');
 })->middleware('auth');
 
+Route::get('interstate', 'App\Http\Controllers\PagesController@interstate')->name('interstate');
+Route::get('interstate/{stateslug}', 'App\Http\Controllers\PagesController@interstatestate')->name('interstatestate');
+Route::get('interstate/{stateslug}/{cntyslug}', 'App\Http\Controllers\PagesController@interstatecnty')->name('interstatecnty');
+Route::get('interstate/{stateslug}/{cntyslug}/{ctyslug}', 'App\Http\Controllers\PagesController@interstatecty')->name('interstatecty');
+
+Route::get('international', 'App\Http\Controllers\PagesController@international')->name('international');
+Route::get('international/{stateslug}', 'App\Http\Controllers\PagesController@internationalstate')->name('internationalstate');
+Route::get('international/{stateslug}/{cntyslug}', 'App\Http\Controllers\PagesController@internationalcnty')->name('internationalcnty');
+Route::get('international/{stateslug}/{cntyslug}/{ctyslug}', 'App\Http\Controllers\PagesController@internationalcty')->name('internationalcty');
+
+Route::get('carshipping', 'App\Http\Controllers\PagesController@carshipping')->name('carshippingsubmit');
+Route::get('carshipping/{stateslug}', 'App\Http\Controllers\PagesController@carshippingstate')->name('carshippingstate');
+Route::get('carshipping/{stateslug}/{cntyslug}', 'App\Http\Controllers\PagesController@carshippingcnty')->name('carshippingcnty');
+Route::get('carshipping/{stateslug}/{cntyslug}/{ctyslug}', 'App\Http\Controllers\PagesController@carshippingcty')->name('carshippingcty');
+
+Route::get('storage', 'App\Http\Controllers\PagesController@storage')->name('storage');
+Route::get('storage/{stateslug}', 'App\Http\Controllers\PagesController@storagestate')->name('storagestate');
+Route::get('storage/{stateslug}/{cntyslug}', 'App\Http\Controllers\PagesController@storagecnty')->name('storagecnty');
+Route::get('storage/{stateslug}/{cntyslug}/{ctyslug}', 'App\Http\Controllers\PagesController@storagecty')->name('storagecty');
+
+
 
 Route::get('interstateForm/submit', 'App\Http\Controllers\Forms\InterstateController@submit')->name('interstatesubmit');
 Route::get('internationalForm/submit', 'App\Http\Controllers\Forms\InternationalController@submit')->name('internationalsubmit');

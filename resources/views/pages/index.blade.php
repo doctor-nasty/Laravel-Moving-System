@@ -1,4 +1,4 @@
-@extends('layouts.master', ['title' => 'MOVINGWYZ'])
+@extends('layouts.master', ['title' => 'MovingWyze.com'])
 
 
 
@@ -6,10 +6,7 @@
 @section('content')
     <section id="slider" class="slider-element bg-color">
         <div class="container mt-4" style="z-index: 2">
-            <div class="center">
-                <h2 class="text-blue h2 fw-semibold mb-2">MovingWyze.com</h2>
-                <p class="text-blue">Everything You Need For Relocation</p>
-            </div>
+            @include('partials.headertext')
 
             <div class="row justify-content-center formscontent">
                 <div class="col-lg-6">
@@ -158,7 +155,7 @@
                                 <p class="mb-2">Are you planning an Interstate Relocation? Long distance moving
                                     is an event that requires planning. We are here to guide you and help you pass
                                     through this mission with ease. Long Distance Moving is...</p>
-                                <a target="_blank" href="https://icons8.com/" title="Long Distance Moving"
+                                <a target="_blank" href="{{ url('interstate') }}" title="Long Distance Moving"
                                     class="color btn btn-sm p-0 btn-link"><u>Long Distance Moving</u> <i
                                         class="icon-line-arrow-right"></i></a>
                             </div>
@@ -170,7 +167,7 @@
                                     a step by step international moving guide that will help you stay on track with this
                                     international relocation
                                     challenge. International Moving is...</p>
-                                <a target="_blank" href="https://icons8.com/" title="International Moving"
+                                <a target="_blank" href="{{ url('international') }}" title="International Moving"
                                     class="color btn btn-sm p-0 btn-link"><u>International Moving</u> <i
                                         class="icon-line-arrow-right"></i></a>
                             </div>
@@ -188,7 +185,7 @@
                                     miles to it's engine? Car shipping is the solution for you. We have professional car
                                     shippers that will get your vehicle on the new location right on time. Car Shipping is
                                 </p>
-                                <a target="_blank" href="https://icons8.com/" title="Car Shipping"
+                                <a target="_blank" href="{{ url('carshipping') }}" title="Car Shipping"
                                     class="color btn btn-sm p-0 btn-link"><u>Car Shipping</u> <i
                                         class="icon-line-arrow-right"></i></a>
                             </div>
@@ -198,7 +195,7 @@
                                 <h3>Storage</h3>
                                 <p class="mb-2">Need storage? Find out what options are available for you and what you
                                     should consider.</p>
-                                <a target="_blank" href="https://icons8.com/" title="Storage"
+                                <a target="_blank" href="{{ url('storage') }}" title="Storage"
                                     class="color btn btn-sm p-0 btn-link"><u>Storage</u> <i
                                         class="icon-line-arrow-right"></i></a>
                             </div>
@@ -209,7 +206,7 @@
                     </div>
                 </div>
             </div>
-            <div class="clear"></div>
+            {{-- <div class="clear"></div>
             <div class="section p-0 dark mb-0"
                 style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,221,0.5)), url('images/section/1.jpg') no-repeat center center / cover; min-height: 400px">
                 <div class="container">
@@ -384,7 +381,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <div class="clear"></div>
             <div class="section-map clearfix bottommargin-lg topmargin-lg">
                 <div class="container">
@@ -395,7 +392,22 @@
                         <div class="d-flex justify-content-center">
                             <ul class="iconlist m-0 pe-5">
                                 @foreach ($states as $state)
-                                <li><a href="#">{{$state->state_name}}</a></li>
+                                <li><a href="{{ url('interstate') }}/{{$state->state_code}}" title="{{$state->state_name}} Long Distance Moving">{{$state->state_name}} Long Distance Moving</a></li>
+                                @endforeach
+                            </ul>
+                            <ul class="iconlist m-0 pe-5">
+                                @foreach ($states as $state)
+                                <li><a href="{{ url('international') }}/{{$state->state_code}}" title="{{$state->state_name}} International Moving">{{$state->state_name}} International Moving</a></li>
+                                @endforeach
+                            </ul>
+                            <ul class="iconlist m-0 pe-5">
+                                @foreach ($states as $state)
+                                <li><a href="{{ url('carshipping') }}/{{$state->state_code}}" title="{{$state->state_name}} Car Shipping">{{$state->state_name}} Car Shipping</a></li>
+                                @endforeach
+                            </ul>
+                            <ul class="iconlist m-0 pe-5">
+                                @foreach ($states as $state)
+                                <li><a href="{{ url('storage') }}/{{$state->state_code}}" title="{{$state->state_name}} Storage">{{$state->state_name}} Storage</a></li>
                                 @endforeach
                             </ul>
                         </div>

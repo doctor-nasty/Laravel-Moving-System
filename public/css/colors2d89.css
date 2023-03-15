@@ -67,7 +67,7 @@ h6 > span:not(.nocolor):not(.badge),
 .dark .product-title h3 a:hover,
 .dark .single-product .product-title h2 a:hover,
 .dark .product-price ins,
-.dark .tab-nav-lg li.ui-tabs-active a { color: #0F66DD; }
+.dark .tab-nav-lg li.ui-tabs-active a {color: #0F66DD;}
 
 .color,
 .h-text-color:hover,
