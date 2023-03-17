@@ -53,8 +53,15 @@ form h5 {
 
 @media(max-width:991.98px) {
     .menu-item>.menu-link {
-        color: #fff !important
+        color: #fff !important;
+        width: 48%;
+        float: left;
+        text-align: center;
+        margin: 2px;
+        background: #022a48;
     }
+
+    .menu-container{padding: 0;}
 }
 
 .menu-container>.menu-item.current>.menu-link,
@@ -343,7 +350,7 @@ a.btn-link:hover i {
 
 footer .list-unstyled li a,
 .copyright-links a {
-    color: #999;
+    color: #e2e2e2;
 }
 
 #header.dark .primary-menu {
@@ -479,6 +486,13 @@ footer .list-unstyled li a,
     .nav-justified>.nav-link {
         flex-basis: auto;
     }
+
+    ul.iconlist.m-0.pe-5 {
+        width: 100%;
+    }
+    ul#iconlist.m-0.pe-5 li {
+        width: 97%;
+    }
 }
 
 
@@ -579,6 +593,7 @@ section#slider {
 .formscontent {
     background: rgb(11 53 105 / 62%);
     box-shadow: 0 0 53px #fff;
+    height: auto;
 }
 
 
@@ -875,8 +890,7 @@ ul.iconlist.m-0.pe-5 li {
     background: rgba(255, 255, 255, .5);
     box-shadow: 0 0 8px #2179f7;
 }
-@media (max-width:768px) {
-    ul.iconlist.m-0.pe-5 {
-        width: 90%;
-    }
+
+
+div#ifrms {
 }

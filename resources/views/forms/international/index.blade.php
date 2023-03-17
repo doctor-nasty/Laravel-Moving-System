@@ -1,3 +1,6 @@
+<p class="mb-4">Moving to a new area? We have collected several tools to help you with your
+    upcoming moving date.</p>
+
 <form class="row home-moving-form position-relative mb-0" action="{{ route('internationalForm.create.step.one.post') }}"
     method="POST">
     @csrf

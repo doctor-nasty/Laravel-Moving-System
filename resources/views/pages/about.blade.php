@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="clear"></div>
-            <div class="py-6 mt-5 dark" style="background-color: #061a35;">
+            <div class="py-6 dark" style="background-color: #061a35;">
                 <div class="container mb-5">
                     <div class="row justify-content-between">
                         <div class="col-md-5">
@@ -60,8 +60,7 @@
                 </div>
             </div>
             <div class="clear"></div>
-            <div class="section dark pt-0 mb-0 bg-color"
-                style="background: url('images/bg.png') no-repeat center bottom / 100%; overflow: visible">
+            <div class="section dark pt-0 mb-0 bg-color">
                 <svg viewBox="0 0 1960 206.8" class="bg-white">
                     <path class="svg-themecolor" style="opacity:0.2;"
                         d="M0,142.8A2337.49,2337.49,0,0,1,297.5,56.3C569.33-3.53,783.89.22,849.5,2.3c215.78,6.86,382.12,45.39,503.25,73.45,158.87,36.8,283.09,79.13,458.75,54.55A816.49,816.49,0,0,0,1983,86.8v110H0Z" />

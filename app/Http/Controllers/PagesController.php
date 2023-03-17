@@ -55,7 +55,7 @@ class PagesController extends Controller
     {
         $movesize = mvsz::get();
         $states = states::where('status', 1)->get();
-        $cntys = zipcodes::where('state_code', $stateslug)->groupBy('county', 'state_code')->get();
+        $cntys = zipcodes::select('state_code', 'county')->where('state_code', $stateslug)->groupBy('county', 'state_code')->get();
 
         $stslug = states::where('state_code', $stateslug)->implode('state_name', ', ');
 
@@ -79,7 +79,7 @@ class PagesController extends Controller
         $cntyslug2 = zipcodes::where('county', $cntyslug)->get('county')->first();
 
 
-        $ctys = zipcodes::where('state_code', $stateslug)->where('county', $cntyslug)->groupBy('city', 'state_code', 'county')->get();
+        $ctys = zipcodes::select('state_code', 'county', 'city')->where('state_code', $stateslug)->where('county', $cntyslug)->groupBy('city', 'state_code', 'county')->get();
 
         $cnty = $cntyslug2->county;
 
@@ -140,7 +140,7 @@ class PagesController extends Controller
     {
         $movesize = mvsz::get();
         $states = states::where('status', 1)->get();
-        $cntys = zipcodes::where('state_code', $stateslug)->groupBy('county', 'state_code')->get();
+        $cntys = zipcodes::select('state_code', 'county')->where('state_code', $stateslug)->groupBy('county', 'state_code')->get();
 
         $countries = \App\Models\Country::orderBy('country','asc')->get();
         $continents = \App\Models\Country::orderBy('continent','asc')->get()->unique('continent');
@@ -170,7 +170,7 @@ class PagesController extends Controller
         $cntyslug2 = zipcodes::where('county', $cntyslug)->get('county')->first();
 
 
-        $ctys = zipcodes::where('state_code', $stateslug)->where('county', $cntyslug)->groupBy('city', 'state_code', 'county')->get();
+        $ctys = zipcodes::select('state_code', 'county', 'city')->where('state_code', $stateslug)->where('county', $cntyslug)->groupBy('city', 'state_code', 'county')->get();
 
         $cnty = $cntyslug2->county;
 
@@ -235,7 +235,7 @@ class PagesController extends Controller
         $movesize = mvsz::get();
         $states = states::where('status', 1)->get();
 
-        $cntys = zipcodes::where('state_code', $stateslug)->groupBy('county', 'state_code')->get();
+        $cntys = zipcodes::select('state_code', 'county')->where('state_code', $stateslug)->groupBy('county', 'state_code')->get();
 
         $cars = \App\Models\Cars::orderBy('make','asc')->orderBy('year','desc')->get();
         $carsUnique = $cars->unique('make');
@@ -273,7 +273,7 @@ class PagesController extends Controller
         $cntyslug2 = zipcodes::where('county', $cntyslug)->get('county')->first();
 
 
-        $ctys = zipcodes::where('state_code', $stateslug)->where('county', $cntyslug)->groupBy('city', 'state_code', 'county')->get();
+        $ctys = zipcodes::select('state_code', 'county', 'city')->where('state_code', $stateslug)->where('county', $cntyslug)->groupBy('city', 'state_code', 'county')->get();
 
         $cnty = $cntyslug2->county;
 
@@ -334,7 +334,7 @@ class PagesController extends Controller
     {
         $movesize = mvsz::get();
         $states = states::where('status', 1)->get();
-        $cntys = zipcodes::where('state_code', $stateslug)->groupBy('county', 'state_code')->get();
+        $cntys = zipcodes::select('state_code', 'county')->where('state_code', $stateslug)->groupBy('county', 'state_code')->get();
 
         $countries = \App\Models\Country::orderBy('country','asc')->get();
         $continents = \App\Models\Country::orderBy('continent','asc')->get()->unique('continent');
@@ -361,7 +361,7 @@ class PagesController extends Controller
         $cntyslug2 = zipcodes::where('county', $cntyslug)->get('county')->first();
 
 
-        $ctys = zipcodes::where('state_code', $stateslug)->where('county', $cntyslug)->groupBy('city', 'state_code', 'county')->get();
+        $ctys = zipcodes::select('state_code', 'county', 'city')->where('state_code', $stateslug)->where('county', $cntyslug)->groupBy('city', 'state_code', 'county')->get();
 
         $cnty = $cntyslug2->county;
 
