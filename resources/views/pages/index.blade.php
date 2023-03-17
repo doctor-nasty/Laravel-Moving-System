@@ -9,7 +9,7 @@
             @include('partials.headertext')
 
             <div class="row justify-content-center formscontent">
-                <div class="col-lg-6">
+                <div class="col-lg-6" id="ifrms">
                     <p class="text-white-50">Find Out Everything You Need To Know For Your Upcoming Move. Start Here:</p>
                     <ul class="nav nav-tabs nav-fill flex-column border-bottom-0 flex-md-row bg-color mt-4" role="tablist"
                         id="tabs" data-tabs="tabs">
@@ -37,8 +37,7 @@
                         <div role="tabpanel"
                             class="tab-pane @if ($errors->count() == 0) active @endif @error('movingfromzip1') active @enderror @error('movingtozip1') active @enderror @error('movingdate1') active @enderror @error('movesize1') active @enderror"
                             id="interstate">
-                            <p class="mb-4">Moving to a new area? We have collected several tools to help you with your
-                                upcoming moving date.</p>
+
                             @include('forms.interstate.index')
                         </div>
                         <div role="tabpanel"
@@ -262,7 +261,7 @@
     <section id="gradient">
         <div class="content-wrap pb-0">
 
-            <div class="section-gradient m-0">
+            {{-- <div class="section-gradient m-0">
                 <div class="svg-separator top rotate">
                     <div>
                         <svg preserveAspectRatio="xMidYMax meet" class="svg-separator sep3" viewBox="0 0 1600 100">
@@ -277,7 +276,7 @@
                             </path>
                         </svg>
                     </div>
-                </div>
+                </div> --}}
                 {{-- <div class="container">
                     <div class="mx-auto" style="max-width: 1200px; padding: 120px 0 50px;">
                         <div class="d-flex justify-content-between align-items-center mb-4 dark">
@@ -353,7 +352,7 @@
                     <path class="svg-themecolor" d="M.5,152.8s498-177,849-150,1031,238,1134,94v110H.5Z" />
                 </svg>
                 <div class="container">
-                    <div class="row align-items-center justify-content-center center my-4">
+                    <div class="row align-items-center justify-content-center center">
                         <div class="col-sm-8">
                             <div class="heading-block border-bottom-0 mb-4">
                                 <h2 class="fw-semibold ls0 nott mb-3" style="font-size: 44px; line-height: 1.3">Contact

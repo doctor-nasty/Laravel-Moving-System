@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-6">
                     <div class="widget clearfix">
-                        <h4 class="ls0 mb-4 nott">Features</h4>
+                        <h4 class="ls0 mb-4 nott text-white">Features</h4>
                         <ul class="list-unstyled iconlist ms-0">
                             <li class="mb-2"><a href="#">Help Center</a></li>
                             <li class="mb-2"><a href="#">Paid with Moblie</a></li>
@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-lg-2 col-md-2 col-6">
                     <div class="widget clearfix">
-                        <h4 class="ls0 mb-4 nott">Support</h4>
+                        <h4 class="ls0 mb-4 nott text-white">Support</h4>
                         <ul class="list-unstyled iconlist ms-0">
                             <li class="mb-2"><a href="#">Home</a></li>
                             <li class="mb-2"><a href="demo-movers-company.html">About</a></li>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-lg-2 col-md-2 col-6">
                     <div class="widget clearfix">
-                        <h4 class="ls0 mb-4 nott">Trending</h4>
+                        <h4 class="ls0 mb-4 nott text-white">Trending</h4>
                         <ul class="list-unstyled iconlist ms-0">
                             <li class="mb-2"><a href="#">Shop</a></li>
                             <li class="mb-2"><a href="#">Portfolio</a></li>
@@ -41,7 +41,7 @@
                 </div>
                 <div class="col-lg-2 col-md-2 col-6">
                     <div class="widget clearfix">
-                        <h4 class="ls0 mb-4 nott">Get to Know us</h4>
+                        <h4 class="ls0 mb-4 nott text-white">Get to Know us</h4>
                         <ul class="list-unstyled iconlist ms-0">
                             <li class="mb-2"><a href="#">Corporate</a></li>
                             <li class="mb-2"><a href="#">Agency</a></li>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4 text-md-end">
                     <div class="widget clearfix">
-                        <h4 class="ls0 mb-4 nott">Headquarters:</h4>
+                        <h4 class="ls0 mb-4 nott text-white">Headquarters:</h4>
                         <div>
                             <address>
                                 795 Folsom Ave, Suite 600<br>
@@ -94,8 +94,8 @@
                 </div>
                 <div class="col-md-6 d-md-flex flex-md-column align-items-md-end mt-4 mt-md-0">
                     <div class="copyrights-menu copyright-links text-black-50 clearfix">
-                        <a href="demo-movers-company.html">About</a>/<a href="demo-movers-rates.html">Rates</a>/<a
-                            href="demo-movers-faqs.html">FAQs</a>/<a href="demo-movers-contact.html">Contact</a>
+                        <a href="demo-movers-company.html" class="text-black">About</a>/<a href="demo-movers-rates.html" class="text-black">Rates</a>/<a
+                            href="demo-movers-faqs.html" class="text-black">FAQs</a>/<a href="demo-movers-contact.html" class="text-black">Contact</a>
                     </div>
                 </div>
             </div>

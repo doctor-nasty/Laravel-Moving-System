@@ -28,7 +28,7 @@
                 </div>
 
 
-                <nav class="primary-menu with-arrows not-dark">
+                <nav class="primary-menu not-dark">
                     <ul class="menu-container">
                         <li class="menu-item {{ request()->is('') ? 'current' : '' }}"><a class="menu-link"
                                 href="/">
@@ -50,7 +50,7 @@
                         <li class="menu-item"><a class="menu-link" href="#">
                                 <div>Moving Tools</div>
                             </a>
-                            <ul class="sub-menu-container">
+                            {{-- <ul class="sub-menu-container">
                                 <li class="menu-item"><a class="menu-link" href="#">
                                         <div><i class="icon-line2-home"></i>Home Moving</div>
                                     </a></li>
@@ -69,7 +69,7 @@
                                 <li class="menu-item"><a class="menu-link" href="#">
                                         <div><i class="icon-truck1"></i>Hire Truck</div>
                                     </a></li>
-                            </ul>
+                            </ul> --}}
                         </li>
                         <!-- <li class="menu-item"><a class="menu-link" href="demo-movers-team.html"><div>Team</div></a></li> -->
                         <!-- <li class="menu-item"><a class="menu-link" href="demo-movers-faqs.html"><div>FAQs</div></a></li>

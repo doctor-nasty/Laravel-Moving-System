@@ -1,3 +1,5 @@
+<p class="mb-4">Moving to a new area? We have collected several tools to help you with your
+    upcoming moving date.</p>
 <form class="row others-moving-form position-relative mb-0" action="{{ route('carForm.create.step.one.post') }}"
     method="POST">
     @csrf
