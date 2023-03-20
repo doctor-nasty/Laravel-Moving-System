@@ -78,6 +78,9 @@ class PagesController extends Controller
 
         $cntyslug2 = zipcodes::where('county', $cntyslug)->get('county')->first();
 
+        $cntyslug3 = zipcodes::where('county', $cntyslug)->implode('county', ', ');
+
+
 
         $ctys = zipcodes::select('state_code', 'county', 'city')->where('state_code', $stateslug)->where('county', $cntyslug)->groupBy('city', 'state_code', 'county')->get();
 
@@ -86,7 +89,7 @@ class PagesController extends Controller
         // return $cntyslug2;
 
 
-        if ($cntyslug2 !== '') {
+        if ($cntyslug3 !== '') {
             return view('pages.interstatecnty', compact('states', 'movesize', 'stslug', 'cntyslug', 'cnty', 'ctys', 'stcslug'));
 
         } else {
