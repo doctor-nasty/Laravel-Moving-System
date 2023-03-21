@@ -1,5 +1,5 @@
 <footer id="footer" class="bg-transparent border-0">
-    <div class="container">
+    {{-- <div class="container">
 
         <div class="footer-widgets-wrap pb-4 clearfix">
             <div class="row">
@@ -84,7 +84,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div id="copyrights" class="bg-transparent">
         <div class="container clearfix">

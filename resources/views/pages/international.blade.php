@@ -58,8 +58,6 @@ style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,2
                     <div role="tabpanel"
                         class="tab-pane @if ($errors->count() == 0) active @endif @error('movingfromzip1') active @enderror @error('movingtozip1') active @enderror @error('movingdate1') active @enderror @error('movesize1') active @enderror"
                         id="interstate">
-                        <p class="mb-4 text-black">Moving to a new area? We have collected several tools to help you with your
-                            upcoming moving date.</p>
                         @include('forms.international.index')
                     </div>
                 </div>
@@ -71,6 +69,120 @@ style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,2
     <path style="fill:#FFF;" d="M-.5,288.5s297-175,792-97,599,52,671,25v143H-.5Z"
         transform="translate(0 -171.47)" />
 </svg>
+</div>
+<div class="section section-features bg-transparent mt-0 p-0 clearfix">
+    <div class="container clearfix">
+        <div class="row col-mb-50 col-mb-lg-80">
+            <div class="col-lg-12 justify-content-center" id="svctxt">
+                <h3>Best Ways To Prepare For International Moving
+                </h3>
+                <p>International moving is one of the biggest decisions you will ever make. It's important to make the right choices
+                    when it comes to selecting a mover and packing company, so that your move goes as smoothly as possible. In this blog
+                    post, we'll share some of our best tips for preparing for international moving. From choosing the right movers to
+                    making thorough research, these tips will help ensure a smooth and stress-free move.
+                </p>
+                <h3>What Is Moving?
+                </h3>
+                <p>1. Research your moving needs and start packing now!
+                </p>
+                <p>2. Make a plan for what you'll pack and where it will go
+                </p>
+                <p>3. Organize your belongings and get them ready to go
+                </p>
+                <p>4. Decide how much money to allocate for your move
+                </p>
+                <p>5. Find a reputable moving company that can help with the process
+                </p>
+                <h3>What Are The Different Types Of International International Moving?
+                </h3>
+                <p>Different types of international moves include:
+                </p>
+                <p>-Arrival Moves: These are when you move into a new country. This can be done through a visa or residency process.
+                </p>
+                <p>-Departure Moves: These are when you move out of the country. This can also be done through a visa or residency
+                    process, but may also require an exit visa if you're leaving the country for an extended period of time.
+                </p>
+                <p>-Crossing Borders: Some people choose to move between two countries without ever leaving their home country. This is
+                    called a "border crossing." This can be done by using a passport card, border crossing card, or an electronic travel
+                    permit (ETP).
+                </p>
+                <h3>The Steps Of Preparing For A Move
+                </h3>
+                <p>The steps of preparing for a move vary depending on the type of move you are undertaking, but there are some common
+                    steps that will help make the process easier.
+                </p>
+                <p>1. Get a moving estimate from several companies. This will help you decide which company is best suited to handle
+                    your specific needs and give you an idea of what to budget for.
+                </p>
+                <p>2. Make a packing list and start packing as soon as possible. Start by sorting your belongings into categories, then
+                    start packing them according to category. It's important to stress the importance of taking care of fragile items
+                    while packing, as they may not withstand shipping or storage conditions well.
+                </p>
+                <p>3. Arrange emergency contacts in new location. Make sure everyone knows your new address, including friends, family
+                    members, bank workers, etc. Being able to reach people easily will be key when things go wrong during your move.
+                </p>
+                <p>4. Create a travel binder with all pertinent info about your move (dates, flight information, hotel reservations).
+                    This will make planning trips much easier and prevent any surprises when it comes time to pack for your journey.
+                </p>
+                <h3>How To Budget For A Move
+                </h3>
+                <p>Moving is an expensive process, no matter where you live. There are many costs associated with packing, moving, and
+                    settling in your new home. Here are some tips to help you budget for a move:
+                </p>
+                <p>1. Get an estimate of your total moving cost upfront. This will help you plan your budget and avoid surprises.
+                </p>
+                <p>2. Factor in the cost of packing materials and hiring a moving company. You'll need boxes, tape, bubble wrap, crating
+                    materials, and more. Plan on spending around $200 per household on supplies alone.
+                </p>
+                <p>3. Add up all the other costs involved in your move - rent, utilities, phone bills, etc. - and come up with a
+                    ballpark figure for everything you'll need to cover while you're away. This should include at least two months' rent
+                    in case you have to leave early or miss some days due to the move.
+                </p>
+                <p>4. Save money wherever you can by packing carefully or using reusable materials instead of buying new ones each time
+                    you move. Ask family or friends for help if they're able to lend a hand with the packing process or provide
+                    furniture or appliances for storage during your stay away from home.
+                </p>
+                <p>5. Make sure that everyone in your household is prepared for the financial impact of a move before actually making it
+                    happen! Talk about estimated expenses and make sure everyone has an understanding of what's expected from them
+                    during the transition period
+                </p>
+                <h3>Tips For Packing And Moving
+                </h3>
+                <p>Whether you're moving within your own state or across the country, there are a few basic tips for packing and moving
+                    that will help keep things as stress-free as possible.
+                </p>
+                <p>1. Start with a clean house. Clear away any items that are not essential to your move, such as furniture you don't
+                    plan on taking with you. This will make room in your boxes and bags for more important items.
+                </p>
+                <p>2. Create a packing list and stick to it. This will help you avoid buying unnecessary items while packing, and it can
+                    also serve as a guideline for what is and is not allowed in your moving box(es).
+                </p>
+                <p>3. Get organized before loading the truck. Sort through all of your belongings into designated boxes or bags, then
+                    label them with tags or stickers so you know exactly where everything is when you're ready to load the truck. This
+                    will also help ensure that nothing gets lost in the shuffle during the move!
+                </p>
+                <p>4. Keep an inventory of all of your belongings before you leave home. This way, if something does get lost en route,
+                    at least you'll have an idea of what you need to replace (or sell!).
+                </p>
+                <p>5. Rent a U-Haul or storage container if necessary. Many people find it helpful to rent a U-Haul or storage container
+                    in order to pack their belongings more efficiently and avoid having too much stuff cluttering up their homes upon
+                    returning . And who knows...maybe you'll even be able to find a deal on the internet!
+                </p>
+                <p>6. Don't be afraid to ask for help. If you find yourself overwhelmed by the task of moving, don't be afraid to reach
+                    out to friends or family for help. They may be able to lend a hand with packing, loading the truck, or even finding
+                    temporary storage while your move is complete.
+                </p>
+                <h3>Conclusion
+                </h3>
+                <p>If you are planning on moving abroad, there are a few things that you need to do in order to make the process as
+                    smooth and stress-free as possible. In this article, we have outlined some of the best ways to prepare for
+                    international moving, so that your move goes as smoothly as possible. From packing and organizing your belongings to
+                    making sure that all of your documentation is in order, these tips will help get you started on the right track.
+                    Thanks for reading!
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="d-flex justify-content-center">
     <ul class="iconlist m-0 pe-5" id="zpcd">

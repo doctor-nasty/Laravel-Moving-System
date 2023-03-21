@@ -151,7 +151,7 @@ form h5 {
 
 #slider .form-control,
 #slider .custom-select {
-    font-size: 14px;
+    font-size: 15px;
     height: calc(1.5em + 0.75rem + 6px);
     padding-left: 10px;
 }
@@ -488,7 +488,7 @@ footer .list-unstyled li a,
     }
 
     ul.iconlist.m-0.pe-5 {
-        width: 100%;
+        width: 100% !important;
     }
     ul#iconlist.m-0.pe-5 li {
         width: 97%;
@@ -557,7 +557,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 section#slider {
     /* background-image: url(/images/bg.png); */
     /* height: 100%; */
-    padding: 1% 6% 4% 6%;
+    /* padding: 1% 6% 4% 6%; */
     /* margin-top: 148px; */
 }
 
@@ -594,6 +594,7 @@ section#slider {
     background: rgb(11 53 105 / 62%);
     box-shadow: 0 0 53px #fff;
     height: auto;
+    margin-bottom: 9rem;
 }
 
 
@@ -709,7 +710,7 @@ ul#zpcd ul {
 
 ul#zpcd {
     list-style: none;
-    width: 85%;
+    width: auto;
     margin: auto;
 }
 
@@ -892,5 +893,16 @@ ul.iconlist.m-0.pe-5 li {
 }
 
 
-div#ifrms {
+div#ifrms {margin-bottom: 1rem;margin-top: 1rem;}
+
+
+div#svctxt {
+    text-align: left;
+    /* border: 3px solid #113155; */
+    margin-bottom: 80px;
+    font-size: 1em;
+    width: 80%;
+    margin: auto;
 }
+
+div#svctxt {}

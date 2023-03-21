@@ -74,10 +74,10 @@
                         <!-- <li class="menu-item"><a class="menu-link" href="demo-movers-team.html"><div>Team</div></a></li> -->
                         <!-- <li class="menu-item"><a class="menu-link" href="demo-movers-faqs.html"><div>FAQs</div></a></li>
                         <li class="menu-item"><a class="menu-link" href="demo-movers-blog.html"><div>Blog</div></a></li> -->
-                        <li class="menu-item {{ request()->is('/contact') ? 'current' : '' }}"><a class="menu-link"
+                        {{-- <li class="menu-item {{ request()->is('/contact') ? 'current' : '' }}"><a class="menu-link"
                                 href="#">
                                 <div>Contact Us</div>
-                            </a></li>
+                            </a></li> --}}
                         <li class="menu-item {{ request()->is('/about') ? 'current' : '' }}"><a class="menu-link"
                                 href="/about">
                                 <div>Our Company</div>

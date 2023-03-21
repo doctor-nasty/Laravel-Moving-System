@@ -1,4 +1,4 @@
-<p class="mb-4">Moving to a new area? We have collected several tools to help you with your
+<p class="mb-4 text-black">Moving to a new area? We have collected several tools to help you with your
     upcoming moving date.</p>
 
 <form class="row home-moving-form position-relative mb-0" action="{{ route('internationalForm.create.step.one.post') }}"
@@ -69,7 +69,7 @@
                 value="{{ $form->intl_dt ?? '' }}" placeholder="Moving Date" name="intl_dt" required>
         </div>
     </div>
-  <h5>Moving To:</h5>
+  <h5 class="text-black">Moving To:</h5>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
