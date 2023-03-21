@@ -221,7 +221,7 @@
                     <div class="map-title">
                         <h2 class="center">More than 10 States included in Our Network.
                         </h2>
-                        <div class="justify-content-center">
+                        <div class="d-flex justify-content-center" id="zpcd">
                             <ul class="iconlist m-0 pe-5">
                                 @foreach ($states as $state)
                                     <li><a href="{{ url('interstate') }}/{{ $state->state_code }}"

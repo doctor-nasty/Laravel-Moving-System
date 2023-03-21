@@ -58,8 +58,7 @@ style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,2
                 <div role="tabpanel"
                     class="tab-pane @if ($errors->count() == 0) active @endif @error('movingfromzip1') active @enderror @error('movingtozip1') active @enderror @error('movingdate1') active @enderror @error('movesize1') active @enderror"
                     id="interstate">
-                    <p class="mb-4 text-black">Moving to a new area? We have collected several tools to help you with your
-                        upcoming moving date.</p>
+
                     @include('forms.storage.index')
                 </div>
             </div>
@@ -71,6 +70,98 @@ style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,2
     <path style="fill:#FFF;" d="M-.5,288.5s297-175,792-97,599,52,671,25v143H-.5Z"
         transform="translate(0 -171.47)" />
 </svg>
+</div>
+<div class="section section-features bg-transparent mt-0 p-0 clearfix">
+    <div class="container clearfix">
+        <div class="row col-mb-50 col-mb-lg-80">
+            <div class="col-lg-12 justify-content-center" id="svctxt">
+                <h3>Moving And Storage Services: How To Find The Best One
+                </h3>
+                <p>On any given day, there are likely dozens of items in your house that need to be moved. Perhaps you're moving into a
+                    new home, or your old one is getting too small for your needs. Maybe you're taking a family trip and need to pack
+                    everything up quickly. Whatever the reason, moving and storage services are a great way to take care of everything
+                    quickly and efficiently. Here are a few tips to help you find the best one for your needs:
+                </p>
+                <p>1. Do your research. There are a ton of services out there, and it can be tough to know which one is right for you.
+                    Before you even start looking, do some research to understand what each service offers. This will help you compare
+                    apples-to-apples and make sure you're getting the most bang for your buck.
+                </p>
+                <p>2. Ask around. One of the best ways to find quality moving and storage services is by asking around. You can either
+                    speak with friends, family, or local business owners about their experiences with specific companies. This will give
+                    you a good understanding of what to look for in a provider and who to trust with your precious belongings.
+                </p>
+                <h3>What Moving Services Do
+                </h3>
+                <p>If you're planning on moving in the near future, there are a few things you'll need to take into account. The first
+                    is choosing the right moving company. You'll want to be sure that the company you choose has a good reputation and
+                    offers quality services.
+                </p>
+                <p>Another important factor to consider is how much your move will cost. Moving companies often offer different price
+                    points, so it's important to do your research and find one that suits your budget.
+                </p>
+                <p>Finally, make sure to ask the moving company about any specific requirements you may have. For example, do they
+                    require insurance coverage for your items? Are they willing to pack and transport items using specific materials
+                    (such as boxes made of recycled materials)?
+                </p>
+                <p>Whatever you do, don't hesitate to ask questions when making your move!
+                </p>
+                <h3>How To Choose The Right Storage Company
+                </h3>
+                <p>Whether you're moving within your city or across the country, choosing the right storage company can make the process
+                    a lot easier. Here are tips for finding the best option for your needs:
+                </p>
+                <p>1. Do your research
+                </p>
+                <p>First and foremost, you need to do your research to find the best storage company for your needs. Look online or
+                    contact multiple companies to get an idea of their services and rates.
+                </p>
+                <p>2. Consider size and amenities
+                </p>
+                <p>When looking at storage companies, consider size and amenities. Some companies offer more space than others, while
+                    others may offer more amenities, such as climate control or on-site security. Consider what is important to you when
+                    choosing a storage company.
+                </p>
+                <p>3. Check reviews and ratings
+                </p>
+                <p>Next, check ratings and reviews to see if anyone has had positive experiences with the company you're considering.
+                    This will help you avoid potential headaches down the road.
+                </p>
+                <h3>Tips For Making A Smooth Move
+                </h3>
+                <p>There are a few things you can do to make the move process go more smoothly.
+                </p>
+                <p>1. Get organized
+                </p>
+                <p>Before starting the move, be as organized as possible. This will help to avoid any last-minute headaches and ensure
+                    that everything goes as planned. organize your furniture, box up your belongings, and create packing lists.
+                </p>
+                <p>2. Consider using a moving company
+                </p>
+                <p>Although it may seem like a hassle, hiring a professional movers can make the process much easier. They will take
+                    care of all of the logistics for you, including packing and unpacking your possessions, loading and unloading your
+                    truck or trailer, and ensuring that everything arrives at its new location in perfect condition.
+                </p>
+                <p>3. Schedule appointments ahead of time
+                </p>
+                <p>Make sure to schedule appointments with your chosen moving company well in advance of your move date. This way, they
+                    can prepare all of the necessary paperwork and equipment, and you won't have to worry about anything else during
+                    your journey!
+                </p>
+                <h3>Moving And Storage Services : Conclusion
+                </h3>
+                <p>Moving and storage can be a daunting task, but with the right help, it can be made as smooth as possible. That's why
+                    it's important to find someone you trust who will take care of everything for you – from packing and shipping your
+                    belongings to setting up your new home. Here are a few tips to help you find the best moving and storage provider
+                    for your needs: first, research the company thoroughly . Look into their reputation, customer feedback, and reviews
+                    on various websites. Second, ask around . Talk to friends and family who have used this particular company before.
+                    Third, call ahead . Ask if they can come out to give you a quote or provide an estimate so that you have a sense of
+                    what the cost will be in advance. And finally, always confirm all services with the provider before signing any
+                    contracts or handing over any money. By following these simple tips, you should be able to move smoothly and
+                    affordably – no matter how big or small your move may be!
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="d-flex justify-content-center">
     <ul class="iconlist m-0 pe-5" id="zpcd">

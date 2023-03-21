@@ -56,9 +56,7 @@
                         <div role="tabpanel"
                             class="tab-pane @if ($errors->count() == 0) active @endif @error('movingfromzip1') active @enderror @error('movingtozip1') active @enderror @error('movingdate1') active @enderror @error('movesize1') active @enderror"
                             id="carshipping">
-                            <p class="mb-4 text-black">Moving to a new area? We have collected several tools to help you
-                                with your
-                                upcoming moving date.</p>
+
                             @include('forms.carshipping.index')
                         </div>
                     </div>
