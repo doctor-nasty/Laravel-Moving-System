@@ -17,7 +17,7 @@
                         by reading our advice on interviewing moving companies.</p>
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-8">
+                            <div class="col-lg-6">
                                 @if (count($companies) > 0)
                                     <ul class="list-group">
                                         @foreach ($companies as $company)
@@ -64,7 +64,7 @@
                                     @endforeach
                                 @endif
                             </div>
-                            <div class="col" id="mvdt">
+                            <div class="col-lg-6" id="mvdt">
                                 <table class="table">
                                     <tr>
                                         <td class="mb4">Moving From:</td>

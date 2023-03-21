@@ -49,13 +49,13 @@
                                 <div class="col-lg-12 mb-3 mt-3 mb-sm-0">
                                     <h3>Please select counties in {{ $st }} </h3>
                                     <div name="cntSelect[]" id="cntSelect">
-                                        <input id="checkAll" type="checkbox">Select All
+                                        <button type="button" id="select-all">Select All</button>
 
                                         <ul>
 
                                             @foreach ($counties as $county)
                                                 <li>
-                                                    <input class="checkIt" type="checkbox" id="cnty_id" name="cnty_id"
+                                                    <input class="checkIt" type="checkbox" id="cnty_id" name="cnty_id[]"
                                                         value="{{ $county->id }}"
                                                         @foreach ($jct_fr_cnty as $jct) @if ($jct->cnty_id == $county->id) checked @endif @endforeach>
                                                     {{ $county->county }}
@@ -79,6 +79,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
     <script>
         $('.checkIt').on('click', function() {
+
             let cnty_id = $(this).val();
 
             if ($(this).is(":checked")) {
@@ -101,22 +102,69 @@
                     data: {
                         'cnty_id': cnty_id,
                         'cmp_id': $("#cmp_id").val(),
+                        'svc_id': $("#svc_id").val(),
                         _token: '{{ csrf_token() }}'
                     }
-                })
+                }).done(function(result) {
+                console.log(result);
+            }).fail(function(jqXHR, textStatus, errorThrown) {
+                console.error('Error:', textStatus, errorThrown);
+            });
             }
         });
     </script>
-<script type="text/javascript">
-$("#checkAll").click(function() {
-    if("checkall" === $(this).val()) {
-         $(".checkIt").attr('checked', true);
-         $(this).val("uncheckall"); //change button text
-    }
-    else if("uncheckall" === $(this).val()) {
-         $(".checkIt").attr('checked', false);
-         $(this).val("checkall"); //change button text
-    }
+  <script>
+$(document).ready(function() {
+    $("#select-all").click(function() {
+        // Get all checkboxes
+        let checkboxes = $("input[type='checkbox']");
+
+        if ($(this).data('checked')) {
+            // Deselect all checkboxes and update the data attribute
+            checkboxes.prop('checked', false);
+            $(this).data('checked', false);
+
+            // Perform AJAX request for each checkbox
+            checkboxes.each(function() {
+                let cnty_id = $(this).val();
+                $.ajax({
+                    type: "DELETE",
+                    url: '{{ url('admin/company/assignment/interstate/cntysrem') }}',
+                    data: {
+                        'cnty_id': cnty_id,
+                        'cmp_id': $("#cmp_id").val(),
+                        'svc_id': $("#svc_id").val(),
+                        _token: '{{ csrf_token() }}'
+                    }
+                }).done(function(result) {
+                    console.log(result);
+                });
+            });
+
+        } else {
+            // Select all checkboxes and update the data attribute
+            checkboxes.prop('checked', true);
+            $(this).data('checked', true);
+
+            // Perform AJAX request for each checkbox
+            checkboxes.each(function() {
+                let cnty_id = $(this).val();
+                $.ajax({
+                    type: "POST",
+                    url: '{{ url('admin/company/assignment/interstate/cntys') }}',
+                    data: {
+                        'cnty_id': cnty_id,
+                        'cmp_id': $("#cmp_id").val(),
+                        'svc_id': $("#svc_id").val(),
+                        _token: '{{ csrf_token() }}'
+                    }
+                }).done(function(result) {
+                    console.log(result);
+                });
+            });
+        }
+    });
 });
-  </script>
+
+    </script>
 @endsection
