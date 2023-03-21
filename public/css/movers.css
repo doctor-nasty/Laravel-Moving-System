@@ -505,20 +505,18 @@ div#mvdt {
     background: #fff;
     padding: 1%;
     border: solid 1px;
-    right: 2%;
-    top: 20%;
     z-index: 1;
 }
 
 li.row.align-items-center {
         margin: 1% auto;
-        background: #d8bfbf;
+        background: #dfdfdf;
         padding: 2%;
+        width: 100%;
 }
 
 li.row.align-items-center {
-    /* background: #e7c8c8; */
-    margin: 1% auto;
+    /* margin: 1% auto; */
     padding: 1%;
 }
 

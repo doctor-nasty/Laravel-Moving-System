@@ -32,7 +32,8 @@ use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
 use Symfony\Component\Console\Input\Input;
-use Image;
+use Intervention\Image\ImageManagerStatic as Image;
+
 
 class CompanyController extends Controller
 {
@@ -992,15 +993,15 @@ class CompanyController extends Controller
 
     public function storeImage(Request $request, Company $company)
     {
+        $company_id = $request->input('company_id');
+
+
         $request->validate([
             'logo' => 'required|image|mimes:png,jpg,jpeg|max:2048'
         ]);
 
-        // $imageName = time().'.'.$request->logo->extension();
-
         $image = $request->file('logo');
         $input['imagename'] = time().'.'.$image->extension();
-
 
         $destinationPath = public_path('images/companies');
 
@@ -1011,17 +1012,17 @@ class CompanyController extends Controller
 
         })->save($destinationPath.'/'.$input['imagename']);
 
+        // \Log::info('Updating company with ID: ' . $company_id . ' and new image: ' . $input['imagename']);
 
-        // Public Folder
-        // $request->logo->move(public_path('images/companies'), $imageName);
+        // $rows_updated = Company::where('id', $company_id)->update(['logo' => $input['imagename']]);
 
-        $company_updated = Company::whereId($company->id)->update([
-            'logo' => $input['imagename']
-        ]);
-
+        // \Log::info('Rows updated: ' . $rows_updated);
+        // \Log::info('Company updated: ' . json_encode(Company::find($company_id)));
 
         return back()->with('success', 'Image uploaded Successfully!')
         ->with('logo', $input['imagename']);
+
+
     }
 
     /**

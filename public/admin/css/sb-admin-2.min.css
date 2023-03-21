@@ -5395,7 +5395,7 @@ a.bg-dark:focus,a.bg-dark:hover,button.bg-dark:focus,button.bg-dark:hover{
     display:table-cell!important
 }
 .d-flex{
-    display:flex!important
+    display:flex!important;
 }
 .d-inline-flex{
     display:inline-flex!important
@@ -8007,7 +8007,7 @@ a:focus{
 }
 .bg-gradient-primary{
     background-color: #797877;
-    background-image: linear-gradient(158deg,#797877 56%,#509796 100%);
+    background-image: linear-gradient(158deg,#070528 56%,#113155 100%);
     background-size:cover;
 }
 .bg-gradient-secondary{
@@ -8340,7 +8340,7 @@ a:focus{
 }
 .sidebar{
     width:6.5rem;
-    min-height:100vh
+    min-height:100vh;
 }
 .sidebar .nav-item{
     position:relative;
@@ -8448,7 +8448,7 @@ a:focus{
     text-align:center;
     text-transform:uppercase;
     letter-spacing:.05rem;
-    z-index:1
+    z-index:1;
 }
 .sidebar .sidebar-brand .sidebar-brand-icon i{
     font-size:2rem
@@ -8491,7 +8491,7 @@ a:focus{
 }
 @media (min-width:768px){
     .sidebar{
-        width:14rem!important
+        width:14rem!important;
     }
     .sidebar .nav-item .collapse{
         position:relative;
@@ -8644,7 +8644,7 @@ a:focus{
     background-color:#dddfeb
 }
 .sidebar-dark .sidebar-brand{
-    color:#fff
+    color:#fff;
 }
 .sidebar-dark hr.sidebar-divider{
     border-top:1px solid rgba(255,255,255,.15)

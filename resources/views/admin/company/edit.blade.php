@@ -223,7 +223,8 @@
         @endif
             <form method="POST" action="{{ route('company.imagestore') }}" enctype="multipart/form-data">
                 @csrf
-                <input type="file" class="form-control" name="logo" />
+                <input type="file" class="form-control" name="logo" id="logo"/>
+                <input type="hidden" name="company_id" value="{{ $company->id }}">
 
                 <button type="submit" class="btn btn-sm">Upload</button>
             </form>
