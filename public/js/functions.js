@@ -213,7 +213,7 @@ window.scwEvents = window.scwEvents || {},
                         }
                     }]), SEMICOLON.initialize.functions({
                         default: "body",
-                        file: "plugins.easing.js",
+                        file: "https://movingwyze.com/js/plugins.easing.js",
                         error: "plugins.easing.js: Plugin could not be loaded",
                         pluginfn: 'typeof jQuery.easing["easeOutQuad"] !== "undefined"',
                         trigger: "pluginEasingReady",
