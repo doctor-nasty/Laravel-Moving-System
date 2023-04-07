@@ -1925,9 +1925,7 @@ background-size:cover!important;
 background-attachment:scroll!important;
 background-position:center center!important;
 }
-.section .container{
-z-index:2;
-}
+.section .container{z-index:2;width: 100%;}
 .section .container+.video-wrap{
 z-index:1;
 }
@@ -4963,7 +4961,7 @@ margin:15px auto 0;
 line-height:1.8;
 }
 .content-wrap{position:relative;padding: 20px 0;overflow:hidden;}
-#content .container{position:relative;}
+#content .container{position:relative;/* margin: 0; *//* width: 100%; *//* height: 300px; */}
 .grid-container,.grid-inner{
 position:relative;
 overflow:hidden;

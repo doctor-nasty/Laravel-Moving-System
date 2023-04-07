@@ -263,14 +263,15 @@ a.btn-link:hover i {
 }
 
 .feature-box .fbox-icon {
-    background-color: transparent;
-    background-image: url(/images/featured-img/2.jpg);
+    /* background-color: transparent; */
+    /* background-image: url(/images/featured-img/2.jpg); */
     background-repeat: no-repeat;
-    background-position: center center;
-    color: var(--themecolor, #ed8323);
+    /* background-position: center center; */
+    /* color: var(--themecolor, #ed8323); */
     background-size: 70px 70px;
     width: 80px;
-    height: 80px
+    height: 80px;
+    margin: 0 auto;
 }
 
 .feature-box .fbox-icon i {
@@ -493,6 +494,23 @@ footer .list-unstyled li a,
     ul#iconlist.m-0.pe-5 li {
         width: 97%;
     }
+
+    table.table {
+        width: 100% !important;
+        top: 0px !important;
+        }
+        div#map {
+            /* float: left; */
+            /* width: auto; */
+            /* height: auto; */
+            /* top: -229px !important;
+            margin-bottom: -229px !important; */
+            top: 0px !important;
+            margin-bottom: 0px !important;
+        }
+        .section {
+            padding: 0 !important;
+        }
 }
 
 
@@ -500,7 +518,7 @@ footer .list-unstyled li a,
 div#mvdt {
     /* position: fixed; */
     /* width: 325px; */
-    height: 511px;
+    /* height: 511px; */
     text-align: center;
     background: #fff;
     padding: 1%;
@@ -510,9 +528,10 @@ div#mvdt {
 
 li.row.align-items-center {
         margin: 1% auto;
-        background: #dfdfdf;
+        /* background: #11315538; */
         padding: 2%;
         width: 100%;
+        border: solid 1px;
 }
 
 li.row.align-items-center {
@@ -904,3 +923,61 @@ div#svctxt {
 }
 
 div#svctxt {}
+
+table.table {
+    width: 25%;
+    background: #ffffffd6;
+    position: relative;
+    z-index: 1;
+    left: 1%;
+    top: 57px;
+}
+
+div#map {
+    /* float: left; */
+    /* width: auto; */
+    /* height: auto; */
+    top: -193px;
+    margin-bottom: -193px;
+}
+
+div#tablecol {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div#mpcnt {
+}
+
+section#maptxt {width: 100%;padding: 0;}
+
+section {
+    width: 80%;
+    margin: auto;
+    padding: 1%;
+}
+
+section#companies .col-md-4 {
+    padding: 1%;
+    margin: 1%;
+    background: #f7f7f7;
+}
+
+section#companies .media-box p {
+    margin: 0 !important;
+}
+
+
+table#mptxt td {
+    /* padding: 2px 16px; */
+    line-height: 10pt;
+}
+
+section#contact {
+    width: 100%;
+    padding: 0;
+}
