@@ -1,4 +1,7 @@
-@extends('layouts.master', ['title' => 'Storage'])
+@php
+    $cntynew = ucfirst(strtolower($cntyslug));
+@endphp
+@extends('layouts.master', ['title' => "Storage Units in $stslug, $cntynew County"])
 
 
 
@@ -7,7 +10,7 @@
     <div class="section dark mb-0"
         style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,221,0.5)), url('/images/section/1.jpg') no-repeat center center / cover; min-height: 400px">
         <div class="container">
-            <h2>Storage in {{$stslug}}, {{ucfirst(strtolower($cntyslug))}} County</h2>
+            <h2>Storage Units in {{$stslug}}, {{ucfirst(strtolower($cntyslug))}} County</h2>
 
             <div class="row justify-content-right mb-4">
                 <!-- <a href="" data-lightbox="iframe" class="play-video ms-3"><i class="icon-play"></i></a> -->
@@ -71,7 +74,7 @@
     <div class="d-flex justify-content-center">
         <ul class="iconlist m-0 pe-5" id="zpcd">
             @foreach ($ctys as $cty)
-            <li><a href="{{ url('storage') }}/{{$cty->state_code}}/{{$cty->county}}/{{$cty->city}}">Storage {{ ucfirst(strtolower($cty->city)) }}</a></li>
+            <li><a href="{{ url('storage') }}/{{$cty->state_code}}/{{$cty->county}}/{{$cty->city}}">Storage Units {{ ucfirst(strtolower($cty->city)) }}</a></li>
             @endforeach
         </ul>
     </div>
