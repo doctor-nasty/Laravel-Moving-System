@@ -317,7 +317,7 @@ window.scwEvents = window.scwEvents || {},
             },
             topScrollOffset: function() {
                 let e = 0;
-                return !r.hasClass("device-xl") && !r.hasClass("device-lg") || SEMICOLON.isMobile.any() ? e = 40 : (e = u.hasClass("sticky-header") ? q.hasClass("dots-menu") ? 100 : 144 : q.hasClass("dots-menu") ? 140 : 184, q.length || (e = u.hasClass("sticky-header") ? 100 : 140)), e
+                return !r.hasClass("device-xl") &&  !r.hasClass("device-lg") || SEMICOLON.isMobile.any() ? e = 40 : (e = u.hasClass("sticky-header") ? q.hasClass("dots-menu") ? 100 : 144 : q.hasClass("dots-menu") ? 140 : 184, q.length || (e = u.hasClass("sticky-header") ? 100 : 140)), e
             },
             dataResponsiveClasses: function() {
                 SEMICOLON.initialize.functions({

@@ -31,7 +31,7 @@
                                     </ul>
                                 </div>
                             @endif
-                            <p>Check your email for a verification code, and enter below.</p>
+                            <p>Check your email for a verification code, and enter below. (If you can't find it in Inbox, please check Spam)</p>
                             <div class="col-lg-6 form-group">
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent"><i

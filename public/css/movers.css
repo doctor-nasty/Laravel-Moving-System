@@ -511,6 +511,11 @@ footer .list-unstyled li a,
         .section {
             padding: 0 !important;
         }
+
+
+section#slider {
+    margin-top: 0px !important;
+}
 }
 
 
@@ -572,10 +577,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 
 section#slider {
-    /* background-image: url(/images/bg.png); */
-    /* height: 100%; */
-    /* padding: 1% 6% 4% 6%; */
-    /* margin-top: 148px; */
+    margin-top: 96px;
 }
 
 
@@ -956,9 +958,8 @@ div#mpcnt {
 section#maptxt {width: 100%;padding: 0;}
 
 section {
-    width: 80%;
+    width: 100%;
     margin: auto;
-    padding: 1%;
 }
 
 section#companies .col-md-4 {
@@ -981,3 +982,8 @@ section#contact {
     width: 100%;
     padding: 0;
 }
+
+#lg {
+    background-color: #FFF;
+    width: 100%;
+    }

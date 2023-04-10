@@ -143,7 +143,7 @@ class AdminController extends Controller
         ->select('jct_svc_strg.id as id', 'jct_svc_strg.price as price', 'storage.name as name', 'jct_svc_strg.svc_id as svc_id')
         ->get();
 
-        $jct_svc_car = jct_svc_car::leftJoin('carprc', 'jct_svc_car.crprc_id', 'carprc.id')
+        $jct_svc_car = jct_svc_car::leftJoin('carprc', 'jct_svc_car.carprc_id', 'carprc.id')
         ->leftJoin('company', 'jct_svc_car.cmp_id', 'company.id')
         ->select('jct_svc_car.id as id', 'jct_svc_car.price as price', 'carprc.name as name', 'jct_svc_car.svc_id as svc_id')
         ->get();

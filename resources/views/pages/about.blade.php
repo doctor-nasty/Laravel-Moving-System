@@ -4,7 +4,7 @@
 
 
 @section('content')
-    <section id="page-title" class="bg-color page-title-dark py-6">
+    <section id="page-title" class="page-title-dark py-6">
         <div class="container clearfix">
             <h1>Company</h1>
             <span>Get In Touch</span>
