@@ -1,4 +1,4 @@
-@extends('layouts.master', ['title' => 'Storage'])
+@extends('layouts.master', ['title' => "Storage Units in $stslug"])
 
 
 
@@ -7,7 +7,7 @@
     <div class="section dark mb-0"
         style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,221,0.5)), url('/images/section/1.jpg') no-repeat center center / cover; min-height: 400px">
         <div class="container">
-            <h2>Storage in {{$stslug}}</h2>
+            <h2>Storage Units in {{$stslug}}</h2>
 
             <div class="row justify-content-right mb-4">
                 <!-- <a href="" data-lightbox="iframe" class="play-video ms-3"><i class="icon-play"></i></a> -->
@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <p class="text-white-50">Find Out Everything You Need To Know For Your Upcoming Move. Start Here:</p>
+                    <p class="text-white-50"></p>
                     <ul class="nav nav-tabs nav-fill flex-column border-bottom-0 flex-md-row bg-color mt-4" role="tablist"
                         id="tabs" data-tabs="tabs">
                         <li class="nav-item @if ($errors->count() == 0) active @endif @error('movingfromzip1') active @enderror @error('movingtozip1') active @enderror @error('movingdate1') active @enderror @error('movesize1') active @enderror"
@@ -71,7 +71,7 @@
     <div class="d-flex justify-content-center">
         <ul class="iconlist m-0 pe-5" id="zpcd">
             @foreach ($cntys as $cnty)
-            <li><a href="{{ url('storage') }}/{{$cnty->state_code}}/{{$cnty->county}}">Storage {{ ucfirst(strtolower($cnty->county)) }} Storage</a></li>
+            <li><a href="{{ url('storage') }}/{{$cnty->state_code}}/{{$cnty->county}}">Storage Units {{ ucfirst(strtolower($cnty->county)) }} County</a></li>
             @endforeach
         </ul>
     </div>

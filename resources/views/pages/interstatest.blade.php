@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <p class="text-white-50">Find Out Everything You Need To Know For Your Upcoming Move. Start Here:</p>
+                    <p class="text-white-50"></p>
                     <ul class="nav nav-tabs nav-fill flex-column border-bottom-0 flex-md-row bg-color mt-4" role="tablist"
                         id="tabs" data-tabs="tabs">
                         <li class="nav-item @if ($errors->count() == 0) active @endif @error('movingfromzip1') active @enderror @error('movingtozip1') active @enderror @error('movingdate1') active @enderror @error('movesize1') active @enderror"

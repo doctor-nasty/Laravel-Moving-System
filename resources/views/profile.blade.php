@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('title', 'Profile')
 
@@ -11,7 +11,7 @@
         </div>
 
         {{-- Alert Messages --}}
-        @include('common.alert')
+        @include('admin.common.alert')
 
         {{-- Page Content --}}
         <div class="row">

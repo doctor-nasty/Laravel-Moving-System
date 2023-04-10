@@ -1,23 +1,24 @@
 <header id="header" class="dark header-size-sm" data-sticky-shrink="false">
-    <div class="container">
-        <div class="header-row">
 
-            <div id="logo" class="ms-auto ms-md-0">
-                <a href="/" class="standard-logo" data-dark-logo="{{ url('images/logo.png') }}"><img class="mx-auto"
-                        src="{{ asset('images/logo.png') }}" alt="Logo"></a>
-                <a href="/" class="retina-logo" data-dark-logo="{{ url('images/logo.png') }}"><img class="mx-auto"
-                        src="{{ asset('images/logo.png') }}" alt="Logo"></a>
-                <div id="primary-menu-trigger">
-                    <li class="fa-duotone fa-bars">
-                        {{-- <button class="page-menu-trigger">OPEN</button> --}}
-                    </li>
-                </div>
-            </div>
-                       @include('partials.weather')
-
-        </div>
-    </div>
     <div id="header-wrap">
+        <div class="container" id="lg">
+            <div class="header-row">
+
+                <div id="logo" class="ms-auto ms-md-0">
+                    <a href="/" class="standard-logo" data-dark-logo="{{ url('images/logo.png') }}"><img class="mx-auto"
+                            src="{{ asset('images/logo.png') }}" alt="Logo"></a>
+                    <a href="/" class="retina-logo" data-dark-logo="{{ url('images/logo.png') }}"><img class="mx-auto"
+                            src="{{ asset('images/logo.png') }}" alt="Logo"></a>
+                    <div id="primary-menu-trigger">
+                        <li class="fa-duotone fa-bars">
+                            {{-- <button class="page-menu-trigger">OPEN</button> --}}
+                        </li>
+                    </div>
+                </div>
+                           @include('partials.weather')
+
+            </div>
+        </div>
         <div class="container">
             <div class="header-row justify-content-between flex-row-reverse flex-lg-row">
                 <div class="header-misc">

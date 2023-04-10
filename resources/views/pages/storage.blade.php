@@ -1,4 +1,4 @@
-@extends('layouts.master', ['title' => 'Storage'])
+@extends('layouts.master', ['title' => 'Storage Units'])
 
 
 
@@ -45,7 +45,7 @@ style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,2
             </div>
         </div>
         <div class="col-lg-6">
-            <p class="text-white-50">Find Out Everything You Need To Know For Your Upcoming Move. Start Here:</p>
+            <p class="text-white-50"></p>
             <ul class="nav nav-tabs nav-fill flex-column border-bottom-0 flex-md-row bg-color mt-4" role="tablist"
                 id="tabs" data-tabs="tabs">
                 <li class="nav-item @if ($errors->count() == 0) active @endif @error('movingfromzip1') active @enderror @error('movingtozip1') active @enderror @error('movingdate1') active @enderror @error('movesize1') active @enderror"
@@ -166,7 +166,7 @@ style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,2
 <div class="d-flex justify-content-center">
     <ul class="iconlist m-0 pe-5" id="zpcd">
         @foreach ($states as $state)
-        <li><a href="{{ url('storage') }}/{{$state->state_code}}" title="Storage {{$state->state_name}} Storage">Storage {{ $state->state_code }}</a></li>
+        <li><a href="{{ url('storage') }}/{{$state->state_code}}" title="Storage Units {{$state->state_name}} Storage">Storage Units {{ $state->state_code }}</a></li>
         @endforeach
     </ul>
 </div>

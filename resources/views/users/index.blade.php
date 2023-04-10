@@ -19,13 +19,13 @@
                         <i class="fas fa-check"></i> Export To Excel
                     </a>
                 </div>
-                
+
             </div>
 
         </div>
 
         {{-- Alert Messages --}}
-        @include('common.alert')
+        @include('admin.common .alert')
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
@@ -97,5 +97,5 @@
 @endsection
 
 @section('scripts')
-    
+
 @endsection
