@@ -924,7 +924,6 @@ div#svctxt {
     margin: auto;
 }
 
-div#svctxt {}
 
 table.table {
     width: 25%;
@@ -950,9 +949,6 @@ div#tablecol {
     align-content: center;
     align-items: center;
     justify-content: space-between;
-}
-
-div#mpcnt {
 }
 
 section#maptxt {width: 100%;padding: 0;}
