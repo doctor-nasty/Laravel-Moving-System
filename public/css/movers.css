@@ -982,4 +982,8 @@ section#contact {
 #lg {
     background-color: #FFF;
     width: 100%;
+    max-width: 100%;
+    }
+#weather {
+        margin-right: 10px;
     }

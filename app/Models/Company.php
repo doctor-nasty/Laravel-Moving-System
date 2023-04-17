@@ -10,10 +10,11 @@ class Company extends Model
     use HasFactory;
 
     protected $fillable = [
-        // other attributes
-        'email',
-        'logo',
+        'name', 'website', 'address', 'city', 'state', 'zip', 'phonenumber',
+        'description', 'usdot', 'mcno', 'logo', 'intrastate', 'fleetsize',
+        'email', 'status'
     ];
+
 
     protected $table = 'company';
     protected $guarded = [];
