@@ -853,7 +853,6 @@ class CompanyController extends Controller
                 'intrastate'    => $request->intrastate,
                 'fleetsize'    => $request->fleetsize,
                 'email'         => $request->email,
-                'phonenumber' => $request->phonenumber,
                 'status'       =>  $request->status,
             ]);
 
@@ -864,6 +863,7 @@ class CompanyController extends Controller
             $company->save();
 
             DB::commit();
+
 
             return redirect()->route('company.index')->with('success','company Created Successfully.');
 
