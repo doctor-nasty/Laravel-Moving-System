@@ -104,6 +104,15 @@ Route::get('/about', function () {
     return view('pages.about');
 })->middleware('auth');
 
+Route::get('/resources', function () {
+    return view('pages.resources');
+})->middleware('auth');
+
+
+Route::get('joinournetwork', 'App\Http\Controllers\PagesController@joinournetwork')->name('joinournetwork');
+Route::post('joinournetwork', 'App\Http\Controllers\PagesController@postjoinournetwork')->name('postjoinournetwork');
+
+
 Route::get('interstate', 'App\Http\Controllers\PagesController@interstate')->name('interstate');
 Route::get('interstate/{stateslug}', 'App\Http\Controllers\PagesController@interstatestate')->name('interstatestate');
 Route::get('interstate/{stateslug}/{cntyslug}', 'App\Http\Controllers\PagesController@interstatecnty')->name('interstatecnty');

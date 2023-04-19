@@ -48,8 +48,8 @@
                                         <div>Storage</div>
                                     </a></li>
                         <!-- <li class="menu-item"><a class="menu-link" href="demo-movers-company.html"><div>Our Company</div></a></li> -->
-                        <li class="menu-item"><a class="menu-link" href="#">
-                                <div>Moving Tools</div>
+                        <li class="menu-item"><a class="menu-link" href="{{ url('resources') }}">
+                                <div>Resources</div>
                             </a>
                             {{-- <ul class="sub-menu-container">
                                 <li class="menu-item"><a class="menu-link" href="#">
