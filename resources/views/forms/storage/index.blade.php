@@ -113,6 +113,7 @@
                 <option value="3">Medium 7.5' x 10'</option>
                 <option value="4">Medium 10' X 10'</option>
                 <option value="5">Large 10' x 15'</option>
+                <option value="6">Other</option>
             </select>
         </div>
     </div>
