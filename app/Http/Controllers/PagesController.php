@@ -407,4 +407,15 @@ class PagesController extends Controller
         }
 
     }
+
+    public function joinournetwork(Request $request)
+    {
+        return view('pages.joinournetwork');
+    }
+
+    public function postjoinournetwork(Request $request)
+    {
+        return redirect()->back()->with('success', 'Thanks for contacting us! We will get back to you soon.');
+    }
+
 }
