@@ -511,6 +511,9 @@ footer .list-unstyled li a,
         .section {
             padding: 0 !important;
         }
+        #weather {
+            display: none;
+            }
 
 
 section#slider {
@@ -601,7 +604,6 @@ section#slider {
     --bs-text-opacity: 1;
     color: #2179f7;
     background: #ffffff90;
-    letter-spacing: 6px;
 }
 
 .btn-color {
@@ -734,7 +736,7 @@ ul#zpcd {
 }
 
 h2 {
-    margin-top: 20px !important;
+    margin-top: 10px !important;
 }
 
 body {
