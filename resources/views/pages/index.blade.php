@@ -351,7 +351,7 @@
                         d="M0,142.8A2337.49,2337.49,0,0,1,297.5,56.3C569.33-3.53,783.89.22,849.5,2.3c215.78,6.86,382.12,45.39,503.25,73.45,158.87,36.8,283.09,79.13,458.75,54.55A816.49,816.49,0,0,0,1983,86.8v110H0Z" />
                     <path class="svg-themecolor" d="M.5,152.8s498-177,849-150,1031,238,1134,94v110H.5Z" />
                 </svg>
-                <div class="container">
+                {{-- <div class="container">
                     <div class="row align-items-center justify-content-center center">
                         <div class="col-sm-8">
                             <div class="heading-block border-bottom-0 mb-4">
@@ -365,7 +365,7 @@
                                 Touch</a>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
         </div>
