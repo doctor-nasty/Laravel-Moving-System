@@ -1,4 +1,7 @@
 @php
+
+    $getip = Request::ip();
+
     $ip = '108.170.85.66';
 
     $ipInfo = file_get_contents('http://ip-api.com/json/' . $ip);
