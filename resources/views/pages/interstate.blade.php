@@ -75,130 +75,39 @@
                 <div class="col-lg-12 justify-content-center" id="svctxt">
                     <h3>Long Distance Moving Tips For Beginners</h3>
 
-                    <p>Whether you're moving across the country or just down the block, it can be a daunting task. There are
-                        so many details
-                        to take care of and so much to think about. If you're new to long distance moving, here are some
-                        tips to help you
-                        get started.</p>
+                    <p>Moving long distances can be a complicated and stressful process. It's essential to get everything right the first time, so here are our tips for making sure your move goes smoothly:</p>
                         <ol>
-                    <li><h4>Get organized:</h4><p>When you're packing your boxes, make sure you pack them in an orderly fashion so
-                        that everything
-                        goes smoothly when it comes time to unpack. You don't want to waste any time unpacking and then
-                        having to start all
-                        over again because your boxes were all scattered around.</p></li>
+                    <li><h4>Do your research:</h4><p>The first step to planning a long-distance move is to find out who the best movers in your area are and what makes them great. You can start by checking out reviews on Yelp, Google, and Angie's List. If you have friends or family members who have recently moved, ask them for recommendations; sometimes, it's easier for us to trust someone we know than an anonymous company name! Once you've narrowed down a few promising companies, it's time for our favorite part of prepping: asking questions! When contacting likely moving companies ask about their policies regarding insurance coverage (how much do they offer?), any extra charges they might apply (like fuel surcharges), how long they've been in business, and why they think they're qualified enough to handle your job properly.</p></li>
 
-                        <li><h4>Research the best long distance moving companies:</h4><p>Once you have your boxes prepared, it's time to
-                        find a long
-                        distance moving company that will best suit your needs. Do your research online and compare prices
-                        before making a
-                        decision.</p></li>
+                        <li><h4>Plan well in advance:</h4><p>Planning is the key to a successful move. If you plan well in advance, you can save time, money, and stress during the moving process.</p></li>
 
-                        <li><h4>Plan ahead:</h4><p>It's important to have a schedule for when everything will be delivered and when you
-                        will be able to
-                        start unpacking. This way, you won't have any surprises along the way and everything will go as
-                        planned. </p></li>
+                        <li><h4>Some of the advantages of planning your move well in advance:</h4><p>You'll be able to avoid last-minute mistakes that could cost extra money or time. For example, if you don't have furniture delivery scheduled until two weeks before your relocation date but realize that it will take longer than expected for your movers to pack up all their trucks before heading out on their next job (or if they take too long). Having another company pick up where they left off would mean paying additional fees and possibly losing some stuff! Or maybe one day before leaving town, someone mentions something about needing another box...or five...and suddenly there's no room left because everything has already been packed into containers by then! These things often happen when people decide not to have enough time ahead.</p></li>
                         </ol>
-                    <h3>What Are The Steps To A Successful Long Distance Moving?</h3>
-                    <h4>Step 1: Determine what you need to move</h4>
-                    <p>Begin by listing all of the belongings you will need to transport. This can include furniture,
-                        electronics, clothing,
-                        and other household items. Once you have a list, assess how much each item weighs and factor that
-                        into your
-                        planning. For example, if you are moving large pieces of furniture, factor in the weight and cost of
-                        delivery/removal.</p>
-                    <h4>Step 2: Figure out your budget</h4>
-                    <p>Next, calculate your budget based on the weight and size of each item. Remember to account for any
-                        necessary delivery
-                        or removal fees. Additionally, consider any taxes or fees associated with transferring ownership of
-                        property.</p>
-                    <h4>Step 3: Choose a moving company</h4>
-                    <p>Once you have calculated your budget and gathered your belongings, it's time to choose a moving
-                        company. Do some
-                        research online to compare prices and services offered by different companies. Consider factors such
-                        as reputation,
-                        number of reviews posted online (or by friends), location of company headquarters, types of services
-                        offered (local
-                        vs long distance), and price point. Select a company that best suits your needs and budget. Be sure
-                        to have an
-                        accurate estimate of how much it will cost to move everything!</p>
-                    <h4>Step 4: Plan your move date & time frame</h4>
-                    <p>Once you have selected a moving company, plan your move date and time frame. Scheduling an early
-                        morning or evening
-                        move will usually save money on costs associated with transportation (i.e., fuel costs). However,
-                        remember that an
-                        early morning or evening move may be difficult to coordinate with your work schedule. Try to plan
-                        your move around
-                        your work schedule and other important commitments as much as possible.
-                    </p>
-                    <h4>Step 5: Get started!
-                    </h4>
-                    <p>Now that you have all of the details about your move, it's time to get started! Start packing your
-                        belongings and set
-                        a moving date/time frame. Be sure to contact the moving company in advance to confirm their
-                        scheduling availability
-                        and any additional requirements (i.e., extra time for unpacking, special packaging material).
-                    </p>
-                    <h3>How To Pack Your Belongings For A Long Distance Move
-                    </h3>
-                    <p>When it comes to packing for a long distance move, there are a few things that you'll want to keep in
-                        mind. Start by
-                        making a list of everything that you're taking with you and check it twice.
-                    </p>
-                    <p>Once you have an exact count, start packing your belongings into boxes or containers by category.
-                    </p>
-                    <p>Here are some tips on how to pack your belongings for a long distance move:
-                    </p>
-                    <h4>1. Decide What You'll Pack and Why
-                    </h4>
-                    <p>Before packing anything, make sure that you have a good reason for taking each item with you on your
-                        trip. Items that
-                        are essential for your daily life should go in one box, while items that are just extra clutter can
-                        be packed away
-                        until after the move is complete.
-                    </p>
-                    <h4>2. Don't Overpack Your Boxes or Containers</h4>
-                    <p>Pack as much as you need but don't overfill your boxes or containers. This will cause them to take up
-                        more space and
-                        be harder to handle when loading into the vehicle or moving into the new house/apartment. It's also
-                        easier to damage
-                        fragile objects if they're packed too tightly or if there's excess weight pressing down on them.</p>
-                    <h4>3. Label Everything Wisely</h4>
-                    <p>Label each container or box with the name of the item inside so it's easy to find what you're looking
-                        for when
-                        unpacking later. You may also want to write down any important information about the item, such as
-                        its size and
-                        weight. This will help prevent any potential
-                    </p>
-                    <h3>How To Prep Your Home For A Long Distance Move</h3>
-                    <p>When you are ready to move to a new location, one of the most important things you can do is to
-                        prepare your home for
-                        the big move.</p>
-                    <p>Here are some tips for prepping your home for a long distance move:</p>
-                    <ol>
-                    <li><p>Clean and declutter your home. This is especially important if you have a lot of stuff! Having a
-                        clean and
-                        organized home will make the moving process much easier.
-                    </p></li>
-                    <li><p>Pack light. If you can, try to pack as little as possible. This will make packing and unpacking
-                        less stressful and
-                        more enjoyable.
-                    </p></li>
-                    <li><p>Arrange furniture in advance. This will help you figure out where everything is going to go once
-                        you get there.
-                    </p></li>
-                    <li><p>Make copies of important documents and photos. Make sure to keep copies of all of your important
-                        documents,
-                        photos, insurance policies, and other information before you move so that you don't have to worry
-                        about losing
-                        anything during the move process.
-                    </p></li>
-                    <li><p>Decide what needs to be moved and when it needs to be moved. Some things may need to be moved
-                        sooner than others
-                        depending on how far away your new home is from where you are currently living. Plan ahead so that
-                        everything goes
-                        smoothly on moving day!
-                    </p></li>
-                    </ol>
+                    <h4>Find a reputable mover</h4>
+                    <p>When it comes to moving companies, you need to do your research. There are many things to consider when choosing a mover:</p>
+                    <p>Is the company reputable? Look up reviews online and ask friends and family who have moved recently if they could recommend any movers. You can also check out their website for information about their services and pricing or call them directly for more details.</p>
+                    <p>How much does it cost? Make sure that you get an estimate from the company before agreeing on anything else (and make sure that you find out exactly how much all of your items weigh).</p>
+                    <p>Is my stuff insured? It's essential not only for yourself but also for your belongings-if something gets damaged or lost during transit, having insurance will help cover those costs and give you some peace of mind during such stressful times!</p>
+                    <h4>Make sure you have the right equipment to move</h4>
+                    <p>To move, you'll need some equipment. The first thing is a vehicle that can handle the load of all your stuff (and your family). If you're driving a car, chances are it won't be able to hold everything on its own-so renting a truck or van will be necessary.</p>
+                        <p>If you don't want to pay for another vehicle rental, consider using something else instead: trailers and moving dollies are excellent options if space is limited in your car or truck. They also make loading much more accessible than cramming everything into one vehicle!</p>
+                        <p>A hand truck might seem like an unnecessary expense at first glance, but when it comes time for unloading, having one will make life much easier when carrying heavy items through tight spaces like doorways without damaging them in transit or dropping them onto hard surfaces below their feet level (like concrete floors). A furniture dolly may also come in handy if there's any doubt about whether those new Ikea shelves will fit through sure doorways once they're assembled at home; these devices allow users to roll pieces across hallways instead of lifting them overhead height every single time they need access inside rooms where no other entrances exist nearby!</p>
+                    <h4>Know what to expect when moving long distances</h4>
+                    <p>When you're moving long distances, there are a few things to remember. First and foremost, know what to expect from your move.</p>
+                    <p>You can expect that it will take longer than an interstate move and cost more money because of the added distance between your old home and your new one. You should also be prepared for logistical challenges (like shipping furniture) and emotional ones (being separated from loved ones).</p>
+                    <p>If possible, start planning for your long-distance relocation several months before the actual departure date so that everything goes smoothly when it comes time for your family members or friends to pack up their belongings and head out on their new adventure!</p>
+                    <h4>Pack smartly and use boxes that will protect fragile items from damage</h4>
+                    <p>Don't be afraid to buy new boxes if you need them. It's better to spend a little extra money on good quality supplies than have your belongings damaged during the move.</p>
+                    <p>Use sturdy, corrugated cardboard boxes instead of flimsy plastic ones or old, worn-out shoe boxes for packing items like books or clothing. These materials can better withstand heavy loads and protect your belongings from crushing or damage, transit-especially when they're stacked on top of each other! Their sturdiness makes them easier to lift when complete (and heavier), so ensure everyone helping out has strong arms before loading all those heavy pieces into their respective vehicles (or even just carrying them upstairs). If possible, try removing any unnecessary packing materials, such as newspaper clippings; these only weigh down your load unnecessarily while adding no real value whatsoever!</p>
+                    <h4>Use a moving checklist to keep track of everything you need for the move</h4>
+                    <p>When you're moving, it can be easy to forget something important. A simple checklist will help you ensure you don't leave anything behind during your move.</p>
+                    <p>The best way to get started is by making a list of all the items in your home and adding them one by one as they come up in conversation with friends or family members who are helping with the move.</p>
+                    <p>Be careful about packing non-essential items, such as personal documents, clothes, and small household items that can be easily replaced at a later date if they are lost or damaged en route.</p>
+                    <p>Although it may seem like a good idea to pack all your documents, clothes, and small household items in boxes, this can be a waste of time and money. If something gets lost in transit that you don't need right away (such as an old college textbook), you should consider waiting until after the move to bring it over. It's also wise not to pack any expensive or sentimental items because they could get damaged during the long-distance moving process.</p>
+                    <h3>Takeaway</h3>
+                    <p>The first step to moving long distances is to know what to expect. You'll need time to pack and prepare for the move, so ensure you have enough time before your move date.</p>
+                    <p>Ensure you have the right packing equipment, including boxes and packing tape (or any other adhesive). Pack smartly using containers that protect fragile items from damage during transit-you can also buy specialty moving supplies at most big-box stores or online retailers like Amazon.com. Use a checklist to keep track of everything else needed for your relocation; this includes any furniture rental services if required for both locations!</p>
+                    <p>Now that you know how to move long distances, the next step is to get started. You can start by doing some research on potential movers and choosing one that has a good reputation for quality service at reasonable rates. Then plan for no surprises when it comes time for your move day!</p>
                 </div>
             </div>
         </div>

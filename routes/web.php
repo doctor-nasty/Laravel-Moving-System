@@ -104,6 +104,15 @@ Route::get('/about', function () {
     return view('pages.about');
 })->middleware('auth');
 
+
+Route::get('/faq', function () {
+    return view('pages.faq');
+})->middleware('auth');
+
+Route::get('/privacypolicy', function () {
+    return view('pages.privacypolicy');
+})->middleware('auth');
+
 Route::get('/resources', function () {
     return view('pages.resources');
 })->middleware('auth');

@@ -95,7 +95,8 @@
                 <div class="col-md-6 d-md-flex flex-md-column align-items-md-end mt-4 mt-md-0">
                     <div class="copyrights-menu copyright-links text-black-50 clearfix">
                         <a href="{{ url('about') }}" class="text-black">About</a>/<a href="{{ url('joinournetwork') }}" class="text-black">Join Our Network</a>/<a
-                            href="{{ url('faq') }}" class="text-black">FAQs</a>/<a href="{{ url('contact') }}" class="text-black">Contact</a>
+                            href="{{ url('faq') }}" class="text-black">FAQs</a>/<a href="{{ url('contact') }}" class="text-black">Contact</a><a
+                            href="{{ url('privacypolicy') }}" class="text-black">Privacy Policy</a>
                     </div>
                 </div>
             </div>
