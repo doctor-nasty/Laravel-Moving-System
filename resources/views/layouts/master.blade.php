@@ -11,7 +11,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap" rel="stylesheet"
         type="text/css" />
-    {{-- <link rel="stylesheet" href="{{ url('css/bootstrap.css') }}" type="text/css" /> --}}
+    <link rel="stylesheet" href="{{ url('css/bootstrap.min.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ url('css/style.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ url('css/dark.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ url('css/font-icons.css') }}" type="text/css" />
@@ -51,9 +51,9 @@
     <script src="{{ url('js/jquery.js') }}"></script>
 
     {{-- <script src="{{ url('js/plugins.min.js') }}"></script> --}}
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> --}}
 
-{{-- <script src="https://offthem.com/assets/js/vendor/bootstrap.min.js"></script> --}}
+<script src="{{ url('js/bootstrap.bundle.min.js') }}"></script>
 
     {{-- <script src="{{ url('js/components/datepicker.js') }}"></script> --}}
     <script src="https://kit.fontawesome.com/e0e066b8ba.js" crossorigin="anonymous"></script>

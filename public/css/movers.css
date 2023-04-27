@@ -61,7 +61,9 @@ form h5 {
         background: #022a48;
     }
 
-    .menu-container{padding: 0;}
+    .menu-container {
+        padding: 0;
+    }
 }
 
 .menu-container>.menu-item.current>.menu-link,
@@ -491,6 +493,7 @@ footer .list-unstyled li a,
     ul.iconlist.m-0.pe-5 {
         width: 100% !important;
     }
+
     ul#iconlist.m-0.pe-5 li {
         width: 97%;
     }
@@ -498,27 +501,30 @@ footer .list-unstyled li a,
     table.table {
         width: 100% !important;
         top: 0px !important;
-        }
-        div#map {
-            /* float: left; */
-            /* width: auto; */
-            /* height: auto; */
-            /* top: -229px !important;
+    }
+
+    div#map {
+        /* float: left; */
+        /* width: auto; */
+        /* height: auto; */
+        /* top: -229px !important;
             margin-bottom: -229px !important; */
-            top: 0px !important;
-            margin-bottom: 0px !important;
-        }
-        .section {
-            padding: 0 !important;
-        }
-        #weather {
-            display: none;
-            }
+        top: 0px !important;
+        margin-bottom: 0px !important;
+    }
+
+    .section {
+        padding: 0 !important;
+    }
+
+    #weather {
+        display: none;
+    }
 
 
-section#slider {
-    margin-top: 0px !important;
-}
+    section#slider {
+        margin-top: 0px !important;
+    }
 }
 
 
@@ -535,11 +541,11 @@ div#mvdt {
 }
 
 li.row.align-items-center {
-        margin: 1% auto;
-        /* background: #11315538; */
-        padding: 2%;
-        width: 100%;
-        border: solid 1px;
+    margin: 1% auto;
+    /* background: #11315538; */
+    padding: 2%;
+    width: 100%;
+    border: solid 1px;
 }
 
 li.row.align-items-center {
@@ -603,7 +609,7 @@ section#slider {
 .text-blue {
     --bs-text-opacity: 1;
     color: #2179f7;
-    background: #ffffff90;
+    /* background: #ffffff90; */
 }
 
 .btn-color {
@@ -612,8 +618,8 @@ section#slider {
 }
 
 .formscontent {
-    background: rgb(11 53 105 / 62%);
-    box-shadow: 0 0 53px #fff;
+    /* background: rgb(11 53 105 / 62%);
+    box-shadow: 0 0 53px #fff; */
     height: auto;
     margin-bottom: 2rem;
 }
@@ -914,7 +920,10 @@ ul.iconlist.m-0.pe-5 li {
 }
 
 
-div#ifrms {margin-bottom: 1rem;margin-top: 1rem;}
+div#ifrms {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
 
 
 div#svctxt {
@@ -953,7 +962,10 @@ div#tablecol {
     justify-content: space-between;
 }
 
-section#maptxt {width: 100%;padding: 0;}
+section#maptxt {
+    width: 100%;
+    padding: 0;
+}
 
 section {
     width: 100%;
@@ -985,7 +997,107 @@ section#contact {
     background-color: #FFF;
     width: 100%;
     max-width: 100%;
-    }
+}
+
 #weather {
-        margin-right: 10px;
-    }
+    margin-right: 10px;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+
+.faqs-container {
+	margin: 0 auto;
+	max-width: 1000px;
+}
+
+.faq {
+	background-color: transparent;
+	border: 1px solid #9FA4A8;
+	border-radius: 10px;
+	padding: 30px;
+	position: relative;
+	overflow: hidden;
+	margin: 20px 0;
+	transition: 0.3s ease;
+}
+
+.faq.active {
+	background-color: #fff;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.faq.active::after, .faq.active::before {
+	color: #2ecc71;
+	content: '\f075';
+	font-family: 'Font Awesome 5 Free';
+	font-size: 7rem;
+	position: absolute;
+	opacity: 0.2;
+	top: 20px;
+	left: 20px;
+	z-index: 0;
+}
+
+.faq.active::before {
+	color: #3498db;
+	top: -10px;
+	left: -30px;
+	transform: rotateY(180deg);
+}
+
+.faq-title {
+	margin: 0 35px 0 0;
+}
+
+.faq-text {
+	display: none;
+	margin: 30px 0 0;
+}
+
+.faq.active .faq-text {
+	display: block;
+}
+
+.faq-toggle {
+	background-color: transparent;
+	border: none;
+	border-radius: 50%;
+	color: #fff;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 16px;
+	padding: 0;
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	height: 30px;
+	width: 30px;
+}
+
+.faq-toggle:focus {
+	outline: none;
+}
+
+.faq.active .faq-toggle {
+	background-color: #9FA4A8;
+}
+
+.faq-toggle .fa-times {
+	display: none;
+}
+
+.faq.active .faq-toggle .fa-times {
+	display: block;
+}
+
+.faq-toggle .fa-chevron-down {
+	color: #83888E;
+}
+
+.faq.active .faq-toggle .fa-chevron-down {
+	display: none;
+}
+

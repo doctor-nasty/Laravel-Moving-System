@@ -39,9 +39,9 @@
 
 @endphp
 
-<div id="weather">
+{{-- <div id="weather">
     <p class="text-black">{{ $temp }} degrees in {{ $city }}</p>
-</div>
+</div> --}}
 
 {{--
     <div class="news-box">
