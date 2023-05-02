@@ -51,26 +51,26 @@
                         <li class="menu-item"><a class="menu-link" href="{{ url('resources') }}">
                                 <div>Resources</div>
                             </a>
-                            {{-- <ul class="sub-menu-container">
-                                <li class="menu-item"><a class="menu-link" href="#">
-                                        <div><i class="icon-line2-home"></i>Home Moving</div>
+                            <ul class="sub-menu-container">
+                                <li class="menu-item"><a class="menu-link" href="{{ url('intmovingtips') }}">
+                                        <div>International Moving</div>
                                     </a></li>
-                                <li class="menu-item"><a class="menu-link" href="#">
-                                        <div><i class="icon-building2"></i>Office Moving</div>
+                                <li class="menu-item"><a class="menu-link" href="{{ url('longdistmovingtips') }}">
+                                        <div>Long Distance Moving</div>
                                     </a></li>
-                                <li class="menu-item"><a class="menu-link" href="{{ url('international') }}">
-                                        <div><i class="icon-line2-globe"></i>International Moving</div>
+                                <li class="menu-item"><a class="menu-link" href="{{ url('movingandstorage') }}">
+                                        <div>Moving and Storage</div>
                                     </a></li>
-                                <li class="menu-item"><a class="menu-link" href="#">
-                                        <div><i class="icon-paw"></i>Pet Shifting</div>
+                                <li class="menu-item"><a class="menu-link" href="{{ url('movingtips') }}">
+                                        <div>Moving Tips</div>
                                     </a></li>
-                                <li class="menu-item"><a class="menu-link" href="#">
-                                        <div><i class="icon-car"></i>Car Shifting</div>
+                                <li class="menu-item"><a class="menu-link" href="{{ url('movinginsurance') }}">
+                                        <div>Moving Insurance</div>
                                     </a></li>
-                                <li class="menu-item"><a class="menu-link" href="#">
-                                        <div><i class="icon-truck1"></i>Hire Truck</div>
+                                <li class="menu-item"><a class="menu-link" href="{{ url('carshippingtips') }}">
+                                        <div>Car Shipping</div>
                                     </a></li>
-                            </ul> --}}
+                            </ul>
                         </li>
                         <!-- <li class="menu-item"><a class="menu-link" href="demo-movers-team.html"><div>Team</div></a></li> -->
                         <!-- <li class="menu-item"><a class="menu-link" href="demo-movers-faqs.html"><div>FAQs</div></a></li>
