@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\carshp;
-use App\Models\company;
+use App\Models\Company;
 use App\Models\inst;
 use App\Models\intl;
 use App\Models\jct_cmp_ld;
