@@ -52,6 +52,9 @@
                                 <div>Resources</div>
                             </a>
                             <ul class="sub-menu-container">
+                                <li class="menu-item"><a class="menu-link" href="{{ url('movingtips') }}">
+                                        <div>Moving Tips</div>
+                                    </a></li>
                                 <li class="menu-item"><a class="menu-link" href="{{ url('intmovingtips') }}">
                                         <div>International Moving</div>
                                     </a></li>
@@ -60,9 +63,6 @@
                                     </a></li>
                                 <li class="menu-item"><a class="menu-link" href="{{ url('movingandstorage') }}">
                                         <div>Moving and Storage</div>
-                                    </a></li>
-                                <li class="menu-item"><a class="menu-link" href="{{ url('movingtips') }}">
-                                        <div>Moving Tips</div>
                                     </a></li>
                                 <li class="menu-item"><a class="menu-link" href="{{ url('movinginsurance') }}">
                                         <div>Moving Insurance</div>

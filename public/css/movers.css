@@ -525,6 +525,10 @@ footer .list-unstyled li a,
     section#slider {
         margin-top: 0px !important;
     }
+
+    .chanty-icon{
+        width: 31% !important;
+    }
 }
 
 
