@@ -142,6 +142,54 @@ Route::get('/carshippingtips', function () {
     return view('pages.carshippingtips');
 })->middleware('auth');
 
+Route::get('/generalmovingtips', function () {
+    return view('pages.generalmovingtips');
+})->middleware('auth');
+
+Route::get('/typesofmovingestimates', function () {
+    return view('pages.typesofmovingestimates');
+})->middleware('auth');
+
+Route::get('/10waystosave', function () {
+    return view('pages.10waystosave');
+})->middleware('auth');
+
+Route::get('/knowyourrights', function () {
+    return view('pages.knowyourrights');
+})->middleware('auth');
+
+Route::get('/localvslongdistance', function () {
+    return view('pages.localvslongdistance');
+})->middleware('auth');
+
+Route::get('/movingcompanies', function () {
+    return view('pages.movingcompanies');
+})->middleware('auth');
+
+Route::get('/brokersvsmovers', function () {
+    return view('pages.brokersvsmovers');
+})->middleware('auth');
+
+Route::get('/movingchecklist', function () {
+    return view('pages.movingchecklist');
+})->middleware('auth');
+
+Route::get('/movingoverseas', function () {
+    return view('pages.movingoverseas');
+})->middleware('auth');
+
+Route::get('/packingmovingboxes', function () {
+    return view('pages.packingmovingboxes');
+})->middleware('auth');
+
+Route::get('/changingyouraddress', function () {
+    return view('pages.changingyouraddress');
+})->middleware('auth');
+
+Route::get('/movingcostestimate', function () {
+    return view('pages.movingcostestimate');
+})->middleware('auth');
+
 Route::get('joinournetwork', 'App\Http\Controllers\PagesController@joinournetwork')->name('joinournetwork');
 Route::post('joinournetwork', 'App\Http\Controllers\PagesController@postjoinournetwork')->name('postjoinournetwork');
 
