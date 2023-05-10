@@ -1105,3 +1105,6 @@ section#contact {
 	display: none;
 }
 
+.text-shadow {
+    text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.6);
+}

@@ -5,17 +5,17 @@
             <div class="header-row">
 
                 <div id="logo" class="ms-auto ms-md-0">
-                    <a href="/" class="standard-logo" data-dark-logo="{{ url('images/logo.png') }}"><img class="mx-auto"
-                            src="{{ asset('images/logo.png') }}" alt="Logo"></a>
-                    <a href="/" class="retina-logo" data-dark-logo="{{ url('images/logo.png') }}"><img class="mx-auto"
-                            src="{{ asset('images/logo.png') }}" alt="Logo"></a>
+                    <a href="/" class="standard-logo" data-dark-logo="{{ url('images/logo.png') }}"><img
+                            class="mx-auto" src="{{ asset('images/logo.png') }}" alt="Logo"></a>
+                    <a href="/" class="retina-logo" data-dark-logo="{{ url('images/logo.png') }}"><img
+                            class="mx-auto" src="{{ asset('images/logo.png') }}" alt="Logo"></a>
                     <div id="primary-menu-trigger">
                         <li class="fa-duotone fa-bars">
                             {{-- <button class="page-menu-trigger">OPEN</button> --}}
                         </li>
                     </div>
                 </div>
-                           @include('partials.weather')
+                @include('partials.weather')
 
             </div>
         </div>
@@ -41,12 +41,12 @@
                         <li class="menu-item"><a class="menu-link" href="{{ url('carshipping') }}">
                                 <div>Car Shipping</div>
                             </a></li>
-                            <li class="menu-item"><a class="menu-link" href="{{ url('international') }}">
-                                    <div>International</div>
-                                </a></li>
-                                <li class="menu-item"><a class="menu-link" href="{{ url('storage') }}">
-                                        <div>Storage</div>
-                                    </a></li>
+                        <li class="menu-item"><a class="menu-link" href="{{ url('international') }}">
+                                <div>International</div>
+                            </a></li>
+                        <li class="menu-item"><a class="menu-link" href="{{ url('storage') }}">
+                                <div>Storage</div>
+                            </a></li>
                         <!-- <li class="menu-item"><a class="menu-link" href="demo-movers-company.html"><div>Our Company</div></a></li> -->
                         <li class="menu-item"><a class="menu-link" href="{{ url('resources') }}">
                                 <div>Resources</div>
@@ -90,4 +90,3 @@
     </div>
     <div class="header-wrap-clone"></div>
 </header>
-
