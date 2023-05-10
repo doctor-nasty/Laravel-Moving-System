@@ -12,7 +12,7 @@
             <div class="row justify-content-right mb-4">
                 <!-- <a href="" data-lightbox="iframe" class="play-video ms-3"><i class="icon-play"></i></a> -->
                 <div class="col-lg-6">
-                    <p class="mb-5 text-white">Here we have collected useful guides and information that you should know
+                    <p class="mb-5 text-white text-shadow">Here we have collected useful guides and information that you should know
                         when
                         you decide to relocate. With years of experience helping
                         Americans relocate we know what are
@@ -21,23 +21,23 @@
                     <div class="d-flex">
                         <ul class="col-6 iconlist">
                             <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                    class="ps-2 text-white">100%
+                                    class="ps-2 text-white text-shadow">100%
                                     Trustable</span></li>
                             <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                    class="ps-2 text-white">100%
+                                    class="ps-2 text-white text-shadow">100%
                                     Safe &amp; Secure</span></li>
                             <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                    class="ps-2 text-white">On-Time Delivery</span></li>
+                                    class="ps-2 text-white text-shadow">On-Time Delivery</span></li>
                         </ul>
                         <ul class="col-6 iconlist">
                             <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                    class="ps-2 text-white">24x7
+                                    class="ps-2 text-white text-shadow">24x7
                                     Support</span></li>
                             <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                    class="ps-2 text-white">No
+                                    class="ps-2 text-white text-shadow">No
                                     Extra Payments</span></li>
                             <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                    class="ps-2 text-white">Also
+                                    class="ps-2 text-white text-shadow">Also
                                     Deliver on Sunday</span></li>
                         </ul>
                     </div>

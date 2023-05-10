@@ -12,7 +12,7 @@ style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,2
     <div class="row justify-content-right mb-4">
             <!-- <a href="" data-lightbox="iframe" class="play-video ms-3"><i class="icon-play"></i></a> -->
             <div class="col-lg-6">
-                <p class="mb-5 text-white">Here we have collected useful guides and information that you should know
+                <p class="mb-5 text-white text-shadow">Here we have collected useful guides and information that you should know
                     when
                     you decide to relocate. With years of experience helping
                     Americans relocate we know what are
@@ -21,17 +21,17 @@ style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,2
                 <div class="d-flex">
                     <ul class="col-6 iconlist">
                         <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                class="ps-2 text-white">Verified Movers</span></li>
+                                class="ps-2 text-white text-shadow">Verified Movers</span></li>
                         <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                class="ps-2 text-white">Licensed Company</span></li>
+                                class="ps-2 text-white text-shadow">Licensed Company</span></li>
                         <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                class="ps-2 text-white">Track Items by App</span></li>
+                                class="ps-2 text-white text-shadow">Track Items by App</span></li>
                     </ul>
                     <ul class="col-6 iconlist">
                         <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                class="ps-2 text-white">Minimum 1 Mover Free</span></li>
+                                class="ps-2 text-white text-shadow">Minimum 1 Mover Free</span></li>
                         <li class="my-2"><i class="icon-line-circle-check fw-light"></i> <span
-                                class="ps-2 text-white">International Delivery</span></li>
+                                class="ps-2 text-white text-shadow">International Delivery</span></li>
                     </ul>
                 </div>
             </div>
