@@ -118,17 +118,17 @@ Route::get('/resources', function () {
 })->middleware('auth');
 
 
-Route::get('/intmovingtips', function () {
-    return view('pages.intmovingtips');
-})->middleware('auth');
+// Route::get('/intmovingtips', function () {
+//     return view('pages.intmovingtips');
+// })->middleware('auth');
 
-Route::get('/longdistmovingtips', function () {
-    return view('pages.longdistmovingtips');
-})->middleware('auth');
+// Route::get('/longdistmovingtips', function () {
+//     return view('pages.longdistmovingtips');
+// })->middleware('auth');
 
-Route::get('/movingandstorage', function () {
-    return view('pages.movingandstorage');
-})->middleware('auth');
+// Route::get('/movingandstorage', function () {
+//     return view('pages.movingandstorage');
+// })->middleware('auth');
 
 Route::get('/movingtips', function () {
     return view('pages.movingtips');
@@ -138,9 +138,9 @@ Route::get('/movinginsurance', function () {
     return view('pages.movinginsurance');
 })->middleware('auth');
 
-Route::get('/carshippingtips', function () {
-    return view('pages.carshippingtips');
-})->middleware('auth');
+// Route::get('/carshippingtips', function () {
+//     return view('pages.carshippingtips');
+// })->middleware('auth');
 
 Route::get('/generalmovingtips', function () {
     return view('pages.generalmovingtips');

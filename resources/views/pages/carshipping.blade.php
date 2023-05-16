@@ -65,70 +65,91 @@ style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,2
     <div class="container clearfix">
         <div class="row col-mb-50 col-mb-lg-80">
             <div class="col-lg-12 justify-content-center" id="svctxt">
-                <p><strong>What You Need To Know About Car Shipping</strong></p>
+                <p style="text-align:center"><span style="font-size:22pt"><span style="font-family:Candara,sans-serif"><strong><u>What You Need To Know About Car Shipping</u></strong></span></span></p>
 
-                <p>You know that feeling when you&#39;re driving down the highway with your favorite tunes blaring and suddenly realize you&#39;re in the wrong lane? You scramble to get back on track but then think: &quot;I could have avoided this situation if I&#39;d just shipped my car.&quot; If you&#39;ve ever had that experience or prefer not to deal with the headache of driving across the country, we&#39;re here to help. In this article, we&#39;ll answer all your questions about shipping a vehicle from its original location&mdash;whether it be a personal trip or business-related&mdash;to its final destination.</p>
-
-                <p>&nbsp;</p>
-
-                <p><strong>What Is Car Shipping?</strong></p>
-
-                <p>Car shipping is transporting a vehicle from one location to another. It can be done by land, air, or sea, depending on your needs and budget. The practice of car shipping has become more common in recent years as people move out of state more frequently than they used to.</p>
+                <p style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">Shipping a car can be a daunting task, regardless of the method you choose. Whether you&rsquo;re shipping a car domestically or internationally, there are certain details you need to know in order to avoid any hassles. In this article, we will cover the most important aspects of car shipping and help you make the process as smooth as possible. We hope this article will put your mind at ease and help you get your car shipped without any drama.</span></span></p>
 
                 <p>&nbsp;</p>
 
-                <p><strong>How Does Car Shipping Work?</strong></p>
+                <p style="text-align:justify"><span style="font-size:13pt"><span style="font-family:Calibri,sans-serif"><strong>What Is Car Shipping?</strong></span></span></p>
 
-                <p>Car shipping companies use a variety of methods to transport vehicles. These include trucks, trains, and ships. Trucks are the most common method of car shipping, with rail and ship being used in some cases.</p>
+                <p style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">If you&#39;re looking to get your car from A to B, shipping may be a good option for you. Here&#39;s what you need to know about car shipping.</span></span></p>
 
-                <p>If you&#39;re looking for a reliable company that can transport your vehicle safely from point A to point B while keeping it in mint condition throughout the journey (and beyond), there are several things you should know about how this process works:</p>
-
-                <p>&nbsp;</p>
-
-                <p><strong>What Is The Advantage of Car Shipping?</strong></p>
-
-                <p>You can save money on gas and parking fees. If you live in a large city, it might be impossible to find a place to park your car for the duration of your trip. And even if you could, parking in busy areas can be expensive! Even if we ignore those costs, other expenses are associated with owning a vehicle: maintenance (oil changes), registration fees every year or two when your license plate expires, insurance premiums...the list goes on! Car shipping companies take care of all these expenses for you so that when they deliver your vehicle to its new location, it will already have been checked over by professionals and be ready for use without any additional cost on your part.</p>
+                <p style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">There are a few types of car shipping: ground, air, and ocean. Ground shipping is the most common, and it takes between two and four weeks to deliver your car from the time you place your order. Air shipments take between one and three days, but they&#39;re more expensive than ground shipments. Ocean shipping is the fastest option, but it&#39;s also the most expensive. It can take up to eight weeks for your car to arrive after you place your order.</span></span></p>
 
                 <p>&nbsp;</p>
 
-                <p><strong>Where Can I Get A Quote For My Vehicle Shipping?</strong></p>
+                <p style="text-align:justify"><span style="font-size:13pt"><span style="font-family:Calibri,sans-serif"><strong>How Does Car Shipping Work?</strong></span></span></p>
 
-                <p>Before you ship your car, it&#39;s essential to get a quote from a company that will provide reliable and affordable service. You can find these companies online or ask friends for their recommendations. Once you&#39;ve found several options, check out the following information about each one:</p>
-
-                <p>Reputation - How long has this company been around? Do they have any complaints on review sites like Yelp or Better Business Bureau? If so, what are they complaining about (high fees, poor customer service)?</p>
-
-                <p>Free Quotes - Some companies offer free quotes while others charge money upfront before giving any information about their services; make sure you know which type of business model your chosen car shipping company uses before deciding whether or not they&#39;re suitable for your needs! * Insurance Coverage - Does this company offer full-coverage insurance coverage during transit? If so, then great but if not, maybe try another provider instead since it could save both time &amp; money in case anything happens while transporting vehicles across state lines/international borders, etcetera...</p>
+                <p style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">There are a few things you need to know about car shipping before you begin your order. First, the size and weight of your vehicle will affect how much it costs to ship. Second, make sure you have the required documentation ready, such as proof of insurance and registration. Third, be aware that there may be additional charges for customs or brokerage services. Finally, be aware that your car may not arrive at its destination in the same condition it was when it was shipped.</span></span></p>
 
                 <p>&nbsp;</p>
 
-                <p><strong>How Long Does It Take To Ship My Vehicle?</strong></p>
+                <p style="text-align:justify"><span style="font-size:13pt"><span style="font-family:Calibri,sans-serif"><strong>The Different Types Of Car Shipping</strong></span></span></p>
 
-                <p>If you&#39;re shipping your vehicle across the country, it can take up to a week. If you&#39;re shipping within the state and only need to travel a few hundred miles, then it may only take four days for your car to arrive at its destination. You&#39;ll want to consider these factors when choosing which carrier is best for your needs before placing an order with them.</p>
-
-                <p>&nbsp;</p>
-
-                <p><strong>How To Choose The Right Car Shipping Company</strong></p>
-
-                <p>Shipping a car can be a daunting task, but with the right car shipping company, it can be easy and stress-free. Here are some tips to help you choose the right car shipping company:</p>
-
-                <p>1. Compare prices and services</p>
-
-                <p>When comparing car shipping companies, look at their prices and services. Some companies may charge more for essential services but offer more comprehensive packages. Also, consider how quickly the company will ship your car and whether they have any special requirements, such as needing your vehicle placed on a flatbed truck.</p>
-
-                <p>2. Determine your needs</p>
-
-                <p>Before choosing a car shipping company, make sure you understand your needs. Do you need a temporary storage location for your vehicle? Or do you need someone to pick up and deliver your vehicle? And what kind of transportation is necessary? Are you looking for ground or air transportation?</p>
-
-                <p>3. Request a quote</p>
-
-                <p>Once you have determined your needs, it&#39;s time to request a quote from several different car shipping companies. Request quotes for both domestic and international shipments. It&#39;s important to compare not only the cost of the service but also the timeframe of delivery and any required transportation accommodations (e.g., size/weight restrictions). Remember that not all carriers offer free quotes!</p>
+                <p><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">There are many different types of car shipping, so it&#39;s important to know what you&#39;re getting yourself into before making a decision. Here are the three most common types of car shipping:</span></span></p>
 
                 <p>&nbsp;</p>
 
-                <p><strong>Conclusion</strong></p>
+                <p style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">1. Piano Shipping</span></span></p>
 
-                <p>Thank you for reading our article on car shipping. In this piece, we have outlined the key things to know about car shipping to help make the process as smooth as possible for you and your vehicle. From choosing a reputable carrier to packing your vehicle securely, our guide has everything you need to get moving in the right direction. So whether you are ready to start planning your next road trip or want to ensure a smooth and worry-free experience, read on for all the information you need!</p>
-                            </div>
+                <p style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">This is the simplest type of car shipping - your vehicle is placed on a flatbed truck and taken to its final destination. This is the least expensive option, but it can be slow because there&#39;s no room for the vehicle to move quickly.</span></span><br />
+                &nbsp;</p>
+
+                <p style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">2. Truck Shipping</span></span></p>
+
+                <p style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">This is similar to piano shipping, but the vehicle is placed on a large truck with additional space for movement. Truck shipping is faster than piano shipping, but it&#39;s more expensive due to the added expense of the truck rental.</span></span><br />
+                &nbsp;</p>
+
+                <p style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">3. Ship-From-Shipment</span></span></p>
+
+                <p style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">This is the most expensive option, but it allows you to pick your own shipping company and schedule your delivery date. Ship-from-shipments also tend to be faster than other options because they use smaller trucks that can travel at faster speeds.</span></span></p>
+
+                <p>&nbsp;</p>
+
+                <p style="text-align:justify"><span style="font-size:13pt"><span style="font-family:Calibri,sans-serif"><strong>The Advantages Of Car Shipping</strong></span></span></p>
+
+                <p style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">There are a number of reasons why car shipping can be a great option for moving your vehicle. First and foremost, car shipping is one of the safest ways to move a car. Compared to other methods such as trucking or moving by pallet, car shipping is significantly less risky. This is because there is no need to worry about accidents or damage caused during the transport process. Additionally, car shipping can be completed quickly and efficiently. This is because most companies only require the vehicle to be loaded onto their trucks and transported to the new destination. As long as all necessary documentation is provided, car shipping can typically take between two and four days to complete. Finally, car shipping typically costs less than other moving options. This is due to the fact that cars are generally smaller and lighter than other types of cargo, which makes them easier to move.</span></span></p>
+
+                <p>&nbsp;</p>
+
+                <p style="text-align:justify"><span style="font-size:13pt"><span style="font-family:Calibri,sans-serif"><strong>The Disadvantages Of Car Shipping</strong></span></span></p>
+
+                <p style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">There are some major disadvantages of shipping a car across the country. First and foremost, is the time it takes to get a car from point A to point B. It can take anywhere from two to four weeks, which is significantly longer than the two to three days it would take to transport a regular piece of furniture.</span></span></p>
+
+                <p style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">Second is the cost of shipping. Car shipping can be expensive, especially if you&#39;re sending a large or heavy car. Thirdly, there&#39;s the potential for damage during transport. Even if the car goes without incident, something as simple as a broken window could result in costly repairs. Lastly, there&#39;s always the risk that the car won&#39;t arrive at its destination in one piece. Whether it&#39;s being damaged en route or lost in transit, there&#39;s always a chance something will go wrong when you ship your car.</span></span></p>
+
+                <p>&nbsp;</p>
+
+                <p style="text-align:justify"><span style="font-size:13pt"><span style="font-family:Calibri,sans-serif"><strong>How To Choose The Right Car Shipping Company</strong></span></span></p>
+
+                <p style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">Shipping a car can be a daunting task, but with the right car shipping company it can be easy and stress-free. Here are some tips to help you choose the right car shipping company:</span></span></p>
+
+                <p style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">1. Compare prices and services</span></span></p>
+
+                <p style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">When comparing car shipping companies, make sure to look at their prices and services. Some companies may charge more for basic services, but offer more comprehensive packages. Also consider how quickly the company will ship your car and whether they have any special requirements, such as needing your car to be placed on a flatbed truck.</span></span></p>
+
+                <p style="text-align:justify">&nbsp;</p>
+
+                <p style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">2. Determine your needs</span></span></p>
+
+                <p style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">Before choosing a car shipping company, make sure you understand your needs. Do you just need a temporary storage location for your vehicle? Or do you need someone to pick up and deliver your vehicle? And what kind of transportation is necessary? Are you looking for ground or air transportation?</span></span></p>
+
+                <p>&nbsp;</p>
+
+                <p style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">3. Request a quote</span></span></p>
+
+                <p style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">Once you have determined your needs, it&#39;s time to request a quote from several different car shipping companies. Request quotes for both domestic and international shipments. It&#39;s important to compare not only the cost of the service, but also the timeframe of delivery and any required transportation accommodations (e.g., size/weight restrictions). Remember that not all carriers offer free quotes!</span></span></p>
+
+                <p>&nbsp;</p>
+
+                <p style="text-align:justify"><span style="font-size:13pt"><span style="font-family:Calibri,sans-serif"><strong>Conclusion</strong></span></span></p>
+
+                <p style="text-align:justify"><span style="font-size:11pt"><span style="font-family:Calibri,sans-serif">Thank you for reading our article on car shipping. In this piece, we have outlined the key things to know about car shipping in order to help make the process as smooth as possible for both you and your vehicle. From choosing a reputable carrier to packing your vehicle securely, our guide has everything you need to get moving in the right direction. So whether you are ready to start planning your next road trip or just want to ensure a smooth and worry-free experience, read on for all of the information you need!</span></span></p>
+
+                <p><br />
+                &nbsp;</p>
+                </div>
         </div>
     </div>
 </div>
