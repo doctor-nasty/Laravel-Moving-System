@@ -6,7 +6,19 @@
 <head>
     @stack('head')
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="author" content="SemiColonWeb" />
+    <meta name="keywords" content="@yield('meta_keywords','')">
+    <meta name="description" content="@yield('meta_description','')">
+    <meta name="twitter:title" content=""/>
+    <meta property="og:title" content=""/>
+    <meta property="og:type" content="business.business"/>
+    <meta property="business:contact_data:street_address" content=""/>
+    <meta property="business:contact_data:locality" content=""/>
+    <meta property="business:contact_data:region" content=""/>
+    <meta property="business:contact_data:postal_code" content=""/>
+    <meta property="business:contact_data:country_name" content=""/>
+    <meta property="business:contact_data:phone_number" content=""/>
+    <meta property="business:contact_data:website" content=""/>
+    <meta name="twitter:card" content="summary"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;display=swap" rel="stylesheet"

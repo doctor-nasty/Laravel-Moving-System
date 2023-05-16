@@ -49,13 +49,13 @@
                             </a></li>
                         <!-- <li class="menu-item"><a class="menu-link" href="demo-movers-company.html"><div>Our Company</div></a></li> -->
                         <li class="menu-item"><a class="menu-link" href="{{ url('resources') }}">
-                                <div>Resources</div>
+                                <div>Moving Tools</div>
                             </a>
                             <ul class="sub-menu-container">
                                 <li class="menu-item"><a class="menu-link" href="{{ url('movingtips') }}">
                                         <div>Moving Tips</div>
                                     </a></li>
-                                <li class="menu-item"><a class="menu-link" href="{{ url('intmovingtips') }}">
+                                {{-- <li class="menu-item"><a class="menu-link" href="{{ url('intmovingtips') }}">
                                         <div>International Moving</div>
                                     </a></li>
                                 <li class="menu-item"><a class="menu-link" href="{{ url('longdistmovingtips') }}">
@@ -63,13 +63,13 @@
                                     </a></li>
                                 <li class="menu-item"><a class="menu-link" href="{{ url('movingandstorage') }}">
                                         <div>Moving and Storage</div>
-                                    </a></li>
+                                    </a></li> --}}
                                 <li class="menu-item"><a class="menu-link" href="{{ url('movinginsurance') }}">
                                         <div>Moving Insurance</div>
                                     </a></li>
-                                <li class="menu-item"><a class="menu-link" href="{{ url('carshippingtips') }}">
+                                {{-- <li class="menu-item"><a class="menu-link" href="{{ url('carshippingtips') }}">
                                         <div>Car Shipping</div>
-                                    </a></li>
+                                    </a></li> --}}
                             </ul>
                         </li>
                         <!-- <li class="menu-item"><a class="menu-link" href="demo-movers-team.html"><div>Team</div></a></li> -->
