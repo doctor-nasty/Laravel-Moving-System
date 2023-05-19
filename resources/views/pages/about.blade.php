@@ -138,12 +138,10 @@ $states = App\Models\states::where('status', 1)->get();
         <div class="content-wrap p-0">
             <div class="py-6">
                 <div class="container mb-5">
+                    <h3 class="display-4 fw-bold mb-4">Moving you Toward your Future.</h3>
+
                     <div class="row justify-content-between">
-                        <div class="col-md-5">
-                            <h3 class="display-4 fw-bold mb-4">Moving you<br>Toward your<br>Future.</h3>
-                            <img src="images/section/2.jpg" alt="Image" class="img-about">
-                        </div>
-                        <div class="col-md-6">
+                        <div class="col-lg-12">
                             <p class="mt-4">Our story began with a simple idea: to make the moving process easier, more
                                 affordable, and stress-free for everyone. We understand that moving is about relocating your
                                 belongings and starting a new chapter in your life. And that's where our passion lies -
