@@ -1,6 +1,11 @@
 @extends('layouts.master', ['title' => 'Car Shipping'])
 
 
+@php
+$lower = ucfirst(strtolower($cntyslug));
+@endphp
+@section('meta_description', "Car Shipping in $lower County, $stslug by MovingWyze.com, MovingWyze.com provide list of selected Car Shipping in $lower County, $stslug, useful links and important information to help you to make the right decisions for your up coming relocation.")
+
 
 
 @section('content')

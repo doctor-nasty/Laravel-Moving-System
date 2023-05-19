@@ -1,4 +1,4 @@
-@extends('layouts.master', ['title' => 'MovingWyze.com'])
+@extends('layouts.master', ['title' => 'Find Movers - MovingWyze.com'])
 
 
 

@@ -1,6 +1,10 @@
-@extends('layouts.master', ['title' => 'Car Shipping'])
+@php
+$lower = ucfirst(strtolower($ctyslug));
+@endphp
+@extends('layouts.master', ['title' => "Car Shipping in $lower, $stslug"])
 
 
+@section('meta_description', "Car Shipping in $lower, $stslug by MovingWyze.com, MovingWyze.com provide list of selected Car Shipping in $lower, $stslug, useful links and important information to help you to make the right decisions for your up coming relocation.")
 
 
 @section('content')

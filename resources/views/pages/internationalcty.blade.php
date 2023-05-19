@@ -1,13 +1,18 @@
-@extends('layouts.master', ['title' => 'International Moving'])
+
+@php
+$lower = ucfirst(strtolower($ctyslug));
+@endphp
+@extends('layouts.master', ['title' => "International Moving in $lower, $stslug"])
 
 
+@section('meta_description', "International Moving in $lower, $stslug by MovingWyze.com, MovingWyze.com provide list of selected International Moving in $lower, $stslug, useful links and important information to help you to make the right decisions for your up coming relocation.")
 
 
 @section('content')
     <div class="section dark mb-0"
-        style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,221,0.5)), url('/images/images/bg.png') no-repeat center center / cover; min-height: 400px">
+        style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,221,0.5)), url('/images/bg.png') no-repeat center center / cover; min-height: 400px">
         <div class="container">
-            <h2>International Moving in {{$stslug}}, {{ucfirst(strtolower($cntyslug))}} County, {{ucfirst(strtolower($ctyslug))}}</h2>
+            <h2>International Moving in {{ucfirst(strtolower($ctyslug))}}, {{$stslug}}</h2>
 
             <div class="row justify-content-right mb-4">
                 <!-- <a href="" data-lightbox="iframe" class="play-video ms-3"><i class="icon-play"></i></a> -->
@@ -76,7 +81,7 @@
                 <div class="col-md-4">
                     <div class="feature-box media-box">
                         <div class="fbox-icon position-relative mb-4"
-                            style="background-image: url('images/featured-img/1.jpg');">
+                            style="background-image: url('/images/featured-img/1.jpg');">
                             <i class="icon-line-codesandbox"></i>
                         </div>
                         <div class="fbox-content">

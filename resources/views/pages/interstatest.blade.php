@@ -2,6 +2,8 @@
 
 
 
+@section('meta_description', "Long Distance Moving in $stslug by MovingWyze.com, MovingWyze.com provide list of selected Long Distance Moving in $stslug, useful links and important information to help you to make the right decisions for your up coming relocation.")
+
 
 @section('content')
     <div class="section dark mb-0"

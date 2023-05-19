@@ -1,6 +1,11 @@
-@extends('layouts.master', ['title' => 'Long Distance Moving'])
+
+@php
+$lower = ucfirst(strtolower($ctyslug));
+@endphp
+@extends('layouts.master', ['title' => "Long Distance Moving in $lower, $stslug"])
 
 
+@section('meta_description', "Long Distance Moving in $lower, $stslug by MovingWyze.com, MovingWyze.com provide list of selected Long Distance Moving in $lower, $stslug, useful links and important information to help you to make the right decisions for your up coming relocation.")
 
 
 @section('content')

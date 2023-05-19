@@ -1,5 +1,8 @@
-@extends('layouts.master', ['title' => 'Car Shipping'])
+@extends('layouts.master', ['title' => "Car Shipping in $stslug"])
 
+
+
+@section('meta_description', "Car Shipping in $stslug by MovingWyze.com, MovingWyze.com provide list of selected Car Shipping in $stslug, useful links and important information to help you to make the right decisions for your up coming relocation.")
 
 
 
