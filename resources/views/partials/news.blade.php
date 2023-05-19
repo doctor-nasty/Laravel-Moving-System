@@ -46,7 +46,7 @@ $counter = 0;
               {{-- <h3 class="post-title">
                 <a href="#">Lorem ipsum dolor sit amet.</a>
               </h3> --}}
-              <p class="post-description">{{ $item->title }}</p>
+              <p class="mb-2 post-description">{{ $item->title }}</p>
               <span class="post-date"><i class="fa fa-clock-o"></i>{{ $item->pubDate }}</span>
               <a target="_blank" href="{{ $item->link }}" id="nwsrm" >read more</a>
             </div>

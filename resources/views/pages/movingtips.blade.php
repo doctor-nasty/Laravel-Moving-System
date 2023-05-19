@@ -134,7 +134,7 @@ $states = App\Models\states::where('status', 1)->get();
 
       <section id="content">
         <div class="content-wrap p-0">
-            <div class="py-6 dark" style="background-color: #061a35;">
+            <div class="py-6">
                 <div class="container mb-5">
                     <div class="row justify-content-between">
                         <div class="col-lg-12">

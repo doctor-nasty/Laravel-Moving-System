@@ -68,7 +68,7 @@
                 </script>
             </div>
         </div>
-        <div class="svg-separator">
+        {{-- <div class="svg-separator">
             <div>
                 <svg preserveAspectRatio="xMidYMax meet" viewBox="0 0 1600 100" data-height="100">
                     <path style="opacity: 1;fill: rgba(255,255,255,0.75);"
@@ -121,7 +121,7 @@
                 </svg>
                 <div class="bg-white" style="height: 150px"></div>
             </div>
-        </div>
+        </div> --}}
     </section>
     <section id="content">
         <div class="content-wrap pb-0">
@@ -131,12 +131,12 @@
                     <div class="col-lg-7 center">
                         <div class="heading-block">
                             <h3 class="nott mb-3 fw-semibold ls0">Everything You Need For Relocation</h3>
-                            <span class="text-black-50">We are experienced relocation
+                            <p class="mb-2">We are experienced relocation
                                 personnel that have created this
                                 website to help you be as prepared as possible for your next relocation. We have
                                 collected
                                 guides, links and important information to help you make the right decisions for your up
-                                coming relocation.</span>
+                                coming relocation.</p>
                         </div>
                     </div>
                     <div class="col-lg-8">
