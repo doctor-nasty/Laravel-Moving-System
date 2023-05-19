@@ -1,5 +1,6 @@
 @extends('layouts.master', ['title' => "Storage Units in $stslug"])
 
+@section('meta_description', "Storage Units in $stslug by MovingWyze.com, MovingWyze.com provide list of selected Storage Units in $stslug, useful links and important information to help you to make the right decisions for your up coming relocation.")
 
 
 

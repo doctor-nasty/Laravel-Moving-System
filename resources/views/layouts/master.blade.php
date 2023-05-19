@@ -6,18 +6,10 @@
 <head>
     @stack('head')
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="@yield('meta_keywords','')">
-    <meta name="description" content="@yield('meta_description','')">
-    <meta name="twitter:title" content=""/>
-    <meta property="og:title" content=""/>
-    <meta property="og:type" content="business.business"/>
-    <meta property="business:contact_data:street_address" content=""/>
-    <meta property="business:contact_data:locality" content=""/>
-    <meta property="business:contact_data:region" content=""/>
-    <meta property="business:contact_data:postal_code" content=""/>
-    <meta property="business:contact_data:country_name" content=""/>
-    <meta property="business:contact_data:phone_number" content=""/>
-    <meta property="business:contact_data:website" content=""/>
+    <meta name="keywords" content="@yield('meta_keywords',"$title")">
+    <meta name="description" content="@yield('meta_description','MovingWyze.com provide list of moving options, useful links and important information to help you to make the right decisions for your up coming relocation.')">
+    <meta name="twitter:title" content="{{$title}}"/>
+    <meta property="og:title" content="{{$title}}"/>
     <meta name="twitter:card" content="summary"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -49,7 +41,7 @@
 <body class="stretched">
 
     <div id="wrapper" class="clearfix">
-
+        <h1 class="h1top">{{ $title }}</h1>
         @include('partials.header')
 
         @yield('content')
@@ -59,6 +51,7 @@
 
     <div id="gotoTop" class="icon-angle-up"></div>
 
+    <strong>{{ $title }}</strong>
 
     <script src="{{ url('js/jquery.js') }}"></script>
 

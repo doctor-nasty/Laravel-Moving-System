@@ -4,6 +4,10 @@ $cntytl = ucfirst(strtolower($cntyslug))
 
 @extends('layouts.master', ['title' => "Long Distance Moving $cntytl County, $stcslug"])
 
+@php
+$lower = ucfirst(strtolower($cntyslug));
+@endphp
+@section('meta_description', "Long Distance Moving in $lower County, $stslug by MovingWyze.com, MovingWyze.com provide list of selected Long Distance Moving in $lower County, $stslug, useful links and important information to help you to make the right decisions for your up coming relocation.")
 
 
 

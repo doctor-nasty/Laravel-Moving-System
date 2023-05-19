@@ -3,6 +3,11 @@
 @endphp
 @extends('layouts.master', ['title' => "Storage Units in $stslug, $cntynew County"])
 
+@php
+$lower = ucfirst(strtolower($cntyslug));
+@endphp
+@section('meta_description', "Storage Units in $lower County, $stslug by MovingWyze.com, MovingWyze.com provide list of selected Storage Units in $lower County, $stslug, useful links and important information to help you to make the right decisions for your up coming relocation.")
+
 
 
 

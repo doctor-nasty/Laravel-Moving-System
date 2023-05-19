@@ -1,7 +1,8 @@
-@extends('layouts.master', ['title' => 'International Moving'])
+@extends('layouts.master', ['title' => "International Moving in $stslug"])
 
 
 
+@section('meta_description', "International Moving in $stslug by MovingWyze.com, MovingWyze.com provide list of selected International Moving in $stslug, useful links and important information to help you to make the right decisions for your up coming relocation.")
 
 @section('content')
     <div class="section dark mb-0"

@@ -1,13 +1,16 @@
 @extends('layouts.master', ['title' => 'International Moving'])
 
-
+@php
+$lower = ucfirst(strtolower($cntyslug));
+@endphp
+@section('meta_description', "International Moving in $lower County, $stslug by MovingWyze.com, MovingWyze.com provide list of selected International Moving in $lower County, $stslug, useful links and important information to help you to make the right decisions for your up coming relocation.")
 
 
 @section('content')
     <div class="section dark mb-0"
         style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,221,0.5)), url('/images/bg.png') no-repeat center center / cover; min-height: 400px">
         <div class="container">
-            <h2>International Moving in {{$stslug}}, {{ucfirst(strtolower($cntyslug))}} County</h2>
+            <h2>International Moving in {{ucfirst(strtolower($cntyslug))}} County, {{$stslug}}</h2>
 
             <div class="row justify-content-right mb-4">
                 <!-- <a href="" data-lightbox="iframe" class="play-video ms-3"><i class="icon-play"></i></a> -->

@@ -1108,3 +1108,10 @@ section#contact {
 .text-shadow {
     text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.6);
 }
+.h1top {
+    font-size: 9px;
+    color: #cccccc;
+    text-align: center;
+    background: #1c457c;
+    line-height: 16px;
+    }

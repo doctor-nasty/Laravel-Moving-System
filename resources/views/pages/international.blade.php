@@ -2,7 +2,6 @@
 
 
 
-
 @section("content")
 <div class="section dark mb-0"
 style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,221,0.5)), url('images/bg.png') no-repeat center center / cover; min-height: 400px">
