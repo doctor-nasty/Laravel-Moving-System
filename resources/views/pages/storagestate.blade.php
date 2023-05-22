@@ -12,7 +12,7 @@
 
             <div class="row justify-content-right mb-4">
                 <!-- <a href="" data-lightbox="iframe" class="play-video ms-3"><i class="icon-play"></i></a> -->
-                <div class="col-lg-6">
+                <div class="col-lg-6" style="background: rgba(0, 50, 88, 0.5);">
                     <p class="mb-5 text-white text-shadow">Here we have collected useful guides and information that you should know
                         when
                         you decide to relocate. With years of experience helping
