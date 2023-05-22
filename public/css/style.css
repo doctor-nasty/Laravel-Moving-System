@@ -1925,7 +1925,7 @@ background-size:cover!important;
 background-attachment:scroll!important;
 background-position:center center!important;
 }
-.section .container{z-index:2;width: 100%;margin-top: 50px;}
+.section .container{z-index:2;width: 100%;margin-top: 50px;margin-bottom: 80px;}
 .section .container+.video-wrap{
 z-index:1;
 }
