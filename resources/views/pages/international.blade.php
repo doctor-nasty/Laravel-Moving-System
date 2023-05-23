@@ -4,7 +4,7 @@
 
 @section("content")
 <div class="section dark mb-0"
-style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,221,0.5)), url('images/bg.png') no-repeat center center / cover; min-height: 400px">
+style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,221,0.5)), url('images/bg.png') no-repeat center / cover; min-height: 400px;height: 600px;">
 <div class="container">
     <h2>International Moving</h2>
 
@@ -63,11 +63,7 @@ style="background: linear-gradient(to right, rgba(25,102,221,0.2), rgba(25,102,2
             </div>
     </div>
 </div>
-<div class="clear"></div>
-<svg class="svg-curve" viewBox="0 0 1463 188.03">
-    <path style="fill:#FFF;" d="M-.5,288.5s297-175,792-97,599,52,671,25v143H-.5Z"
-        transform="translate(0 -171.47)" />
-</svg>
+
 </div>
 <div class="section section-features bg-transparent mt-0 p-0 clearfix">
     <div class="container clearfix">

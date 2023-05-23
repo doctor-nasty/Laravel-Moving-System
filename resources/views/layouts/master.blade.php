@@ -7,7 +7,7 @@
     @stack('head')
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="@yield('meta_keywords',"$title")">
-    <meta name="description" content="@yield('meta_description','MovingWyze.com provide list of moving options, useful links and important information to help you to make the right decisions for your up coming relocation.')">
+    <meta name="description" content="@yield('meta_description',"MovingWyze.com provide list of $title, useful links and important information to help you to make the right decisions for your up coming relocation.")">
     <meta name="twitter:title" content="{{$title}}"/>
     <meta property="og:title" content="{{$title}}"/>
     <meta name="twitter:card" content="summary"/>
