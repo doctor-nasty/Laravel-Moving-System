@@ -59,7 +59,7 @@
                                                 class="btn btn-color text-blue fw-medium w-100 py-2 mt-2">Submit</button>
                                         </div>
                             </form>
-                                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD605EfQQCtgbtE3Bj8I9uMnRHkC4FzyQM"></script>
+                                <script src="https://maps.googleapis.com/maps/api/js?key="></script>
 
                                 <script type="text/javascript">
                                     var directionsService = new google.maps.DirectionsService();
